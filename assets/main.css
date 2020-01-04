@@ -1,4 +1,58 @@
+/*
+ * This part of the stylesheet imports Google's Exo 2 fonts,
+ * which are used as main fonts of Predictive Works website.
+ */
+@font-face {
+  font-family: 'Exo 2';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./google-fonts/exo-2-v6-latin-regular.eot');
+  src: local('Exo 2'), local('Exo2-Regular'),
+       url('./google-fonts/exo-2-v6-latin-regular.eot?#iefix') format('embedded-opentype'),
+       url('./google-fonts/exo-2-v6-latin-regular.woff2') format('woff2'),
+       url('./google-fonts/exo-2-v6-latin-regular.woff') format('woff'),
+       url('./google-fonts/exo-2-v6-latin-regular.ttf') format('truetype'),
+       url('./google-fonts/exo-2-v6-latin-regular.svg#Exo2') format('svg');
+}
+/*
+ * The global body settings
+ */
+body {
+  background: white;
+  font-family: 'Exo 2';
+  height: 100%;
+  margin:0;
+  padding:0;
+}
+
+::-moz-focus-inner, :active, :focus {
+  outline:none;
+  border:0;
+  -moz-outline-style: none;
+}
+
+/*
+ * The main background is set to 'white'
+ */
+.site {
+  background: white;
+}
+
+.site-wrapper {
+  background: white;
+  position: relative;
+}
+/*
+ * The current website is based on a single column layout,
+ * centered and with a maximum width of 1200px
+ */
+.set-maxwidth {
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+}
 
 .title {
   font-size: 4.5rem;
+  font-family: 'Exo 2';
+  text-align: center;
 }
