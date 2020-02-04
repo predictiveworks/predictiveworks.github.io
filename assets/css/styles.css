@@ -1,0 +1,55 @@
+/** This part of the stylesheet imports Google's Exo 2 fonts, which are used as main fonts of Predictive Works website. */
+@font-face { font-family: 'Exo 2'; font-style: normal; font-weight: 400; src: url("../google-fonts/exo-2-v6-latin-regular.eot"); src: local("Exo 2"), local("Exo2-Regular"), url("../google-fonts/exo-2-v6-latin-regular.eot?#iefix") format("embedded-opentype"), url("../google-fonts/exo-2-v6-latin-regular.woff2") format("woff2"), url("../google-fonts/exo-2-v6-latin-regular.woff") format("woff"), url("../google-fonts/exo-2-v6-latin-regular.ttf") format("truetype"), url("../google-fonts/exo-2-v6-latin-regular.svg#Exo2") format("svg"); }
+
+/******************** COMMON STYLING */
+:root { --brand-color: #1bacab; --brand-grey: #6c757d; --brand-white: #f1f5f8; --brand-border: 5px solid var(--brand-color); --fa-icon-margin: 0rem 0.5rem 0rem 0.75rem; --header-title-font-size: 2.5rem; --header-title-margin: 0rem 0rem 0rem 2.5rem; --logo-size: 64px; --logo-margin: 12px 0px 0px 0px; --main-content-body-padding: 0.75rem; --main-content-nav-border: 1px solid var(--brand-white); --nav-container-margin: 1.0rem 0rem 1.0rem 0rem; --nav-container-padding: 1.25rem 0rem 1.25rem 0rem; --nav-article-margin: 0.5rem; --nav-article-padding: 0.5rem; --nav-title-padding: 0.75rem 0rem 0.75rem 0rem; --site-header-height: 130px; --site-header-title-height: 100px; --site-header-breadcrumbs-padding: 0.5rem 0rem 0.5rem 0rem; --site-header-breadcrumbs-height: 30px; }
+
+body { font-family: 'Exo 2'; height: 100%; margin: 0; padding: 0; }
+
+li a, li a:visited { color: var(--brand-grey); text-decoration: none; }
+
+.brand-grey { color: var(--brand-grey); }
+
+.brand-teal { color: var(--brand-color); }
+
+.breadcrumb { display: flex; list-style-type: none; }
+
+.breadcrumb li { color: var(--brand-grey); text-decoration: none; text-transform: capitalize; }
+
+.column-content { width: 60%; }
+
+.column-left, .column-right { width: 20%; }
+
+.fa-icon { margin: var(--fa-icon-margin); }
+
+.logo { background-image: url("../images/logo.svg"); background-size: contain; background-repeat: no-repeat; margin: var(--logo-margin); height: var(--logo-size); width: var(--logo-size); }
+
+.header-content, .main-content, .site-content { display: flex; }
+
+.header-content { align-items: center; justify-content: center; }
+
+.header-title { font-size: var(--header-title-font-size); margin: var(--header-title-margin); }
+
+.main-content-nav { border-right: var(--main-content-nav-border); width: 30%; }
+
+.main-content-body { padding: var(--main-content-body-padding); width: 70%; }
+
+.nav-container { margin: var(--main-content-body-margin); padding: var(--main-content-body-padding); }
+
+.nav-article { color: var(--brand-grey); margin: var(--nav-article-margin); padding: var(--nav-article-padding); }
+
+.nav-article:hover { background: var(--brand-color); margin: var(--nav-article-margin); padding: var(--nav-article-padding); }
+
+.nav-article a, .nav-article a:visited { color: var(--brand-grey); text-decoration: none; }
+
+.nav-article a:hover { color: #ffffff; }
+
+.nav-title { font-weight: 600; padding: var(--nav-title-padding); text-transform: uppercase; }
+
+.site-header { display: flex; flex-direction: column; height: var(--site-header-height); position: sticky; top: 0; width: 100%; z-index: 10; }
+
+.site-header-breadcrumbs { align-items: center; background: var(--brand-white); border: var(--site-header-breadcrumbs-border); display: flex; height: var(--site-header-breadcrumbs-height); padding: var(--site-header-breadcrumbs-padding); }
+
+.site-header-title { align-items: center; border-bottom: var(--brand-border); background: var(--brand-white); display: flex; height: var(--site-header-title-height); justify-content: space-between; width: 100%; }
+
+/*# sourceMappingURL=styles.css.map */
