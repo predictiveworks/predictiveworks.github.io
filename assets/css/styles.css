@@ -36,13 +36,15 @@ li a, li a:visited { color: var(--brand-grey); text-decoration: none; }
 
 .nav-container { margin: var(--main-content-body-margin); padding: var(--main-content-body-padding); }
 
-.nav-article { color: var(--brand-grey); margin: var(--nav-article-margin); padding: var(--nav-article-padding); }
+.nav-main { height: 100vh; }
 
-.nav-article:hover { background: var(--brand-color); margin: var(--nav-article-margin); padding: var(--nav-article-padding); }
+.nav-container > a { text-decoration: none; }
 
-.nav-article a, .nav-article a:visited { color: var(--brand-grey); text-decoration: none; }
+a .nav-article { color: var(--brand-grey); margin: var(--nav-article-margin); padding: var(--nav-article-padding); }
 
-.nav-article a:hover { color: #ffffff; }
+a:hover .nav-article { background: var(--brand-color); border-radius: 0.17rem; color: #ffffff !important; }
+
+a:visited .nav-article { color: var(--brand-grey); text-decoration: none; }
 
 .nav-title { font-weight: 600; padding: var(--nav-title-padding); text-transform: uppercase; }
 
