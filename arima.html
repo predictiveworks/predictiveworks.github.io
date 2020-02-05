@@ -296,6 +296,22 @@
           <div class="main-content-body">
             <h1 id="arima">ARIMA</h1>
 
+<h2 id="what-is-an-arima-model">What is an ARIMA model?</h2>
+
+<p>ARIMA is short for Auto Regressive Integrated Moving Average. This acronym is descriptive, capturing the key aspects of the model itself:</p>
+
+<p><strong>AR</strong>: Autoregression. This part of the model expects that the time series has a dependent relationship between an observation and some number of lagged observations. In other words: The evolving observation value is regressed on its own past values.</p>
+
+<p><strong>I</strong>: Integrated. This part of the model makes it applicable to use cases where data show evidence of <em>non-stationarity</em>.</p>
+
+<p>Initial differencing steps can be used one or more times to eliminate the non-stationarity from raw observations.</p>
+
+<p><strong>MA</strong>: Moving Average. This model part indicates that the regression error is actually a linear combination of error terms whose values occurred contemporaneously and at various times in the past.</p>
+
+<p>A model that uses the dependency between an observation and a residual error from a moving average model applied to lagged observations.</p>
+
+<p>An ARIMA model is a generalization of an AutoRegressive Moving Average (<a href="&quot;/arma.html&quot;">ARMA</a>) model. Both models are fitted to time series data to <strong>forecast</strong> future points in the series.</p>
+
 <h1 id="auto-arima">Auto ARIMA</h1>
 
           </div>
