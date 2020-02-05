@@ -2,7 +2,7 @@
 @font-face { font-family: 'Exo 2'; font-style: normal; font-weight: 400; src: url("../google-fonts/exo-2-v6-latin-regular.eot"); src: local("Exo 2"), local("Exo2-Regular"), url("../google-fonts/exo-2-v6-latin-regular.eot?#iefix") format("embedded-opentype"), url("../google-fonts/exo-2-v6-latin-regular.woff2") format("woff2"), url("../google-fonts/exo-2-v6-latin-regular.woff") format("woff"), url("../google-fonts/exo-2-v6-latin-regular.ttf") format("truetype"), url("../google-fonts/exo-2-v6-latin-regular.svg#Exo2") format("svg"); }
 
 /******************** COMMON STYLING */
-:root { --brand-color: #1bacab; --brand-grey: #6c757d; --brand-white: #f1f5f8; --link-color: #0366d6; --brand-border: 5px solid var(--brand-color); --fa-icon-margin: 0rem 0.5rem 0rem 0.75rem; --header-title-font-size: 2.5rem; --header-title-margin: 0rem 0rem 0rem 2.5rem; --logo-size: 64px; --logo-margin: 12px 0px 0px 0px; --main-content-body-padding: 0.75rem; --main-content-nav-border: 1px solid var(--brand-white); --nav-container-margin: 1.0rem 0rem 1.0rem 0rem; --nav-container-padding: 1.25rem 0rem 1.25rem 0rem; --nav-article-margin: 0.5rem; --nav-article-padding: 0.5rem; --nav-title-padding: 0.75rem 0rem 0.75rem 0rem; --p-size: 1.15rem; --h3-size: 1.25rem; --site-header-height: 130px; --site-header-title-height: 100px; --site-header-breadcrumbs-padding: 0.5rem 0rem 0.5rem 0rem; --site-header-breadcrumbs-height: 30px; --td-padding: 0.5rem; --th-padding: 0.5rem; }
+:root { --brand-color: #1bacab; --brand-grey: #6c757d; --brand-white: #f1f5f8; --link-color: #0366d6; --brand-border: 5px solid var(--brand-color); --fa-icon-margin: 0rem 0.5rem 0rem 0.75rem; --header-title-font-size: 2.5rem; --header-title-margin: 0rem 0rem 0rem 2.5rem; --logo-size: 64px; --logo-margin: 12px 0px 0px 0px; --main-content-body-padding: 0.75rem; --main-content-nav-border: 1px solid var(--brand-white); --nav-container-margin: 1.0rem 0rem 1.0rem 0rem; --nav-container-padding: 1.25rem 0rem 1.25rem 0rem; --nav-article-margin: 0.5rem; --nav-article-padding: 0.5rem; --nav-title-padding: 0.75rem 0rem 0.75rem 0rem; --li-line-height: 1.75rem; --p-size: 1.15rem; --h3-size: 1.25rem; --site-header-height: 130px; --site-header-title-height: 100px; --site-header-breadcrumbs-padding: 0.5rem 0rem 0.5rem 0rem; --site-header-breadcrumbs-height: 30px; --td-padding: 0.5rem; --th-padding: 0.5rem; }
 
 body { font-family: 'Exo 2'; height: 100%; margin: 0; padding: 0; }
 
@@ -11,6 +11,8 @@ h1, h2, h3 { color: var(--brand-grey); }
 h3 { font-size: var(--h3-size); }
 
 li a, li a:visited { color: var(--brand-grey); text-decoration: none; }
+
+ul > li { color: var(--brand-grey); font-size: var(--p-size); line-height: var(--li-line-height); }
 
 blockquote { margin-top: 0; margin-left: 0; border-left: var(--brand-border); padding-left: 1.0rem; }
 
