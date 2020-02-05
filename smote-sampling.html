@@ -296,6 +296,26 @@
           <div class="main-content-body">
             <h1 id="smote-sampling">SMOTE Sampling</h1>
 
+<p>In machine learning, <em>imbalanced</em> datasets are no surprise. If the datasets intended for classification problems or other problems related to discrete predictive analytics have an unequal number of samples for different classes, then those datasets are said to be imbalanced.</p>
+
+<p>Classes having comparatively fewer instances than others are said to be a minority with respect to the classes having a comparatively larger number of the samples (known as a majority).</p>
+
+<p>Training a ML models with imbalanced datasets often causes the model to develop a certain bias towards the majority classes.</p>
+
+<p>The SMOTE algorithm, short for Synthetic Minority Over-sampling Technique (SMOTe) addresses this issue of class imbalance. It is based on nearest neighbors (determined by the Euclidean distance of data points in the feature space).</p>
+
+<p>The feature values of nearest neighbor samples are used to interpolate synthetic feature values to retrieve a certain predefined percentage of additional synthetic samples (overs-sampling).</p>
+
+<p>Applying this algorithm to the samples of the training datasets that belong to the minority classes finally ends up with a more balanced training set and the removal of the model bias.</p>
+
+<blockquote>
+<p>
+Apache Spark ML does not support SMOTE out of the box.
+</p>
+</blockquote>
+
+<p>The SMOTE algorithm is implemented as an Apache Spark ML Transformer and also made available as a plugin component for CDAP data pipelines.</p>
+
           </div>
         </div>
       </div>
