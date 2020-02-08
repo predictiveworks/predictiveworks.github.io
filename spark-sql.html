@@ -296,7 +296,27 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="sql-queries-with-apache-spark">SQL Queries with Apache Spark</h1>
+              <h1 id="spark-sql-plugin">Spark SQL Plugin</h1>
+
+<p>Spark SQL is designed to support structured data processing and is an important means to standardize and unify data processing. Datasets, independent of their origin and format, once transformed into an Apache Spark Dataset can be explored leveraging SQL queries.</p>
+
+<p>Integrating Spark SQL with <a href="https://cdap.io">CDAP</a> pipeline technology, makes SQL queries available to explore both historical dataset or real-time event streams.</p>
+
+<p>Many excellent complex event processing solutions exist to apply SQL queries to real-time event streams. Confluent’s <a href="https://www.confluent.io/product/ksql">KSQL</a> for <a href="https://kafka.apache.org">Apache Kafka</a> is one of them.</p>
+
+<p>The disadvantage of these solutions is, that they all focus on a certain specialized aspect of data processing.</p>
+
+<p><strong>Works SQL</strong> is a standardized data pipeline component that can be graphically combined with many other plugins. Say you want to aggregate and group datasets before applying a trained machine learning model to gain predictions.</p>
+
+<blockquote>
+<p>
+With these narrow point solutions, you are left alone to implement this use case.
+</p>
+</blockquote>
+
+<p>In contrast, Pluggable Analytics let’s you select and combine just another analytics plugin from more than 150+ available plugins without the need to write any programming code.</p>
+
+<p><img width="80%" src="/assets/images/works-sql.svg" /></p>
 
             </div>
           </div>
