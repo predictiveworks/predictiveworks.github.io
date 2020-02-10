@@ -301,6 +301,738 @@
             <div class="main-content-body">
               <h1 id="built-in-connectors">Built-in Connectors</h1>
 
+<p>Google CDAP supports Predictive<span class="brand-teal">Works.</span> by covering two important aspects:</p>
+
+<ul>
+  <li>
+    <p>Google CDAP is the technical foundation of Predictive<span class="brand-teal">Works.</span> as it provides a standardized cloud-ready platform to build unified and reusable data (analytics) pipelines.</p>
+  </li>
+  <li>
+    <p>Google CDAP offers a wide variety of data integration plugins (connectors), supporting many prominent databases and SaaS applications. Connectors can be used to read from data sources and also write to data destinations, thereby defining the starting and endpoints of data pipelines.</p>
+  </li>
+</ul>
+
+<h2 id="curated-list-of-built-in-connector-samples">Curated list of built-in connector samples</h2>
+
+<blockquote>
+<p>
+The amount of connector plugins is continuously increased by Google CDAP.
+</p>
+</blockquote>
+
+<table>
+    <colgroup>
+      <col width="25%" />
+      <col width="75%" />
+    </colgroup>
+    <tr>
+      <td colspan="2"><b>Data Store Plugins</b></td>
+    </tr>   
+    <!-- S3 -->
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/amazon-s3.png" width="120" />
+      </td>
+      <td>
+        <b>Amazon S3 as Source</b>
+        <p>
+        Reads data from Amazon S3 and converts them into CDAP's standard pipeline data format.     
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/amazon-s3.png" width="120" />
+      </td>
+      <td>
+        <b>AmazonS3 as Sink</b>
+        <p>
+        Writes pipeline data records to Amazon S3.
+        </p>
+      </td>
+    </tr>
+
+    <!-- cassandra -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/cassandra.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Cassandra as Source</b>
+        <p>
+        Reads data from Cassandra Key-Value tables and converts them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/cassandra.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Cassandra as Sink</b>
+        <p>
+        Writes pipeline data records into Cassandra tables.
+        </p>
+      </td>
+    </tr>
+
+    <!-- hbase -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/hbase.png" width="120" />
+      </td>
+      <td>
+        <b>Apache HBase as Source</b>
+        <p>
+        Reads data from HBase tables and converts them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/hbase.png" width="120" />
+      </td>
+      <td>
+        <b>Apache HBase as Sink</b>
+        <p>
+        Writes pipeline data records into HBase tables.
+        </p>
+      </td>
+    </tr>    
+
+    <!-- hbase -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/hive.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Hive as Source</b>
+        <p>
+        Reads data from Hive tables and converts them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/hive.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Hive as Sink</b>
+        <p>
+        Writes pipeline data records into Hive tables.
+        </p>
+      </td>
+    </tr>    
+
+    <!-- kudu -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kudu.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Kudu as Source</b>
+        <p>
+        Pull rows from Kudu tables and converts them into CDAP's standard pipeline data format,
+        using the Kudu native client.     
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kudu.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Kudu as Sink</b>
+        <p>
+        Writes data records from batch and real-time pipelines into Kudu tables.
+        </p>
+      </td>
+    </tr>
+
+    <!-- azure blobstorage -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/blobstorage.png" width="120" />
+      </td>
+      <td>
+        <b>Azure Blob Storage as Source</b>
+        <p>
+        Reads data from Azure Blob Storage and converts it into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>   
+
+    <!-- azure data lake -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/azure-datalake.png" width="120" />
+      </td>
+      <td>
+        <b>Azure Data Lake as Source</b>
+        <p>
+        Reads data from Azure Data Lake store files and converts it into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/azure-datalake.png" width="120" />
+      </td>
+      <td>
+        <b>Azure Data Lake as Sink</b>
+        <p>
+        Write pipeline data records to an Azure Data Lake store in avro, orc or text format.
+        </p>
+      </td>
+    </tr>    
+
+    <!-- apache phoenix -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/phoenix.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Phoenix as Source</b>
+        <p>
+        Reads rows from Phoenix tables and converts them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/phoenix.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Phoenix as Sink</b>
+        <p>
+        Write pipeline data records into Phoenix tables.
+        </p>
+      </td>
+    </tr>
+
+    <!-- couchbase -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/couchbase.png" width="120" />
+      </td>
+      <td>
+        <b>Couchbase as Source</b>
+        <p>
+        Reads documents from Couchbase buckets. A filter can be specified to only output documents that meet a specific criteria.
+        </p>      
+      </td>
+    </tr>  
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/couchbase.png" width="120" />
+      </td>
+      <td>
+        <b>Couchbase as Sink</b>
+        <p>
+        Writes data records as documents to Couchbase buckets.  
+        </p>
+      </td>
+    </tr>  
+
+    <!-- dynamo db -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/dynamodb.png" width="120" />
+      </td>
+      <td>
+        <b>DynamoDB as Source</b>
+        <p>
+        Reads data from Amazon DynamoDB tables and converts them into CDAP's standard pipeline data format.
+        </p>      
+      </td>
+    </tr>  
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/dynamodb.png" width="120" />
+      </td>
+      <td>
+        <b>DynamoDB as Sink</b>
+        <p>
+        Writes pipeline data records to Amazon DynamoDB tables.  
+        </p>
+      </td>
+    </tr>  
+
+    <!-- elasticsearch -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/elasticsearch.png" width="120" />
+      </td>
+      <td>
+        <b>Elastic as Source</b>
+        <p>
+        Reads indexed documents from Elasticsearch and converts them into CDAP's standard pipeline data format.
+        </p>      
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/elasticsearch.png" width="120" />
+      </td>
+      <td>
+        <b>Elastic as Sink</b>
+        <p>
+        Writes pipeline data records as documents to Elasticsearch indices.  
+        </p>
+      </td>
+    </tr>   
+
+    <!-- google -->
+
+    <tr>
+      <td>
+        <img src="/assets/images/bigquery.png" width="160" />
+      </td>
+      <td>
+        <b>Google BigQuery as Source</b>
+        <p>
+        Reads the entire contents of a table from Google's BigQuery data warehouse. Data from the BigQuery table is first exported to a temporary location on Google Cloud Storage, then read into the pipeline from there.        
+        </p>      
+      </td>
+    </tr>    
+    <tr>
+      <td>
+        <img src="/assets/images/bigquery.png" width="160" />
+      </td>
+      <td>
+        <b>Google BigQuery as Sink</b>
+        <p>
+        Writes pipeline data records to a BigQuery table. Data is first written to a temporary location on Google Cloud Storage, then loaded into BigQuery from there.        
+        </p>
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+      <img src="/assets/images/bigtable.png" width="160" />
+      </td>
+      <td>
+        <b>Google BigTable as Source</b>
+        <p>
+        Reads data from Google Cloud Bigtable. Cloud Bigtable is Google's NoSQL Big Data database service.  
+        </p>      
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+      <img src="/assets/images/bigtable.png" width="160" />
+      </td>
+      <td>
+        <b>Google BigTable as Sink</b>
+        <p>
+        Writes pipeline data records to Google Cloud Bigtable.
+        </p>
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+      <img style="margin:20px" src="/assets/images/datastore.png" width="120" />
+      </td>
+      <td>
+        <b>Google Cloud Datastore as Source</b>
+        <p>
+        Reads data from Google Cloud Datastore (Datastore mode). Datastore is a NoSQL document database
+        built for automatic scaling and high performance.
+        </p>
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+      <img style="margin:20px" src="/assets/images/datastore.png" width="120" />
+      </td>
+      <td>
+        <b>Google Cloud Datastore as Sink</b>
+        <p>
+        Writes pipeline data records to Google Cloud Datastore (Datastore mode).
+        </p>
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+      <img src="/assets/images/gcs.png" width="160" />
+      </td>
+      <td>
+        <b>Google Cloud Storage as Source</b>
+        <p>
+        Reads objects from Google Cloud Storage buckets. Cloud Storage allows world-wide storage and retrieval of any amount of data at any time.
+        </p>
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+      <img src="/assets/images/gcs.png" width="160" />
+      </td>
+      <td>
+        <b>Google Cloud Storage as Sink</b>
+        <p>
+        Writes pipeline data records to one or more files in a directory on Google Cloud Storage.
+        Files can be written in various formats such as csv, avro, parquet, and json.    
+        </p>
+      </td>
+    </tr>    
+
+    <!-- mongodb -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/mongodb.png" width="120" />
+      </td>
+      <td>
+        <b>MongoDB as Source</b>
+        <p>
+          Reads documents from MongoDB collections and converts them into CDAP's standard pipeline data format.
+        </p>      
+      </td>
+    </tr>    
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/mongodb.png" width="120" />
+      </td>
+      <td>
+        <b>MongoDB as Sink</b>
+        <p>
+        Writes pipeline data records as documents to MongoDB collections.  
+        </p>
+      </td>
+    </tr>    
+
+    <!-- orient db -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/orientdb.jpg" width="120" />
+      </td>
+      <td>
+        <b>OrientDB as Sink</b>
+        <p>
+        Writes pipeline data records as vertices and edges to OrientDB using the Graph API.
+        </p>
+      </td>
+    </tr>
+
+    <!-- sap odata -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/sap.png" width="120" />
+      </td>
+      <td>
+        <b>SAP OData Service as Source</b>
+        <p>
+        Reads data from SAP OData service and converts them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>    
+
+    <tr>
+      <td colspan="2"><b>Data Streaming</b></td>
+    </tr>
+
+    <!-- kinesis -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kinesis.png" width="120" />
+      </td>
+      <td>
+        <b>Amazon Kinesis as Source</b>
+        <p>
+        Reads real-time events and transforms them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kinesis.png" width="120" />
+      </td>
+      <td>
+        <b>Amazon Kinesis as Sink</b>
+        <p>
+        Writes pipeline data records to Amazon Kinesis streams.
+        </p>        
+      </td>
+    </tr>   
+
+    <!-- kafka -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kafka.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Kafka as Source</b>
+        <p>
+        Consumes real-time events from Kafka streams and transforms them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>   
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kafka.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Kafka as Sink</b>
+        <p>
+        Produces real-time events for Kafka streams from pipeline data records.
+        </p>        
+      </td>
+    </tr>   
+
+    <!-- azure event hub -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/azure-event-hub.svg" width="120" />
+
+      </td>
+      <td>
+        <b>Azure Event Hub as Source</b>
+        <p>
+        Reads real-time events and transforms them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+      <img src="/assets/images/pubsub.png" width="160" />
+      </td>
+      <td>
+        <b>Google Pub/Sub as Source</b>
+        <p>
+        Reads from a Google Cloud Pub/Sub subscription in realtime. Cloud Pub/Sub brings the scalability, flexibility, and reliability of enterprise message-oriented middleware to the cloud.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="/assets/images/pubsub.png" width="160" />
+      </td>
+      <td>
+        <b>Google PubSub as Sink</b>
+        <p>
+        Writes pipeline data records to a Google Cloud Pub/Sub topic.
+        </p>
+      </td>
+    </tr>
+
+    <!-- mapr streams -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/mapr.png" width="120" />      
+      </td>
+      <td>
+        <b>MapR Streams as Source</b>
+        <p>
+        Reads real-time events and transforms them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>
+
+    <!-- MQTT -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/mqtt.png" width="120" />            
+      </td>
+      <td>
+        <b>MQTT as Source</b>
+        <p>
+        Allows to subscribe to an MQTT broker and consume real-time events for a certain topic. Events are transformed into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>
+
+    <!-- PubNub -->
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/pubnub.png" width="120" />
+      </td>
+      <td>
+        <b>PubNub Cloud as Source</b>
+        <p>
+        PubNub is a global data stream network (DSN) and realtime network-as-a-service offering. This plugin
+        reads realtime messages from PubNub cloud channels.
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>SaaS Applications</b></td>
+    </tr>  
+
+    <!-- google ads -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/google-ads.png" width="120" />
+      </td>
+      <td>
+        <b>Google Ads as Source</b>
+        <p>
+        Allows users to retrieve reports of a specified report type from their Google Ads account.      
+        </p>
+      </td>
+    </tr>
+
+    <!-- google analytics -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/google-analytics.png" width="120" />
+      </td>
+      <td>
+        <b>Google Analytics as Batch Source</b>
+        <p>
+        Allows users to query Google Analytics Reporting API to get metrics and dimensions with built-in set.        
+        </p>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/google-analytics.png" width="120" />
+      </td>
+      <td>
+        <b>Google Analytics as Streaming Source</b>
+        <p>
+        Allows users to query Google Analytics Real Time Reporting API to get metrics and dimensions with built-in set.        
+        </p>
+      </td>
+    </tr>
+
+    <!-- google shopping -->
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/google-shopping.svg" width="120" />
+      </td>
+      <td>
+        <b>Google Shopping as Source</b>
+        <p>
+        Reads product data from Google Shopping Content API.
+        </p>
+      </td>
+    </tr>
+
+    <!-- salesforce -->
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/salesforce.png" width="120" />
+      </td>
+      <td>
+        <b>Salesforce as Batch Source</b>
+        <p>
+        Reads <i>sObjects</i>, such as accounts, contacts, leads and others, by specifying SOQL (Salesforce Object Query Language) queries, or using sObject with incremental or range date filters.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/salesforce.png" width="120" />
+      </td>
+      <td>
+        <b>Salesforce as Batch Sink</b>
+        <p>
+        Inserts pipeline data records as <i>sObjects</i> into Salesforce. Currently, only inserts (no upserts) are supported.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/salesforce.png" width="120" />
+      </td>
+      <td>
+        <b>Salesforce as Streaming Source</b>
+        <p>
+        Tracks updates of <i>sObjects</i> using <i>PushTopic</i> events and transforms them into CDAP's standard pipeline data format.
+        </p>        
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/salesforce.png" width="120" />
+      </td>
+      <td>
+        <b>Salesforce Marketing Cloud as Sink</b>
+        <p>
+        Inserts pipeline data records into a Salesforce Marketing Cloud Data Extension. The sink requires Server-to-Server integration with the Salesforce Marketing Cloud API.
+        </p>
+      </td>
+    </tr>
+
+    <!-- zuora -->
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/zuora.png" width="120" />
+      </td>
+      <td>
+        <b>Zuora as Batch Source</b>
+        <p>
+        Fetches data from Zuora and transforms them into CDAP's standard pipeline data format. Zuora is a subscription management platform designed to meet your modern order-to-cash needs.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/zuora.png" width="120" />
+      </td>
+      <td>
+        <b>Zuora as Batch Sink</b>
+        <p>
+          Writes records to a Zuora objects. Each record will be written to an object collection.        
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/zuora.png" width="120" />
+      </td>
+      <td>
+        <b>Zuora as Streaming Source</b>
+        <p>
+        Fetches data from Zuora periodically and transforms them into CDAP's standard pipeline data format.
+        </p>
+      </td>
+    </tr>
+
+</table>
+
             </div>
           </div>
         </div>
