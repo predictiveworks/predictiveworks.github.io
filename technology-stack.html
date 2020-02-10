@@ -261,15 +261,15 @@
         <div class="nav-article">Grafana Connector</div>
       </a>
 
-    <!-- graph processing -->
-    <div class="nav-title">Graph Processing</div>
+    <!-- pipeline operation -->
+    <div class="nav-title">Pipeline Operation</div>
 
-      <a href="/janusgraph-ignite.html">
-        <div class="nav-article">JanusGraph meets Ignite</div>
+      <a href="/template-studio.html">
+        <div class="nav-article">Template Studio</div>
       </a>
 
-      <a href="/graph-ingestion.html">
-        <div class="nav-article">Graph Ingestion</div>
+      <a href="/foresight-fabric.html">
+        <div class="nav-article">Foresight Fabric</div>
       </a>
 
     <!-- pipeline knowledge -->
@@ -283,12 +283,15 @@
         <div class="nav-article">Template Market</div>
       </a>
 
-      <a href="/template-studio.html">
-        <div class="nav-article">Template Studio</div>
+    <!-- graph processing -->
+    <div class="nav-title">Graph Processing</div>
+
+      <a href="/janusgraph-ignite.html">
+        <div class="nav-article">JanusGraph meets Ignite</div>
       </a>
 
-      <a href="/foresight-fabric.html">
-        <div class="nav-article">Foresight Fabric</div>
+      <a href="/graph-ingestion.html">
+        <div class="nav-article">Graph Ingestion</div>
       </a>
 
   </div>
@@ -298,129 +301,97 @@
             <div class="main-content-body">
               <h1 id="technology-stack">Technology Stack</h1>
 
-<h2 id="user-interface">User Interface</h2>
-
-<ul>
-  <li>
-    <p>Angular 7</p>
-  </li>
-  <li>
-    <p>JsPlumb</p>
-  </li>
-  <li>
-    <p>TypeScript</p>
-  </li>
-</ul>
-
-<h2 id="market-place">Market Place</h2>
-
-<ul>
-  <li>
-    <p>Akka</p>
-  </li>
-  <li>
-    <p>Elastic</p>
-  </li>
-  <li>
-    <p>Spark ML</p>
-  </li>
-</ul>
-
-<h2 id="pipeline-platform">Pipeline Platform</h2>
-
-<ul>
-  <li>Google CDAP</li>
-</ul>
-
-<h2 id="works-dl">Works DL</h2>
-
-<ul>
-  <li>
-    <p>Intel BigDL</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API</p>
-  </li>
-</ul>
-
-<h2 id="works-ml">Works ML</h2>
-
-<ul>
-  <li>
-    <p>Spark ML</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API</p>
-  </li>
-</ul>
-
-<h2 id="works-ts">Works TS</h2>
-
-<ul>
-  <li>
-    <p>Suning TS</p>
-  </li>
-  <li>
-    <p>Spark ML</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API</p>
-  </li>
-</ul>
-
-<h2 id="works-rules">Works Rules</h2>
-
-<ul>
-  <li>
-    <p>Drools Rule Engine</p>
-  </li>
-  <li>
-    <p>Spark SQL</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API</p>
-  </li>
-</ul>
-
-<h2 id="works-sql">Works SQL</h2>
-
-<ul>
-  <li>
-    <p>Spark SQL</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API</p>
-  </li>
-</ul>
-
-<h2 id="works-text">Works Text</h2>
-
-<ul>
-  <li>
-    <p>Spark NLP</p>
-  </li>
-  <li>
-    <p>Spark ML</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API</p>
-  </li>
-</ul>
-
-<h2 id="graph-connect">Graph Connect</h2>
-
-<ul>
-  <li>
-    <p>Apache Ignite</p>
-  </li>
-  <li>
-    <p>JanusGraph</p>
-  </li>
-  <li>
-    <p>CDAP Plugin API
-##</p>
-  </li>
-</ul>
+<table>
+    <colgroup>
+      <col width="25%" />
+      <col width="75%" />
+    </colgroup>
+    <tr>
+      <td colspan="2"><b>Pipeline Technology</b></td>
+    </tr>
+    <tr>
+      <td>Google CDAP</td>
+      <td>
+        A data application platform designed to accelerate the implementation of workflow based data applications. Standardized container technology supports flexible data processing by leveraging pre-built pipeline plugins.
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>Analytics Plugins</b></td>
+    </tr>
+    <tr>
+      <td>Works DL</td>
+      <td>
+        A CDAP plugin wrapper for Intel's BigDL library. Deep learning algorithms can be used as pre-built pluggable components side by side with other plugins.
+      </td>
+    </tr>   
+    <tr>
+      <td>Works ML</td>
+      <td>
+        A CDAP plugin wrapper for Apache Spark's ML library. Machine learning algorithms can be used as pre-built pluggable components side by side with other plugins.
+      </td>
+    </tr>     
+    <tr>
+      <td>Works TS</td>
+      <td>
+        A CDAP plugin wrapper for Predictive<span class="brand-teal">Works.</span> Spark Time library. Complex time series modeling and processing can be used as pre-built pipeline plugins side by side with other plugins.
+      </td>
+    </tr>     
+    <tr>
+      <td>Works Text</td>
+      <td>
+        A CDAP plugin wrapper for John Snow LAB's Spark NLP library. Natural language processing can be used as pre-built pipeline plugins side by side with other plugins.
+      </td>
+    </tr>     
+    <tr>
+      <td>Works Rules</td>
+      <td>
+        A CDAP plugin &amp; Apache Spark wrapper for JBoss Drools Business Rule Engine. Conditions in form of business rules can be applied to data pipelines side by side with other plugins.
+      </td>
+    </tr>     
+    <tr>
+      <td>Works SQL</td>
+      <td>
+        A CDAP plugin for Apache Spark' SQL library. Queries in form of SQL statements can be applied to data pipelines side by side with other plugins.
+      </td>
+    </tr>   
+    <tr>
+      <td colspan="2"><b>Pipeline Operation</b></td>
+    </tr>      
+    <tr>
+      <td>Template Studio</td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Foresight Fabric</td>
+      <td>TBD</td>
+    </tr>    
+    <tr>
+      <td colspan="2"><b>Pipeline Knowledge</b></td>
+    </tr>
+    <tr>
+      <td>Business Templates</td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Market Place</td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td>Recommendations</td>
+      <td>TBD</td>
+    </tr>
+    <tr>
+      <td colspan="2"><b>User Interface</b></td>
+    </tr>
+    <tr>
+      <td>Angular 7</td>
+      <td>An open source TypeScript framework for building modern web applications &amp; apps.</td>
+    </tr>
+    <tr>
+      <td>jsPlumb</td>
+      <td>An advanced standards-compliant JS library for building connectivity based applications, such as flowcharts, process flow diagrams and more.</td>
+    </tr>
+</table>
 
             </div>
           </div>
