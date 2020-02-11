@@ -326,7 +326,7 @@ With these narrow point solutions, you are left alone to implement this use case
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"ApplySQL"</span><span class="o">)</span>
-<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that an Apache Spark SQL based data exploration engine "</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that uses an Apache Spark SQL based data exploration engine "</span>
 		<span class="o">+</span> <span class="s">"to aggregate, group and filter pipeline data records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplySQL</span> <span class="kd">extends</span> <span class="nc">SparkCompute</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
