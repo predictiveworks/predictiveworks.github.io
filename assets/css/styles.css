@@ -32,6 +32,8 @@ tr:nth-child(odd) { background: #ffffff; }
 
 tr:nth-child(even) { background: var(--brand-white); }
 
+#content-toc { background: rgba(27, 172, 171, 0.1); position: sticky; top: var(--site-header-height); padding: 0.5rem; width: 100%; z-index: 10; }
+
 .brand-grey { color: var(--brand-grey); }
 
 .brand-teal { color: var(--brand-color); }
@@ -72,6 +74,8 @@ a:visited .nav-article { color: var(--brand-grey); text-decoration: none; }
 
 .nav-title { font-weight: 600; padding: var(--nav-title-padding); text-transform: uppercase; }
 
+.page-title { color: var(--brand-grey); font-size: 2em; font-weight: bold; margin: 0.67rem 0rem 0.67rem 0rem; }
+
 .site-footer { background: var(--brand-black); color: var(--brand-grey); display: flex; font-size: var(--p-size); height: var(--site-footer-height); padding: var(--site-footer-padding); text-align: center; width: 100%; }
 
 .site-header { display: flex; flex-direction: column; height: var(--site-header-height); position: sticky; top: 0; width: 100%; z-index: 10; }
@@ -81,5 +85,25 @@ a:visited .nav-article { color: var(--brand-grey); text-decoration: none; }
 .site-header-title { align-items: center; border-bottom: var(--brand-border); background: var(--brand-white); display: flex; height: var(--site-header-title-height); justify-content: space-between; width: 100%; }
 
 .site-wrapper { display: flex; flex-direction: column; }
+
+.toc-h1, .toc-h2, .toc-h3, .toc-h4 { color: var(--brand-grey); font-size: 0.95rem; }
+
+.toc-h1 { font-size: 1.0rem; font-weight: 600; list-style-type: none; }
+
+.toc-body ul { padding: 0; list-style: none; margin-left: 1.5rem; }
+
+.toc-body > ul { padding: 0; padding-left: 0.5rem; }
+
+.toc-body li { padding-left: 0.75em; }
+
+.toc-body li:before { content: "\f054"; font-family: "Font Awesome\ 5 Free"; font-weight: 900; display: inline-block; margin-left: -0.75em; width: 0.75em; }
+
+.toc-body > ul > li { padding: 0; }
+
+.toc-body > ul > li:before { content: ""; }
+
+.toc-header { color: var(--brand-grey); font-size: 1.15rem; font-weight: 600; margin: 1.0rem 0.5rem 0.5rem 0.5rem; }
+
+.toc-header .fa { margin-right: 0.5rem; }
 
 /*# sourceMappingURL=styles.css.map */
