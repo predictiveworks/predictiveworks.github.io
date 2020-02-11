@@ -304,14 +304,18 @@
 
 <p>Google <a href="https://cdap.io">CDAP</a> offers many connector plugins to integrate with data stores, streaming platforms and cloud applications.</p>
 
-<p>Predictive<span class="brand-teal">Works.</span> complements CDAP’s built-in data connectors with plugins that originate from specific enterprise demand, referring to a certain business area or vertical.</p>
+<p>Predictive<span class="brand-teal">Works.</span> complements CDAP’s built-in data connectors with plugins that originate from specific enterprise demands, referring to a certain business area or vertical.</p>
 
-<h2 id="aerospike-plugins">Aerospike Plugins</h2>
+<h1 id="data-stores">Data Stores</h1>
+
+<p>Predictive<span class="brand-teal">Works.</span> connector plugins were built with a strong focus on lightning fast data stores for Cyber Defense and Internet-of-Things use cases.</p>
+
+<h2 id="aerospike-plugins"><a href="https://www.aerospike.com/">Aerospike</a> Plugins</h2>
 
 <table>
     <colgroup>
-      <col width="25%" />
-      <col width="75%" />
+      <col width="20%" />
+      <col width="80%" />
     </colgroup>
     <tr>
       <td>
@@ -322,6 +326,10 @@
         <p>
         A Next-Generation NoSQL Data Platform for real-time solutions at extreme scale, with predictable performance at any scale and unmatched uptime and reliability.     
         </p>
+        <b>Use Cases</b>
+        <p>
+        Advertising, Cyber Defense, Internet-of-Things
+        </p>
       </td>
     </tr>
 </table>
@@ -331,7 +339,7 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"AerospikeSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data records from Aerospike namespaces and "</span>
-      <span class="o">+</span> <span class="s">"sets and transform into structured pipeline records."</span><span class="o">)</span>
+      <span class="o">+</span> <span class="s">"sets and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AerospikeSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">AerospikeKey</span><span class="o">,</span> <span class="nc">AerospikeRecord</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
     <span class="o">...</span>
@@ -350,6 +358,269 @@
     <span class="o">...</span>
 
 <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="crate-plugins"><a href="https://crate.io">Crate</a> Plugins</h2>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/crate.png" width="120" />
+      </td>
+      <td>
+        <b>Crate DB</b>
+        <p>
+        Crate is a distributed SQL database at IoT-scale built on top of a NoSQL foundation. It combines the familiarity of SQL with the scalability and data flexibility of NoSQL.   
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Cyber Defense, Internet-of-Things
+        </p>
+      </td>
+    </tr>
+</table>
+
+<h3 id="crate-as-source">Crate as Source</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"CrateSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data rows from Crate tables "</span>
+      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CrateSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">CrateWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="crate-as-sink">Crate as Sink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"CrateSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
+      <span class="o">+</span> <span class="s">"Crate tables."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CrateSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">CrateWritable</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="druid-plugins"><a href="https://druid.apache.org">Druid</a> Plugins</h2>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/druid.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Druid</b>
+        <p>
+        Apache Druid is a real-time analytics database designed for fast slice-and-dice analytics ("OLAP" queries) on large data sets. Druid leverages the columnar storage paradigm.   
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Advertising, Manufacturing, Marketing, Network Telemetry
+        </p>
+      </td>
+    </tr>
+</table>
+
+<h3 id="druid-as-source">Druid as Source</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DruidSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Druid datasources "</span>
+      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DruidSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">DruidWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="druid-as-sink">Druid as Sink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"CrateSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
+      <span class="o">+</span> <span class="s">"Druid datasources."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DruidSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">DruidWritable</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="elastic-plugin"><a href="https://elastic.co">Elastic</a> Plugin</h2>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/elastic.png" width="120" />
+      </td>
+      <td>
+        <b>Elasticsearch</b>
+        <p>
+          This Elastic connector is an easy-to-use alternative for Google CDAP's plugin. Predictive<span class="brand-teal">Works.</span> connector comes with automated schema inference. Users no longer have to explicitly specify the data format of Elastic documents.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Cyber Defense, Internet-of-Things and more
+        </p>
+      </td>
+    </tr>
+</table>
+
+<h3 id="elastic-as-source">Elastic as Source</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ElasticSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read documents from Elastic indices and mappings "</span>
+      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElasticSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">ElasticWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h2 id="ignite-plugins"><a href="https://ignite.apache.org">Ignite</a> Plugins</h2>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/ignite.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Ignite</b>
+        <p>
+        Apache Ignite is an in-memory computing platform for transactional, analytical, and streaming workloads delivering in-memory speeds at petabyte scale.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Cyber Defense, Internet-of-Things
+        </p>
+      </td>
+    </tr>
+</table>
+
+<h3 id="ignite-as-source">Ignite as Source</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"IgniteSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Apache Ignite caches as BinaryObjects "</span>
+      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IgniteSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">IgniteWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="ignite-as-sink">Ignite as Sink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"IgniteSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records as BinaryObjects to "</span>
+      <span class="o">+</span> <span class="s">"Apache Ignite caches."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IgniteSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">IgniteWritable</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="streaming-platforms">Streaming Platforms</h1>
+
+<h2 id="kafka-plugin"><a href="https://kafka.apache.org">Kafka</a> Plugin</h2>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/kafka.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Kafka</b>
+        <p>
+          This Kafka connector is an easy-to-use alternative for Google CDAP's plugin. Predictive<span class="brand-teal">Works.</span> connector comes with automated schema inference. Users no longer have to explicitly specify the data format of a real-time event stream.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Cyber Defense, Internet-of-Things and more
+        </p>
+      </td>
+    </tr>
+</table>
+
+<h3 id="kafka-as-source">Kafka as Source</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"KafkaSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from Apache Kafka topics "</span>
+      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KafkaSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h2 id="ssl-mqtt-plugin">SSL MQTT Plugin</h2>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/mqtt.png" width="120" />
+      </td>
+      <td>
+        <b>MQTT</b>
+        <p>
+          This MQTT connector is a secure alternative for Google CDAP's plugin. Predictive<span class="brand-teal">Works.</span> connectors supports X.509 based security options to access MQTT brokers.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Cyber Defense, Internet-of-Things and more
+        </p>
+      </td>
+    </tr>
+</table>
+
+<h3 id="mqtt-as-source">MQTT as Source</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"SecureMQTTSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from MQTT topics "</span>
+      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records, leveraging X.509 certificates."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecureMQTTSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>      
 </code></pre></div></div>
 
             </div>
