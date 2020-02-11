@@ -328,8 +328,7 @@
 
 <h3 id="aerospike-as-source">Aerospike as Source</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"AerospikeSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data records from Aerospike namespaces and "</span>
       <span class="o">+</span> <span class="s">"sets and transform into structured pipeline records."</span><span class="o">)</span>
@@ -338,13 +337,11 @@
     <span class="o">...</span>
 
 <span class="o">}</span>      
-
 </code></pre></div></div>
 
 <h3 id="aerospike-as-sink">Aerospike as Sink</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"AerospikeSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
       <span class="o">+</span> <span class="s">"Aerospike namespaces and sets."</span><span class="o">)</span>
