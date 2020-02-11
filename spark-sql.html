@@ -5,6 +5,7 @@
     <title>Spark SQL</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -299,11 +300,7 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="works-sql-plugin">Works SQL Plugin</h1>
-
-<p>Spark SQL is designed to support structured data processing and is an important means to standardize and unify data processing. Datasets, independent of their origin and format, once transformed into an Apache Spark Dataset can be explored leveraging SQL queries.</p>
-
-<p>Integrating Spark SQL with <a href="https://cdap.io">CDAP</a> pipeline technology, makes SQL queries available to explore both historical dataset or real-time event streams.</p>
+              <div class="page-title">Works SQL Plugin</div>
 
 <p>Many excellent complex event processing solutions exist to apply SQL queries to real-time event streams. Confluent’s <a href="https://www.confluent.io/product/ksql">KSQL</a> for <a href="https://kafka.apache.org">Apache Kafka</a> is one of them.</p>
 
@@ -319,12 +316,49 @@ With these narrow point solutions, you are left alone to implement this use case
 
 <p>In contrast, Pluggable Analytics let’s you select and combine just another analytics plugin from more than 150+ available plugins without the need to write any programming code.</p>
 
+<h2 id="spark-sql">Spark SQL</h2>
+
+<p>Spark SQL is designed to support structured data processing and is an important means to standardize and unify data processing. Datasets, independent of their origin and format, once transformed into an Apache Spark Dataset can be explored leveraging SQL queries.</p>
+
+<h2 id="applysql-plugin">ApplySQL Plugin</h2>
+
+<p>Integrating Spark SQL with <a href="https://cdap.io">CDAP</a> pipeline technology, makes SQL queries available to explore both historical dataset or real-time event streams.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ApplySQL"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that an Apache Spark SQL based data exploration engine "</span>
+		<span class="o">+</span> <span class="s">"to aggregate, group and filter pipeline data records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplySQL</span> <span class="kd">extends</span> <span class="nc">SparkCompute</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="spark-sql-integration">Spark SQL Integration</h2>
+
 <p><img width="80%" src="/assets/images/works-sql.svg" /></p>
 
             </div>
           </div>
         </div>
-        <div class="column-right"></div>
+        <div class="column-right">
+
+          <div id="content-toc">
+
+            <div class="toc-header">
+              <i class="fa fa-bars"></i><span>Table of Content</span>
+            </div>
+            <div class="toc-body">
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#spark-sql">Spark SQL</a></li>
+<li class="toc-entry toc-h2"><a href="#applysql-plugin">ApplySQL Plugin</a></li>
+<li class="toc-entry toc-h2"><a href="#spark-sql-integration">Spark SQL Integration</a></li>
+</ul>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       
