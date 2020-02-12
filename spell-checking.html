@@ -5,6 +5,7 @@
     <title>Spell Checking</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -299,12 +300,60 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="spell-checking">Spell Checking</h1>
+              <div class="page-title">Norvig Spell Checking</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
+
+<h2 id="norvigsink">NorvigSink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NorvigSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Spell Checking model based on Norvig's algorithm. The training "</span>
+		<span class="o">+</span> <span class="s">"text corpus is a term dictionary with one or more terms per line."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NorvigSink</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="norvigchecker">NorvigChecker</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NorvigChecker"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that checks the spelling of each term in a text document, "</span>
+    <span class="o">+</span> <span class="s">"leveraging a trained Norvig Spelling model. This stage appends two fields to the input "</span>
+    <span class="o">+</span> <span class="s">"schema, one that contains the extracted normalized terms per document, and another that "</span>
+    <span class="o">+</span> <span class="s">"contains the correct spelling of these terms."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NorvigChecker</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
             </div>
           </div>
         </div>
-        <div class="column-right"></div>
+        <div class="column-right">
+
+          <div id="content-toc">
+
+            <div class="toc-header">
+              <i class="fa fa-bars"></i><span>Table of Content</span>
+            </div>
+            <div class="toc-body">
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#norvigsink">NorvigSink</a></li>
+<li class="toc-entry toc-h2"><a href="#norvigchecker">NorvigChecker</a></li>
+</ul>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       

@@ -5,6 +5,7 @@
     <title>Text Lemmatization</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -299,23 +300,75 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="text-lemmatization">Text Lemmatization</h1>
+              <div class="page-title">Text Lemmatization</div>
 
-<p>2.2 Lexicon Normalization
-Another type of textual noise is about the multiple representations exhibited by single word.</p>
+<h2 id="objective">Objective</h2>
 
-<p>For example – “play”, “player”, “played”, “plays” and “playing” are the different variations of the word – “play”, Though they mean different but contextually all are similar. The step converts all the disparities of a word into their normalized form (also known as lemma). Normalization is a pivotal step for feature engineering with text as it converts the high dimensional features (N different features) to the low dimensional space (1 feature), which is an ideal ask for any ML model.</p>
+<p>Multiple variations of a single word, say “player”, “played” and “playing”, are contextually similar. A lemmatizer converts all these disparities into their normalized form (also known as lemma) and thereby is an instrument of text standardization.</p>
 
-<p>The most common lexicon normalization practices are :</p>
+<h2 id="corpus">Corpus</h2>
 
-<p>Stemming:  Stemming is a rudimentary rule-based process of stripping the suffixes (“ing”, “ly”, “es”, “s” etc) from a word.
-Lemmatization: Lemmatization, on the other hand, is an organized &amp; step by step procedure of obtaining the root form of the word, it makes use of vocabulary (dictionary importance of words) and morphological analysis (word structure and grammar relations).
-Below is the sample code that performs lemmatization and stemming using python’s popular library – NLTK.</p>
+<p>Lemmatization is based on a trained Lemma model. The respective training corpus can be formatted as shown below:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monorail	-&gt;	monorail	monorails
+monosaccharide	-&gt;	monosaccharides	monosaccharide
+monosaturate	-&gt;	monosaturates	monosaturate
+monospar	-&gt;	monospar	monospars
+monosyllable	-&gt;	monosyllables	monosyllable
+monotheist	-&gt;	monotheist	monotheists
+
+</code></pre></div></div>
+
+<h2 id="lemmasink">LemmaSink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">"sparksink"</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LemmaSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Lemmatization model. The training corpus assigns "</span>
+    <span class="o">+</span> <span class="s">"each lemma to a set of term variations that all map onto this lemma."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LemmaSink</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="lemmatizer">Lemmatizer</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Lemmatizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage requires a trained Lemmatization model. It extracts "</span>
+		<span class="o">+</span> <span class="s">"normalized terms from a text document and maps each token onto its trained lemma. "</span>
+		<span class="o">+</span> <span class="s">"This stage appends two fields to the input schema, one that contains the extracted "</span>
+		<span class="o">+</span> <span class="s">"terms per document, and another that contains their lemmas."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Lemmatizer</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
             </div>
           </div>
         </div>
-        <div class="column-right"></div>
+        <div class="column-right">
+
+          <div id="content-toc">
+
+            <div class="toc-header">
+              <i class="fa fa-bars"></i><span>Table of Content</span>
+            </div>
+            <div class="toc-body">
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#corpus">Corpus</a></li>
+<li class="toc-entry toc-h2"><a href="#lemmasink">LemmaSink</a></li>
+<li class="toc-entry toc-h2"><a href="#lemmatizer">Lemmatizer</a></li>
+</ul>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       
