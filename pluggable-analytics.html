@@ -5,6 +5,7 @@
     <title>Pluggable Analytics</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -299,15 +300,34 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="pluggable-analytics">Pluggable Analytics</h1>
+              <div class="page-title">Pluggable Analytics</div>
 
-<h2 id="what-is-pluggable-visual-analytics">What is Pluggable (Visual) Analytics?</h2>
+<h2 id="motivation">Motivation</h2>
 
-<p>Nowadays many excellent open source big data analytics &amp; computing libraries exist, but each with a certain focus or lens on the data universe. Answering predictive business questions today most often requires to operate many of them, with human data and software experts in the loop to stick all pieces individually together.</p>
+<p>In a business context, data analytics has to answer the following questions:</p>
 
-<p>An integrated data analytics platform that seamlessly covers all flavors of modern data analytics seems to be an utopia for data-driven enterprises.</p>
+<ul>
+  <li>What has happened?</li>
+  <li>Why did it happen?</li>
+  <li>What will happen?</li>
+  <li>How can we make it happen?</li>
+</ul>
 
-<p><span class="brand-teal">Visual Analytics</span> can be best characterized by its features:</p>
+<p>Answering these clear-cut questions nowadays requires to adopt a plethora of different solutions with human data and software experts in the loop to stick all pieces individually together.</p>
+
+<p><img src="/assets/images/gartner-continuum.png" width="90%" alt="The Gartner Analytic Continuum" /></p>
+
+<p>Many excellent open source big data analytics &amp; computing libraries exist, but each with a certain focus or lens on the data universe, its own infrastructure and technology.</p>
+
+<blockquote>
+<p>
+An integrated data analytics platform that seamlessly covers all flavors of modern data analytics seems to be an utopia for data-driven enterprises.
+</p>
+</blockquote>
+
+<h2 id="features">Features</h2>
+
+<p><span class="brand-teal">Pluggable Analytics</span> can be best characterized by its features:</p>
 
 <ul>
   <li>
@@ -324,7 +344,7 @@
   </li>
 </ul>
 
-<h2 id="how-predictiveworks-implements-pluggable-visual-analytics">How Predictive<span class="brand-teal">Works.</span> implements Pluggable Visual Analytics?</h2>
+<h2 id="implementation">Implementation</h2>
 
 <p>Predictive<span class="brand-teal">Works.</span> leverages the huge standardization and unification capabilities of two open-source giants: <a href="https:/spark.apache.org">Apache Spark</a> and <a href="https://cdap.io">Google CDAP</a>.</p>
 
@@ -335,7 +355,23 @@
             </div>
           </div>
         </div>
-        <div class="column-right"></div>
+        <div class="column-right">
+
+          <div id="content-toc">
+
+            <div class="toc-header">
+              <i class="fa fa-bars"></i><span>Table of Content</span>
+            </div>
+            <div class="toc-body">
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
+<li class="toc-entry toc-h2"><a href="#features">Features</a></li>
+<li class="toc-entry toc-h2"><a href="#implementation">Implementation</a></li>
+</ul>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       
