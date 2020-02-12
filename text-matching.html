@@ -5,6 +5,7 @@
     <title>Text Matching</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -299,17 +300,80 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="text-matching">Text Matching</h1>
+              <div class="page-title">Text Matching</div>
 
-<p>2.3 Object Standardization
-Text data often contains words or phrases which are not present in any standard lexical dictionaries. These pieces are not recognized by search engines and models.</p>
+<h2 id="objective">Objective</h2>
 
-<p>Some of the examples are – acronyms, hashtags with attached words, and colloquial slangs. With the help of regular expressions and manually prepared data dictionaries, this type of noise can be fixed, the code below uses a dictionary lookup method to replace social media slangs from a text.</p>
+<p>TBD</p>
+
+<h2 id="datematcher">DateMatcher</h2>
+
+<p>This plugin recognizes the following kinds of date formats and transforms them into a user-defined output format:</p>
+<ul>
+  <li>1978-01-28</li>
+  <li>1984/04/02</li>
+  <li>1/02/1980</li>
+  <li>2/28/79</li>
+  <li>The 31st of April in the year 2008</li>
+  <li>Fri, 21 Nov 1997</li>
+  <li>Jan 21, ‘97</li>
+  <li>Sun, Nov 21</li>
+  <li>jan 1st</li>
+  <li>next thursday</li>
+  <li>last wednesday</li>
+  <li>today</li>
+  <li>tomorrow</li>
+  <li>yesterday</li>
+  <li>next week</li>
+  <li>next month</li>
+  <li>next year</li>
+  <li>day after</li>
+  <li>the day before</li>
+  <li>0600h</li>
+  <li>06:00 hours</li>
+  <li>6pm</li>
+  <li>5:30 a.m.</li>
+  <li>at 5</li>
+  <li>12:59</li>
+  <li>23:59</li>
+  <li>1988/11/23 6pm</li>
+  <li>next week at 7.30</li>
+  <li>5 am tomorrow</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DateMatcher"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that reads different forms of date and time expressions "</span>
+		<span class="o">+</span> <span class="s">"and converts them to a provided date format. This stage transforms each text document "</span>
+		<span class="o">+</span> <span class="s">"into a list of sentences where each detected date and time expression is replaced by "</span>
+		<span class="o">+</span> <span class="s">"the provided format. As an alternative, the list of detected date and time expressions "</span>
+		<span class="o">+</span> <span class="s">"is returned."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DateMatcher</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>    
+</code></pre></div></div>
 
             </div>
           </div>
         </div>
-        <div class="column-right"></div>
+        <div class="column-right">
+
+          <div id="content-toc">
+
+            <div class="toc-header">
+              <i class="fa fa-bars"></i><span>Table of Content</span>
+            </div>
+            <div class="toc-body">
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#datematcher">DateMatcher</a></li>
+</ul>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       

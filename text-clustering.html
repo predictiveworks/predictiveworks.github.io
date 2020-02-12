@@ -5,6 +5,7 @@
     <title>Text Clustering</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
     <div class="site-wrapper">
@@ -299,12 +300,65 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="text-clustering">Text Clustering</h1>
+              <div class="page-title">Text Clustering</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
+
+<h2 id="ldatextsink">LDATextSink</h2>
+
+<p>This plugin is responsible for model building. The LDA Estimator of Spark ML is used to train the respective Latent Dirichlet Allocation (LDA) model.</p>
+
+<p>An LDA Model can be used for text clustering or labeling (see LDAText).</p>
+
+<p>The estimator expects that the provided text documents are represented as feature vectors. The mapping onto the feature space is achieved by leveraging a pre-trained word embedding model and an appropriate pooling strategy of how to derive document vectors from word vectors.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LDATextSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Latent Dirichlet Allocation (LDA) model. An LDA model "</span>
+    <span class="o">+</span> <span class="s">"can be used for text clustering or labeling. This model training stage requires a "</span>
+    <span class="o">+</span> <span class="s">"pre-trained Word Embedding model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LDATextSink</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="ldatext">LDAText</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LDAText"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage to map text documents on their topic vectors or most likely topic label. "</span>
+		<span class="o">+</span> <span class="s">"This stage is based on two trained models, an LDA Topic model and a Word Embedding model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LDAText</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
             </div>
           </div>
         </div>
-        <div class="column-right"></div>
+        <div class="column-right">
+
+          <div id="content-toc">
+
+            <div class="toc-header">
+              <i class="fa fa-bars"></i><span>Table of Content</span>
+            </div>
+            <div class="toc-body">
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#ldatextsink">LDATextSink</a></li>
+<li class="toc-entry toc-h2"><a href="#ldatext">LDAText</a></li>
+</ul>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       
