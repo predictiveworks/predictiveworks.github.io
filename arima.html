@@ -262,17 +262,6 @@
         <div class="nav-article">Grafana Connector</div>
       </a>
 
-    <!-- pipeline operation -->
-    <div class="nav-title">Pipeline Operation</div>
-
-      <a href="/template-studio.html">
-        <div class="nav-article">Template Studio</div>
-      </a>
-
-      <a href="/foresight-fabric.html">
-        <div class="nav-article">Foresight Fabric</div>
-      </a>
-
     <!-- pipeline knowledge -->
     <div class="nav-title">Pipeline Knowledge</div>
 
@@ -283,6 +272,17 @@
       <a href="/template-market.html">
         <div class="nav-article">Template Market</div>
       </a>
+
+      <!-- pipeline operation -->
+      <div class="nav-title">Pipeline Operation</div>
+
+        <a href="/template-studio.html">
+          <div class="nav-article">Template Studio</div>
+        </a>
+
+        <a href="/foresight-fabric.html">
+          <div class="nav-article">Foresight Fabric</div>
+        </a>
 
     <!-- graph processing -->
     <div class="nav-title">Graph Processing</div>
@@ -300,25 +300,176 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="arima">ARIMA</h1>
+              <div class="page-title">ARIMA</div>
 
-<h2 id="what-is-an-arima-model">What is an ARIMA model?</h2>
+<h2 id="objective">Objective</h2>
 
 <p>ARIMA is short for Auto Regressive Integrated Moving Average. This acronym is descriptive, capturing the key aspects of the model itself:</p>
 
-<p><strong>AR</strong>: Autoregression. This part of the model expects that the time series has a dependent relationship between an observation and some number of lagged observations. In other words: The evolving observation value is regressed on its own past values.</p>
+<table width="100%">
 
-<p><strong>I</strong>: Integrated. This part of the model makes it applicable to use cases where data show evidence of <em>non-stationarity</em>.</p>
+  <tr>
+    <td><b>AR</b>: Autoregression.</td>
+  </tr>
+  <tr>
+    <td>
+    This part of the model expects that the time series has a dependent relationship between an observation and some number of lagged observations. In other words: The evolving observation value is regressed on its own past values.
+    </td>
+  </tr>
+  <tr>
+    <td><b>I</b> Integrated.</td>
+  </tr>
+  <tr>
+    <td>
+    This part of the model makes it applicable to use cases where data show evidence of <i>non-stationarity</i>. Initial differencing steps can be used one or more times to eliminate the non-stationarity from raw observations.
+    </td>
+  </tr>
+  <tr>
+    <td><b>MA</b> Moving Average.</td>
+  </tr>
+  <tr>
+    <td>
+    This model part indicates that the regression error is actually a linear combination of error terms whose values occurred contemporaneously and at various times in the past.
 
-<p>Initial differencing steps can be used one or more times to eliminate the non-stationarity from raw observations.</p>
+    A model that uses the dependency between an observation and a residual error from a moving average model applied to lagged observations.
+    </td>
+  </tr>
+</table>
 
-<p><strong>MA</strong>: Moving Average. This model part indicates that the regression error is actually a linear combination of error terms whose values occurred contemporaneously and at various times in the past.</p>
+<p>An ARIMA model is a generalization of an AutoRegressive Moving Average (<a href="/arma.html">ARMA</a>) model. Both models are fitted to time series data to <strong>forecast</strong> future points in the series.</p>
 
-<p>A model that uses the dependency between an observation and a residual error from a moving average model applied to lagged observations.</p>
+<h2 id="tsarimasink">TsARIMASink</h2>
 
-<p>An ARIMA model is a generalization of an AutoRegressive Moving Average (<a href="&quot;/arma.html&quot;">ARMA</a>) model. Both models are fitted to time series data to <strong>forecast</strong> future points in the series.</p>
+<p><b>Parameters</b></p>
 
-<h1 id="auto-arima">Auto ARIMA</h1>
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsarima">TsARIMA</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARIMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained ARIMA model to look n steps in time ahead. "</span>
+		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
+		<span class="o">+</span> <span class="s">"points in time, and another the forecasted values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARIMA</span> <span class="kd">extends</span> <span class="nc">ARIMACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
+    </tr>
+    <tr>
+      <td>Time Steps</td>
+      <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsautoarima">TsAutoARIMA</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARIMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained AutoARIMA model to look n steps in time ahead. "</span>
+		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
+		<span class="o">+</span> <span class="s">"points in time, and another the forecasted values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARIMA</span> <span class="kd">extends</span> <span class="nc">ARIMACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsautoarima-1">TsAutoARIMA</h2>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
+    </tr>
+    <tr>
+      <td>Time Steps</td>
+      <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
 
             </div>
           </div>
@@ -331,7 +482,13 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#tsarimasink">TsARIMASink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsarima">TsARIMA</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoarima">TsAutoARIMA</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoarima-1">TsAutoARIMA</a></li>
+</ul>
             </div>
           </div>
 

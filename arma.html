@@ -262,17 +262,6 @@
         <div class="nav-article">Grafana Connector</div>
       </a>
 
-    <!-- pipeline operation -->
-    <div class="nav-title">Pipeline Operation</div>
-
-      <a href="/template-studio.html">
-        <div class="nav-article">Template Studio</div>
-      </a>
-
-      <a href="/foresight-fabric.html">
-        <div class="nav-article">Foresight Fabric</div>
-      </a>
-
     <!-- pipeline knowledge -->
     <div class="nav-title">Pipeline Knowledge</div>
 
@@ -283,6 +272,17 @@
       <a href="/template-market.html">
         <div class="nav-article">Template Market</div>
       </a>
+
+      <!-- pipeline operation -->
+      <div class="nav-title">Pipeline Operation</div>
+
+        <a href="/template-studio.html">
+          <div class="nav-article">Template Studio</div>
+        </a>
+
+        <a href="/foresight-fabric.html">
+          <div class="nav-article">Foresight Fabric</div>
+        </a>
 
     <!-- graph processing -->
     <div class="nav-title">Graph Processing</div>
@@ -300,9 +300,117 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="arma">ARMA</h1>
+              <div class="page-title">ARMA</div>
 
-<h1 id="auto-arma">Auto ARMA</h1>
+<h2 id="objective">Objective</h2>
+
+<h2 id="tsarmasink">TsARMASink</h2>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARMA model.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsarma">TsARMA</h2>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARMA model.</td>
+    </tr>
+    <tr>
+      <td>Time Steps</td>
+      <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsautoarmasink">TsAutoARMASink</h2>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARMA model.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsautoarma">TsAutoARMA</h2>
+
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARMA model.</td>
+    </tr>
+    <tr>
+      <td>Time Steps</td>
+      <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
 
             </div>
           </div>
@@ -315,7 +423,13 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#tsarmasink">TsARMASink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsarma">TsARMA</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoarmasink">TsAutoARMASink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoarma">TsAutoARMA</a></li>
+</ul>
             </div>
           </div>
 

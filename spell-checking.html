@@ -262,17 +262,6 @@
         <div class="nav-article">Grafana Connector</div>
       </a>
 
-    <!-- pipeline operation -->
-    <div class="nav-title">Pipeline Operation</div>
-
-      <a href="/template-studio.html">
-        <div class="nav-article">Template Studio</div>
-      </a>
-
-      <a href="/foresight-fabric.html">
-        <div class="nav-article">Foresight Fabric</div>
-      </a>
-
     <!-- pipeline knowledge -->
     <div class="nav-title">Pipeline Knowledge</div>
 
@@ -283,6 +272,17 @@
       <a href="/template-market.html">
         <div class="nav-article">Template Market</div>
       </a>
+
+      <!-- pipeline operation -->
+      <div class="nav-title">Pipeline Operation</div>
+
+        <a href="/template-studio.html">
+          <div class="nav-article">Template Studio</div>
+        </a>
+
+        <a href="/foresight-fabric.html">
+          <div class="nav-article">Foresight Fabric</div>
+        </a>
 
     <!-- graph processing -->
     <div class="nav-title">Graph Processing</div>
@@ -306,6 +306,10 @@
 
 <p>TBD</p>
 
+<h2 id="corpus">Corpus</h2>
+
+<p>The training corpus of the Norvig Spelling model is an Apache Spark dataset with a single text column. This column comprises one or more terms with correct spelling.</p>
+
 <h2 id="norvigsink">NorvigSink</h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
@@ -319,20 +323,51 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
+<p><b>Parameters</b></p>
+
+<table width="100%">
+
+</table>
+
 <h2 id="norvigchecker">NorvigChecker</h2>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"NorvigChecker"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that checks the spelling of each term in a text document, "</span>
-    <span class="o">+</span> <span class="s">"leveraging a trained Norvig Spelling model. This stage appends two fields to the input "</span>
-    <span class="o">+</span> <span class="s">"schema, one that contains the extracted normalized terms per document, and another that "</span>
-    <span class="o">+</span> <span class="s">"contains the correct spelling of these terms."</span><span class="o">)</span>
+		<span class="o">+</span> <span class="s">"leveraging a trained Norvig Spelling model. This stage appends one field to the input "</span>
+		<span class="o">+</span> <span class="s">"schema, that contains the suggested corrections of the input text document."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">NorvigChecker</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
 
     <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+	<tr>
+		<td>Model Name</td>
+		<td>The unique name of the Norvig Spell Checking model.</td>
+	</tr>
+
+	<tr>
+		<td>Text Field</td>
+		<td>The name of the field in the input schema that contains the text document.</td>
+	</tr>
+
+	<tr>
+		<td>Prediction Field</td>
+		<td>The name of the field in the output schema that contains the suggested text document.</td>
+	</tr>
+
+	<tr>
+		<td>Probability Threshold</td>
+		<td>The probability threshold above which a suggested term spelling is accepted. Default is 0.75.</td>
+	</tr>
+
+</table>
 
             </div>
           </div>
@@ -347,6 +382,7 @@
             <div class="toc-body">
               <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#corpus">Corpus</a></li>
 <li class="toc-entry toc-h2"><a href="#norvigsink">NorvigSink</a></li>
 <li class="toc-entry toc-h2"><a href="#norvigchecker">NorvigChecker</a></li>
 </ul>
