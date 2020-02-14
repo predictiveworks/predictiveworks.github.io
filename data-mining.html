@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -300,9 +296,26 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="data-mining">Data Mining</h1>
+              <div class="page-title">Data Mining</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
 
 <h2 id="frequent-pattern">Frequent Pattern</h2>
+
+<h3 id="fpgrowth">FPGrowth</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"FPGrowth"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML FPGrowth "</span>
+    <span class="o">+</span> <span class="s">"algorithm to detect frequent patterns."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FPGrowth</span> <span class="kd">extends</span> <span class="nc">MiningCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
             </div>
           </div>
@@ -315,7 +328,14 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#frequent-pattern">Frequent Pattern</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#fpgrowth">FPGrowth</a></li>
+</ul>
+</li>
+</ul>
             </div>
           </div>
 

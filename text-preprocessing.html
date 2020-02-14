@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -328,9 +324,44 @@
 
 <h2 id="sentencedetector">SentenceDetector</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"SentenceDetector"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Spark NLP Sentence Detector to map an input "</span>
+		<span class="o">+</span> <span class="s">"text field onto an output field that contains detected sentences."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SentenceDetector</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
 <h2 id="sentencetokenizer">SentenceTokenizer</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"SentenceTokenizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Spark NLP Tokenizer to map an input "</span>
+		<span class="o">+</span> <span class="s">"text field into an output field that contains detected sentence tokens."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SentenceTokenizer</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
 <h2 id="tokennormalizer">TokenNormalizer</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TokenNormalizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Spark NLP Normalizer to map an input "</span>
+		<span class="o">+</span> <span class="s">"text field onto an output field that contains normalized tokens. The Normalizer "</span>
+		<span class="o">+</span> <span class="s">"will clean up each token, taking as input column token out from the Tokenizer, "</span>
+		<span class="o">+</span> <span class="s">"and putting normalized tokens in the normal column. Cleaning up includes removing "</span>
+		<span class="o">+</span> <span class="s">"any non-character strings."</span><span class="o">)</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
             </div>
           </div>

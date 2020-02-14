@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -330,8 +326,7 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 
 <h3 id="dtclassifier">DTClassifier</h3>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"DTClassifer"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Decision Tree classifier model. This stage expects "</span>
 		<span class="o">+</span> <span class="s">"a dataset with at least two fields to train the model: One as an array of numeric values, and, "</span>
@@ -347,18 +342,15 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 
 <table class="params" width="100%">
 
-</table>
-
-<h3 id="dtpredictor">DTPredictor</h3>
-
-<p><b>Parameters</b></p>
-
-<table class="params" width="100%">
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
   <td>Model Name</td>
-  <td>The unique name of the classification model that is used for predictions.</td>
+  <td>The unique name of the classifier model.</td>
 </tr>
 
 <tr>
@@ -367,10 +359,94 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </tr>
 
 <tr>
-  <td>Prediction Field</td>
-  <td>The name of the field in the output schema that contains the predicted label.</td>
+  <td>Label Field</td>
+  <td>The name of the field in the input schema that contains the label.</td>
 </tr>
 
+<tr>
+  <td>Data Split</td>
+  <td>The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.</td>
+</tr>
+
+
+		
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Impurity</td>
+  <td>
+  Impurity is a criterion how to calculate information gain. Supported values: 'entropy' and 'gini'. Default is 'gini'.
+  </td>
+</tr>
+
+<tr>
+  <td>Minimum Gain</td>
+  <td>
+  The minimum information gain for a split to be considered at a tree node. The value should be at least 0.0. Default is 0.0.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Bins</td>
+  <td>
+  The maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. More bins give higher granularity. Must be at least 2. Default is 32.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Depth</td>
+  <td>
+  Nonnegative value that maximum depth of the tree. E.g. depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. Default is 5.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="dtpredictor">DTPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DTPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Decision Tree classifier "</span>
+    <span class="o">+</span> <span class="s">"or regressor model. The model type parameter determines whether this stage predicts from a classifier "</span>
+    <span class="o">+</span> <span class="s">"or regressor model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DTPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the classifier or regressor model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Model Type</td>
+      <td>The type of the model that is used for prediction, either 'classifier' or 'regressor'.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
 
 </table>
 
@@ -393,16 +469,19 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="gbtpredictor">GBTPredictor</h3>
-
 <p><b>Parameters</b></p>
 
 <table class="params" width="100%">
 
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
     
 <tr>
   <td>Model Name</td>
-  <td>The unique name of the classification model that is used for predictions.</td>
+  <td>The unique name of the classifier model.</td>
 </tr>
 
 <tr>
@@ -411,10 +490,107 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </tr>
 
 <tr>
-  <td>Prediction Field</td>
-  <td>The name of the field in the output schema that contains the predicted label.</td>
+  <td>Label Field</td>
+  <td>The name of the field in the input schema that contains the label.</td>
 </tr>
 
+<tr>
+  <td>Data Split</td>
+  <td>The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Loss Type</td>
+  <td>
+  The type of the loss function the Gradient-Boosted Trees algorithm tries to minimize. Default is 'logistic'.
+  </td>
+</tr>
+
+<tr>
+  <td>Minimum Gain</td>
+  <td>
+  The minimum information gain for a split to be considered at a tree node. The value should be at least 0.0. Default is 0.0.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Bins</td>
+  <td>
+  The maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. More bins give higher granularity. Must be at least 2. Default is 32.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Depth</td>
+  <td>
+  Nonnegative value that maximum depth of the tree. E.g. depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. Default is 5.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the Gradient-Boosted Trees model. Default is 20.
+  </td>
+</tr>
+
+<tr>
+  <td>Learning Rate</td>
+  <td>
+  The learning rate for shrinking the contribution of each estimator. Must be in interval (0, 1]. Default is 0.1.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="gbtpredictor">GBTPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"GBTPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based Gradient-Boosted Trees "</span>
+    <span class="o">+</span> <span class="s">"classifier or regressor model. The model type parameter determines whether this stage predicts "</span>
+    <span class="o">+</span> <span class="s">"from a classifier or regressor model."</span><span class="o">)</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the classifier or regressor model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Model Type</td>
+      <td>The type of the model that is used for prediction, either 'classifier' or 'regressor'.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
 
 </table>
 
@@ -434,16 +610,19 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="lrpredictor">LRPredictor</h3>
-
 <p><b>Parameters</b></p>
 
 <table class="params" width="100%">
 
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
     
 <tr>
   <td>Model Name</td>
-  <td>The unique name of the classification model that is used for predictions.</td>
+  <td>The unique name of the classifier model.</td>
 </tr>
 
 <tr>
@@ -452,10 +631,88 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </tr>
 
 <tr>
-  <td>Prediction Field</td>
-  <td>The name of the field in the output schema that contains the predicted label.</td>
+  <td>Label Field</td>
+  <td>The name of the field in the input schema that contains the label.</td>
 </tr>
 
+<tr>
+  <td>Data Split</td>
+  <td>The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the Logistic Regression model. Default is 20.
+  </td>
+</tr>
+
+<tr>
+  <td>ElasticNet Mixing</td>
+  <td>
+  The ElasticNet mxing parameter. For value = 0.0, the penalty is an L2 penalty. For value = 1.0, it is an L1 penalty. For 0.0 &lt; value &lt; 1.0, the penalty is a combination of L1 and L2. Default is 0.0.
+  </td>
+</tr>
+
+<tr>
+  <td>Regularization Parameter</td>
+  <td>
+  The nonnegative regularization parameter. Default is 0.0.
+  </td>
+</tr>
+
+<tr>
+  <td>Conversion Tolerance</td>
+  <td>
+  The positive convergence tolerance of iterations. Smaller values will lead to higher accuracy with the cost of more iterations. Default is 1e-6.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="lrpredictor">LRPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LRPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Logistic "</span>
+    <span class="o">+</span> <span class="s">"Regression classifier model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LRPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the classifier model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
 
 </table>
 
@@ -479,16 +736,19 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="mlppredictor">MLPPredictor</h3>
-
 <p><b>Parameters</b></p>
 
 <table class="params" width="100%">
 
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
     
 <tr>
   <td>Model Name</td>
-  <td>The unique name of the classification model that is used for predictions.</td>
+  <td>The unique name of the classifier model.</td>
 </tr>
 
 <tr>
@@ -497,10 +757,102 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </tr>
 
 <tr>
-  <td>Prediction Field</td>
-  <td>The name of the field in the output schema that contains the predicted label.</td>
+  <td>Label Field</td>
+  <td>The name of the field in the input schema that contains the label.</td>
 </tr>
 
+<tr>
+  <td>Data Split</td>
+  <td>The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Solver Algorithm</td>
+  <td>
+  The solver algorithm for optimization. Supported options are 'gd' (minibatch gradient descent) and 'l-bfgs'. Default is 'l-bfgs'.
+  </td>
+</tr>
+
+<tr>
+  <td>Layer Sizes</td>
+  <td>
+  The comma-separated list of the sizes of the layers from the input to the output layer. For example: 780,100,10 means 780 inputs, one hidden layer with 100 neurons and an output layer with 10 neurons. At least 2 layers (input, output) must be specified.
+  </td>
+</tr>
+
+<tr>
+  <td>Block Size</td>
+  <td>
+  The nonnegative block size for stacking input data in matrices to speed up the computation. Data is stacked within partitions. If block size is more than remaining data in a partition then it is adjusted to the size of this data. Recommended size is between 10 and 1000. Default is 128.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the Multi-Layer Perceptron model. Default is 100.
+  </td>
+</tr>
+
+<tr>
+  <td>Learning Rate</td>
+  <td>
+  The learning rate for shrinking the contribution of each estimator. Must be in interval (0, 1]. Default is 0.03.
+  </td>
+</tr>
+
+<tr>
+  <td>Conversion Tolerance</td>
+  <td>
+  The positive convergence tolerance of iterations. Smaller values will lead to higher accuracy with the cost of more iterations. Default is 1e-6.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="mlppredictor">MLPPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"MLPPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Multi-Layer Perceptron "</span>
+    <span class="o">+</span> <span class="s">"classifier model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MLPPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the classifier model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
 
 </table>
 
@@ -520,16 +872,19 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="nbpredictor">NBPredictor</h3>
-
 <p><b>Parameters</b></p>
 
 <table class="params" width="100%">
 
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
     
 <tr>
   <td>Model Name</td>
-  <td>The unique name of the classification model that is used for predictions.</td>
+  <td>The unique name of the classifier model.</td>
 </tr>
 
 <tr>
@@ -538,10 +893,73 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </tr>
 
 <tr>
-  <td>Prediction Field</td>
-  <td>The name of the field in the output schema that contains the predicted label.</td>
+  <td>Label Field</td>
+  <td>The name of the field in the input schema that contains the label.</td>
 </tr>
 
+<tr>
+  <td>Data Split</td>
+  <td>The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Model Type</td>
+  <td>
+  The model type of the Naive Bayes classifier. Supported values are 'bernoulli' and 'multinomial'. Choosing the Bernoulli version of Naive Bayes requires the feature values to be binary (0 or 1). Default is 'multinomial'.
+  </td>
+</tr>
+
+<tr>
+  <td>Smoothing</td>
+  <td>
+  The smoothing parameter of the Naive Bayes classifier. Default is 1.0.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="nbpredictor">NBPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NBPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Naive Bayes classifier model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NBPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the classifier model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
 
 </table>
 
@@ -563,16 +981,19 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="rfpredictor">RFPredictor</h3>
-
 <p><b>Parameters</b></p>
 
 <table class="params" width="100%">
 
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
     
 <tr>
   <td>Model Name</td>
-  <td>The unique name of the classification model that is used for predictions.</td>
+  <td>The unique name of the classifier model.</td>
 </tr>
 
 <tr>
@@ -581,14 +1002,107 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </tr>
 
 <tr>
-  <td>Prediction Field</td>
-  <td>The name of the field in the output schema that contains the predicted label.</td>
+  <td>Label Field</td>
+  <td>The name of the field in the input schema that contains the label.</td>
+</tr>
+
+<tr>
+  <td>Data Split</td>
+  <td>The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Impurity</td>
+  <td>
+  Impurity is a criterion how to calculate information gain. Supported values: 'entropy' and 'gini'. Default is 'gini'.
+  </td>
+</tr>
+
+<tr>
+  <td>Minimum Gain</td>
+  <td>
+  The minimum information gain for a split to be considered at a tree node. The value should be at least 0.0. Default is 0.0.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Bins</td>
+  <td>
+  The maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. More bins give higher granularity. Must be at least 2. Default is 32.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Depth</td>
+  <td>
+  Nonnegative value that maximum depth of the tree. E.g. depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. Default is 5.
+  </td>
+</tr>
+
+<tr>
+  <td>Number of Trees</td>
+  <td>
+  The number of trees to train the model. Default is 20.
+  </td>
 </tr>
 
 
 </table>
 
+<h3 id="rfpredictor">RFPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"RFPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Random Forest "</span>
+    <span class="o">+</span> <span class="s">"classifier or regressor model. The model type parameter determines whether this stage "</span>
+    <span class="o">+</span> <span class="s">"predicts from a classifier or regressor model."</span><span class="o">)</span>		
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RFPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the classifier or regressor model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Model Type</td>
+      <td>The type of the model that is used for prediction, either 'classifier' or 'regressor'.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
+
+</table>
+
 <h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
 
             </div>
           </div>

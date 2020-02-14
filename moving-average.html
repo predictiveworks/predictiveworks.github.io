@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -302,13 +298,105 @@
             <div class="main-content-body">
               <p>&lt;div class=”page-title&gt;Moving Average&lt;/div&gt;</p>
 
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
+
 <h2 id="tsmasink">TsMASink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based MA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsMASink</span> <span class="kd">extends</span> <span class="nc">MASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
 
 <h2 id="tsma">TsMA</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based MA time series model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsMA</span> <span class="kd">extends</span> <span class="nc">MACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
 <h2 id="tsautomasink">TsAutoMASink</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based AutoMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoMASink</span> <span class="kd">extends</span> <span class="nc">MASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
 <h2 id="tsautoma">TsAutoMA</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based AutoMA time series model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoMA</span> <span class="kd">extends</span> <span class="nc">MACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
 
             </div>
           </div>
@@ -322,10 +410,12 @@
             </div>
             <div class="toc-body">
               <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#tsmasink">TsMASink</a></li>
 <li class="toc-entry toc-h2"><a href="#tsma">TsMA</a></li>
 <li class="toc-entry toc-h2"><a href="#tsautomasink">TsAutoMASink</a></li>
 <li class="toc-entry toc-h2"><a href="#tsautoma">TsAutoMA</a></li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
             </div>
           </div>

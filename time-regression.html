@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -300,7 +296,63 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="time-regression">Time Regression</h1>
+              <div class="page-title">Time Regression</div>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>TBD</p>
+
+<h2 id="tsregressor">TsRegressor</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsRegressor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Random Forest regressor model "</span>
+    <span class="o">+</span> <span class="s">"adjusted to machine learning for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsRegressor</span> <span class="kd">extends</span> <span class="nc">RegressorSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="tspredictor">TsPredictor</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML "</span>
+    <span class="o">+</span> <span class="s">"Random Forest regressor model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsPredictor</span> <span class="kd">extends</span> <span class="nc">TimeCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
 
             </div>
           </div>
@@ -313,7 +365,12 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
+<li class="toc-entry toc-h2"><a href="#tsregressor">TsRegressor</a></li>
+<li class="toc-entry toc-h2"><a href="#tspredictor">TsPredictor</a></li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
+</ul>
             </div>
           </div>
 

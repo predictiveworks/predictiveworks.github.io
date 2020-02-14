@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -300,7 +296,177 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="auto-regression">Auto Regression</h1>
+              <div class="page-title">Auto Regression</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
+
+<h2 id="tsarsink">TsARSink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based AR model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARSink</span> <span class="kd">extends</span> <span class="nc">ARSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="tsar">TsAR</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAR"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based AR time series model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAR</span> <span class="kd">extends</span> <span class="nc">ARCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="tsautoarsink">TsAutoARSink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based AutoAR model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARSink</span> <span class="kd">extends</span> <span class="nc">ARSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="tsautoar">TsAutoAR</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoAR"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based AutoAR time series model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoAR</span> <span class="kd">extends</span> <span class="nc">ARCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="tsdiffarsink">TsDiffARSink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsDiffARSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based Differencing AR model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsDiffARSink</span> <span class="kd">extends</span> <span class="nc">ARSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="tsdiffar">TsDiffAR</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsDiffAR"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based Differencing AR time series model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsDiffAR</span> <span class="kd">extends</span> <span class="nc">ARCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="tsyulewalkersink">TsYuleWalkerSink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsYuleWalkerSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based Yule Walker model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsYuleWalkerSink</span> <span class="kd">extends</span> <span class="nc">ARSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="tsyulewalker">TsYuleWalker</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsYuleWalker"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark based Yule Walker AR time series model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsYuleWalker</span> <span class="kd">extends</span> <span class="nc">ARCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
 
             </div>
           </div>
@@ -313,7 +479,18 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#tsarsink">TsARSink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsar">TsAR</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoarsink">TsAutoARSink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoar">TsAutoAR</a></li>
+<li class="toc-entry toc-h2"><a href="#tsdiffarsink">TsDiffARSink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsdiffar">TsDiffAR</a></li>
+<li class="toc-entry toc-h2"><a href="#tsyulewalkersink">TsYuleWalkerSink</a></li>
+<li class="toc-entry toc-h2"><a href="#tsyulewalker">TsYuleWalker</a></li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
+</ul>
             </div>
           </div>
 

@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -304,11 +300,28 @@
 
 <h2 id="objective">Objective</h2>
 
+<p>TBD</p>
+
 <h2 id="tsarmasink">TsARMASink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based ARMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARMASink</span> <span class="kd">extends</span> <span class="nc">ARMASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
 
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -331,9 +344,26 @@
 
 <h2 id="tsarma">TsARMA</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained ARMA model to look n steps in time ahead. "</span>
+		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
+		<span class="o">+</span> <span class="s">"points in time, and another the forecasted values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARMA</span> <span class="kd">extends</span> <span class="nc">ARMACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -360,9 +390,24 @@
 
 <h2 id="tsautoarmasink">TsAutoARMASink</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based AutoARMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARMASink</span> <span class="kd">extends</span> <span class="nc">ARMASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -385,9 +430,26 @@
 
 <h2 id="tsautoarma">TsAutoARMA</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained AutoARMA model to look n steps in time ahead. "</span>
+		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
+		<span class="o">+</span> <span class="s">"points in time, and another the forecasted values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARMA</span> <span class="kd">extends</span> <span class="nc">ARMACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -412,6 +474,10 @@
 
 </table>
 
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
+
             </div>
           </div>
         </div>
@@ -429,6 +495,7 @@
 <li class="toc-entry toc-h2"><a href="#tsarma">TsARMA</a></li>
 <li class="toc-entry toc-h2"><a href="#tsautoarmasink">TsAutoARMASink</a></li>
 <li class="toc-entry toc-h2"><a href="#tsautoarma">TsAutoARMA</a></li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
             </div>
           </div>

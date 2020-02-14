@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -300,17 +296,455 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="clustering">Clustering</h1>
+              <div class="page-title">Clustering</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
 
 <h2 id="bisecting-k-means">Bisecting K-Means</h2>
 
+<h3 id="bisectingkmeanssink">BisectingKMeansSink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"BisectingKMeansSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Bisecting K-Means "</span>
+    <span class="o">+</span> <span class="s">"clustering model. This stage expects a dataset with at least one "</span>
+    <span class="o">+</span> <span class="s">"feature field as an array of numeric values to train the model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BisectingKMeansSink</span> <span class="kd">extends</span> <span class="nc">ClusterSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    
+<tr>
+  <td>Model Name</td>
+  <td>The unique name of the clustering model.</td>
+</tr>
+
+<tr>
+  <td>Features Field</td>
+  <td>The name of the field in the input schema that contains the feature vector.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Clusters</td>
+  <td>
+  The desired number of leaf clusters. Must be &gt; 1. Default is 4.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the Bisecting K-Means model. Default is 20.
+  </td>
+</tr>
+
+
+<tr>
+  <td>Minimum Points</td>
+  <td>
+  The minimum number of points (if greater than or equal to 1.0) or the minimum proportion of points (if less than 1.0) of a divisible cluster. Default is 1.0.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="bisectingkmeanspredictor">BisectingKMeansPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"BisectingKMeansPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML "</span>
+    <span class="o">+</span> <span class="s">"Bisecting K-Means clustering model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BisectingKMeansPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the clustering model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
+
+</table>
+
 <h2 id="gaussian-mixture-model-gmm">Gaussian Mixture Model (GMM)</h2>
 
-<h2 id="latent-dirichlet-allocation-lda">Latent Dirichlet Allocation (LDA)</h2>
+<h3 id="gaussianmixturesink">GaussianMixtureSink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"GaussianMixtureSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Gaussian Mixture clustering "</span>
+    <span class="o">+</span> <span class="s">"model. This stage expects a dataset with at least one feature field as an "</span>
+    <span class="o">+</span> <span class="s">"array of numeric values to train the model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GaussianMixtureSink</span> <span class="kd">extends</span> <span class="nc">ClusterSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    
+<tr>
+  <td>Model Name</td>
+  <td>The unique name of the clustering model.</td>
+</tr>
+
+<tr>
+  <td>Features Field</td>
+  <td>The name of the field in the input schema that contains the feature vector.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Clusters</td>
+  <td>
+  The number of independent Gaussian distributions in the dataset. Must be &gt; 1. Default is 2.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the Gaussian Mixture model. Default is 100.
+  </td>
+</tr>
+
+<tr>
+  <td>Conversion Tolerance</td>
+  <td>
+  The positive convergence tolerance of iterations. Smaller values will lead to higher accuracy with the cost of more iterations. Default is 0.01.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="gaussianmixturepredictor">GaussianMixturePredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"GaussianMixturePredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Gaussian "</span>
+    <span class="o">+</span> <span class="s">"Mixture clustering model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GaussianMixturePredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the clustering model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
+
+    <tr>
+      <td>Probability Field</td>
+      <td>The name of the field in the output schema that contains the probability vector, i.e. the probability for each cluster.</td>
+    </tr>
+
+</table>
 
 <h2 id="k-means">K-Means</h2>
 
-<h1 id="evaluation">Evaluation</h1>
+<h3 id="kmeanssink">KMeansSink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"KMeansSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML K-Means clustering model. "</span>
+    <span class="o">+</span> <span class="s">"This stage expects a dataset with at least one feature field as an array "</span>
+    <span class="o">+</span> <span class="s">"of numeric values to train the model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KMeansSink</span> <span class="kd">extends</span> <span class="nc">ClusterSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    
+<tr>
+  <td>Model Name</td>
+  <td>The unique name of the clustering model.</td>
+</tr>
+
+<tr>
+  <td>Features Field</td>
+  <td>The name of the field in the input schema that contains the feature vector.</td>
+</tr>
+
+
+    
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Clusters</td>
+  <td>
+  The number of cluster that have to be created.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the K-Means model. Default is 20.
+  </td>
+</tr>
+
+<tr>
+  <td>Initialization Mode</td>
+  <td>
+  The initialization mode of the algorithm. This can be either 'random' to choose random random points as initial cluster center, 'parallel' to use the parallel variant of KMeans++. Default value: 'parallel'.
+  </td>
+</tr>
+
+<tr>
+  <td>Initialization Steps</td>
+  <td>
+  The number of steps for the initialization mode of the parallel KMeans algorithm. Default value: 2.
+  </td>
+</tr>
+
+<tr>
+  <td>Conversion Tolerance</td>
+  <td>
+  The positive convergence tolerance of iterations. Smaller values will lead to higher accuracy with the cost of more iterations. Default is 1e-4.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="kmeanspredictor">KMeansPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"KMeansPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML K-Means "</span>
+    <span class="o">+</span> <span class="s">"clustering model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KMeansPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the clustering model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
+
+</table>
+
+<h2 id="latent-dirichlet-allocation-lda">Latent Dirichlet Allocation (LDA)</h2>
+
+<h3 id="ldasink">LDASink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LDASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Latent Dirichlet Allocation (LDA) "</span>
+    <span class="o">+</span> <span class="s">"clustering model. This stage expects a dataset with at least one feature field as "</span>
+    <span class="o">+</span> <span class="s">"an array of numeric values to train the model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LDASink</span> <span class="kd">extends</span> <span class="nc">ClusterSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    
+<tr>
+  <td>Model Name</td>
+  <td>The unique name of the clustering model.</td>
+</tr>
+
+<tr>
+  <td>Features Field</td>
+  <td>The name of the field in the input schema that contains the feature vector.</td>
+</tr>
+
+
+    
+<tr>
+  <td>Data Split</td>
+  <td>
+  The split of the dataset into train &amp; test data, e.g. 80:20. Default is 90:10.
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2"><b>Model Configuration</b></td>
+</tr>
+
+<tr>
+  <td>Topics</td>
+  <td>
+  The number of topics that have to be created. Default is 10.
+  </td>
+</tr>
+
+<tr>
+  <td>Maximum Iterations</td>
+  <td>
+  The maximum number of iterations to train the LDA model. Default is 20.
+  </td>
+</tr>
+
+
+</table>
+
+<h3 id="ldapredictor">LDAPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LDAPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Latent Dirichlet "</span>
+    <span class="o">+</span> <span class="s">"Allocation (LDA) clustering model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LDAPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the clustering model that is used for predictions.</td>
+    </tr>
+
+    <tr>
+      <td>Features Field</td>
+      <td>The name of the field in the input schema that contains the feature vector.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted label.</td>
+    </tr>
+
+</table>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
 
             </div>
           </div>
@@ -323,7 +757,34 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#bisecting-k-means">Bisecting K-Means</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#bisectingkmeanssink">BisectingKMeansSink</a></li>
+<li class="toc-entry toc-h3"><a href="#bisectingkmeanspredictor">BisectingKMeansPredictor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#gaussian-mixture-model-gmm">Gaussian Mixture Model (GMM)</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#gaussianmixturesink">GaussianMixtureSink</a></li>
+<li class="toc-entry toc-h3"><a href="#gaussianmixturepredictor">GaussianMixturePredictor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#k-means">K-Means</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#kmeanssink">KMeansSink</a></li>
+<li class="toc-entry toc-h3"><a href="#kmeanspredictor">KMeansPredictor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#latent-dirichlet-allocation-lda">Latent Dirichlet Allocation (LDA)</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ldasink">LDASink</a></li>
+<li class="toc-entry toc-h3"><a href="#ldapredictor">LDAPredictor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
+</ul>
             </div>
           </div>
 

@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -300,7 +296,125 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="feature-engineering">Feature Engineering</h1>
+              <div class="page-title">Feature Engineering</div>
+
+<h2 id="feature-aggregation">Feature Aggregation</h2>
+
+<h3 id="vectorassembler">VectorAssembler</h3>
+
+<p>The VectorAssembler combines a given list of numerical feature columns into a single feature vector column.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"VectorAssembler"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML VectorAssembler "</span>
+    <span class="o">+</span> <span class="s">"to merge multiple numeric (or numeric vector) fields into a single feature vector."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VectorAssembler</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<h2 id="feature-transformation">Feature Transformation</h2>
+
+<h3 id="binarizer">Binarizer</h3>
+
+<p>The Binarizer transforms <em>numerical feature vectors</em> to binary (0 or 1) vectors by applying a value threshold. Values greater than the threshold are binarized to 1.0. Values equal to or less than the threshold are binarized to 0.0.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Binarizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML Binarizer "</span>
+    <span class="o">+</span> <span class="s">"to map continuous features onto binary values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Binarizer</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+</table>
+
+<p>+++</p>
+
+<h3 id="bucketedlshbuilder">BucketedLSHBuilder</h3>
+
+<h3 id="bucketedlsh">BucketedLSH</h3>
+
+<h3 id="bucketizer">Bucketizer</h3>
+
+<h3 id="chisquaredbuilder">ChiSquaredBuilder</h3>
+
+<h3 id="chsquaredselector">ChSquaredSelector</h3>
+
+<h3 id="countvecbuilder">CountVecBuilder</h3>
+
+<h3 id="countvec">CountVec</h3>
+
+<h3 id="dct">DCT</h3>
+
+<h3 id="hashingtf">HashingTF</h3>
+
+<h3 id="indextostring">IndexToString</h3>
+
+<h3 id="minlshbuilder">MinLSHBuilder</h3>
+
+<h3 id="minlsh">MinLSH</h3>
+
+<h3 id="ngram">NGram</h3>
+
+<h3 id="normalizer">Normalizer</h3>
+
+<h3 id="onehotencoder">OneHotEncoder</h3>
+
+<h3 id="pcabuilder">PCABuilder</h3>
+
+<h3 id="pca">PCA</h3>
+
+<h3 id="quantilediscretizer">QuantileDiscretizer</h3>
+
+<h3 id="scalerbuilder">ScalerBuilder</h3>
+
+<h3 id="scaler">Scaler</h3>
+
+<h3 id="stringindexerbuilder">StringIndexerBuilder</h3>
+
+<h3 id="stringindexer">StringIndexer</h3>
+
+<h3 id="stringtoindex">StringToIndex</h3>
+
+<h3 id="tfidfbuilder">TFIDFBuilder</h3>
+
+<h3 id="tfidf">TFIDF</h3>
+
+<h3 id="tokenizer">Tokenizer</h3>
+
+<h3 id="vectorindexerbuilder">VectorIndexerBuilder</h3>
+
+<h3 id="vectorindexer">VectorIndexer</h3>
+
+<h3 id="word2vecbuilder">Word2VecBuilder</h3>
+
+<h3 id="word2vec">Word2Vec</h3>
 
             </div>
           </div>
@@ -313,7 +427,48 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#feature-aggregation">Feature Aggregation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#vectorassembler">VectorAssembler</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#feature-transformation">Feature Transformation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#binarizer">Binarizer</a></li>
+<li class="toc-entry toc-h3"><a href="#bucketedlshbuilder">BucketedLSHBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#bucketedlsh">BucketedLSH</a></li>
+<li class="toc-entry toc-h3"><a href="#bucketizer">Bucketizer</a></li>
+<li class="toc-entry toc-h3"><a href="#chisquaredbuilder">ChiSquaredBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#chsquaredselector">ChSquaredSelector</a></li>
+<li class="toc-entry toc-h3"><a href="#countvecbuilder">CountVecBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#countvec">CountVec</a></li>
+<li class="toc-entry toc-h3"><a href="#dct">DCT</a></li>
+<li class="toc-entry toc-h3"><a href="#hashingtf">HashingTF</a></li>
+<li class="toc-entry toc-h3"><a href="#indextostring">IndexToString</a></li>
+<li class="toc-entry toc-h3"><a href="#minlshbuilder">MinLSHBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#minlsh">MinLSH</a></li>
+<li class="toc-entry toc-h3"><a href="#ngram">NGram</a></li>
+<li class="toc-entry toc-h3"><a href="#normalizer">Normalizer</a></li>
+<li class="toc-entry toc-h3"><a href="#onehotencoder">OneHotEncoder</a></li>
+<li class="toc-entry toc-h3"><a href="#pcabuilder">PCABuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#pca">PCA</a></li>
+<li class="toc-entry toc-h3"><a href="#quantilediscretizer">QuantileDiscretizer</a></li>
+<li class="toc-entry toc-h3"><a href="#scalerbuilder">ScalerBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#scaler">Scaler</a></li>
+<li class="toc-entry toc-h3"><a href="#stringindexerbuilder">StringIndexerBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#stringindexer">StringIndexer</a></li>
+<li class="toc-entry toc-h3"><a href="#stringtoindex">StringToIndex</a></li>
+<li class="toc-entry toc-h3"><a href="#tfidfbuilder">TFIDFBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#tfidf">TFIDF</a></li>
+<li class="toc-entry toc-h3"><a href="#tokenizer">Tokenizer</a></li>
+<li class="toc-entry toc-h3"><a href="#vectorindexerbuilder">VectorIndexerBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#vectorindexer">VectorIndexer</a></li>
+<li class="toc-entry toc-h3"><a href="#word2vecbuilder">Word2VecBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#word2vec">Word2Vec</a></li>
+</ul>
+</li>
+</ul>
             </div>
           </div>
 

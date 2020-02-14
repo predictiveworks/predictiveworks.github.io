@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -300,13 +296,46 @@
 
             </div>
             <div class="main-content-body">
-              <h1 id="recommendation">Recommendation</h1>
+              <div class="page-title">Recommendation</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>TBD</p>
 
 <h2 id="collaborative-filtering">Collaborative Filtering</h2>
 
-<h2 id="smart-adaptive-recommendations-sar">Smart Adaptive Recommendations (SAR)</h2>
+<h3 id="alssink">ALSSink</h3>
 
-<h1 id="evaluation">Evaluation</h1>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ALSSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Collaborative Filtering model. "</span>
+    <span class="o">+</span> <span class="s">"This technique is commonly used for recommender systems and aims to fill in the "</span>
+    <span class="o">+</span> <span class="s">"missing entries of a User-Item association matrix. "</span>
+    <span class="o">+</span> <span class="s">"Spark ML uses the ALS (Alternating Least Squares) algorithm."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ALSSink</span> <span class="kd">extends</span> <span class="nc">RecommenderSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="alspredictor">ALSPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ALSPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML ALS recommendation model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ALSPredictor</span> <span class="kd">extends</span> <span class="nc">RecommenderCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="smart-adaptive-recommendations">Smart Adaptive Recommendations</h2>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
 
             </div>
           </div>
@@ -319,7 +348,17 @@
               <i class="fa fa-bars"></i><span>Table of Content</span>
             </div>
             <div class="toc-body">
-              
+              <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#collaborative-filtering">Collaborative Filtering</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#alssink">ALSSink</a></li>
+<li class="toc-entry toc-h3"><a href="#alspredictor">ALSPredictor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#smart-adaptive-recommendations">Smart Adaptive Recommendations</a></li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
+</ul>
             </div>
           </div>
 

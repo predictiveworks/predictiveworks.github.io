@@ -131,10 +131,6 @@
         <div class="nav-article">Data Mining</div>
       </a>
 
-      <a href="/prediction.html">
-        <div class="nav-article">Prediction</div>
-      </a>
-
       <a href="/recommendation.html">
         <div class="nav-article">Recommendation</div>
       </a>
@@ -340,9 +336,24 @@
 
 <h2 id="tsarimasink">TsARIMASink</h2>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARIMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based ARIMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARIMASink</span> <span class="kd">extends</span> <span class="nc">ARIMASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -365,8 +376,7 @@
 
 <h2 id="tsarima">TsARIMA</h2>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARIMA"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained ARIMA model to look n steps in time ahead. "</span>
 		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
@@ -380,7 +390,12 @@
 
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -401,6 +416,46 @@
     <tr>
       <td>Time Steps</td>
       <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
+
+<h2 id="tsautoarimasink">TsAutoARIMASink</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARIMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based AutoARIMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARIMASink</span> <span class="kd">extends</span> <span class="nc">ARIMASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    
+<tr>
+  <td>Time Field</td>
+  <td>The name of the field in the input schema that contains the time value.</td>
+</tr>
+
+<tr>
+  <td>Value Field</td>
+  <td>The name of the field in the input schema that contains the value.</td>
+</tr>
+
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
     </tr>
 
 </table>
@@ -421,32 +476,12 @@
 
 <p><b>Parameters</b></p>
 
-<table width="100%">
+<table class="params" width="100%">
 
-    
-<tr>
-  <td>Time Field</td>
-  <td>The name of the field in the input schema that contains the time value.</td>
-</tr>
-
-<tr>
-  <td>Value Field</td>
-  <td>The name of the field in the input schema that contains the value.</td>
-</tr>
-
-
-    <tr>
-      <td>Model Name</td>
-      <td>The unique name of the ARIMA model.</td>
-    </tr>
-
-</table>
-
-<h2 id="tsautoarima-1">TsAutoARIMA</h2>
-
-<p><b>Parameters</b></p>
-
-<table width="100%">
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
     
 <tr>
@@ -471,6 +506,10 @@
 
 </table>
 
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
+
             </div>
           </div>
         </div>
@@ -486,8 +525,9 @@
 <li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#tsarimasink">TsARIMASink</a></li>
 <li class="toc-entry toc-h2"><a href="#tsarima">TsARIMA</a></li>
+<li class="toc-entry toc-h2"><a href="#tsautoarimasink">TsAutoARIMASink</a></li>
 <li class="toc-entry toc-h2"><a href="#tsautoarima">TsAutoARIMA</a></li>
-<li class="toc-entry toc-h2"><a href="#tsautoarima-1">TsAutoARIMA</a></li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
             </div>
           </div>
