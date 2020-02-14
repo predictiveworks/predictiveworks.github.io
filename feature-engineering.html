@@ -324,7 +324,381 @@
       <col width="80%" />
     </colgroup>
 
+    <tr>
+      <td>Input Fields</td>
+      <td>
+      The comma-separated list of numeric (or numeric vector) fields that have to be be assembled.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
 </table>
+
+<h2 id="feature-hashing">Feature Hashing</h2>
+
+<h3 id="bucketedlshbuilder">BucketedLSHBuilder</h3>
+
+<h3 id="bucketedlsh">BucketedLSH</h3>
+
+<h3 id="hashingtf">HashingTF</h3>
+
+<h3 id="minlshbuilder">MinLSHBuilder</h3>
+
+<h3 id="minlsh">MinLSH</h3>
+
+<h2 id="feature-indexing">Feature Indexing</h2>
+
+<h3 id="stringindexerbuilder">StringIndexerBuilder</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"StringIndexerBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML StringIndexer model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringIndexerBuilder</span> <span class="kd">extends</span> <span class="nc">FeatureSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features to build the model from.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="indextostring">IndexToString</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"IndexToString"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML IndexToString transformer. "</span>
+		<span class="o">+</span> <span class="s">"This stage requires a trained StringIndexer model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IndexToString</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="stringtoindex">StringToIndex</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"StringToIndex"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML StringIndexer. "</span>
+    <span class="o">+</span> <span class="s">"This stage requires a trained StringIndexer model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringToIndex</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="vectorindexerbuilder">VectorIndexerBuilder</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"VectorIndexerBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML VectorIndexer model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VectorIndexerBuilder</span> <span class="kd">extends</span> <span class="nc">FeatureSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features to build the model from.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Maximum Categories</td>
+      <td>
+      The threshold for the number of values a categorical feature can take. If a feature is found to have more category values than this threshold, then it is declared continuous. Must be greater than or equal to 2. Default is 20.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="vectorindexer">VectorIndexer</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"VectorIndexer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML VectorIndexer to "</span>
+    <span class="o">+</span> <span class="s">"decide which features are categorical and converts the original values into category "</span>
+    <span class="o">+</span> <span class="s">"indices. This stage requires a trained VectorIndexer model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VectorIndexer</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="feature-reduction">Feature Reduction</h2>
+
+<h3 id="pcabuilder">PCABuilder</h3>
+
+<h3 id="pca">PCA</h3>
+
+<h2 id="feature-scaling">Feature Scaling</h2>
+
+<h3 id="scalerbuilder">ScalerBuilder</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ScalerBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML feature scaling model. Supported models "</span>
+    <span class="o">+</span> <span class="s">"are Min-Max, Max-Abs and Standard Scaler."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ScalerBuilder</span> <span class="kd">extends</span> <span class="nc">FeatureSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Model Type</td>
+      <td>The type of the scaler model. Supported values are 'maxabs', 'minmax' and 'standard'. Default is 'standard'.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features to build the model from.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Lower Bound</td>
+      <td>
+      The lower bound of the feature range after transformation. This parameter is restricted to the model type 'minmax'. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Upper Bound</td>
+      <td>
+      The upper bound of the feature range after transformation. This parameter is restricted to the model type 'minmax'. Default is 1.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>With Mean</td>
+      <td>
+      Indicator to determine whether to center the data with mean before scaling. This parameter applies to the model type 'standard'. Default is 'false'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>With Std</td>
+      <td>
+      Indicator to determine whether to scale the data to unit standard deviation. This parameter applies to the model type 'standard'. Default is 'true'.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="scaler">Scaler</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Scaler"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained Scaler model to project feature "</span>
+    <span class="o">+</span> <span class="s">"vectors onto scaled vectors. Supported models are 'Max-Abs', 'Min-Max' and 'Standard'."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Scaler</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the feature model.</td>
+    </tr>
+
+    <tr>
+      <td>Model Type</td>
+      <td>The type of the scaler model. Supported values are 'maxabs', 'minmax' and 'standard'. Default is 'standard'.</td>
+    </tr>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="feature-selection">Feature Selection</h2>
+
+<h3 id="chisquaredbuilder">ChiSquaredBuilder</h3>
+
+<h3 id="chisquaredselector">ChiSquaredSelector</h3>
 
 <h2 id="feature-transformation">Feature Transformation</h2>
 
@@ -352,65 +726,239 @@
       <col width="80%" />
     </colgroup>
 
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Threshold</td>
+      <td>
+        The nonnegative threshold used to binarize continuous features. The features greater than the threshold, will be binarized to 1.0. The features equal to or less than the threshold, will be binarized to 0.0. Default is 0.0.
+      </td>
+    </tr>
+
 </table>
-
-<p>+++</p>
-
-<h3 id="bucketedlshbuilder">BucketedLSHBuilder</h3>
-
-<h3 id="bucketedlsh">BucketedLSH</h3>
 
 <h3 id="bucketizer">Bucketizer</h3>
 
-<h3 id="chisquaredbuilder">ChiSquaredBuilder</h3>
+<h3 id="dct">DCT</h3>
 
-<h3 id="chsquaredselector">ChSquaredSelector</h3>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DCT"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML Discrete "</span>
+    <span class="o">+</span> <span class="s">"Cosine Tranform to map a feature vector in the time domain into a feature "</span>
+    <span class="o">+</span> <span class="s">"vector in the frequency domain."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DCT</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Inverse</td>
+      <td>
+      An indicator to determine whether to perform the inverse DCT (true) or forward DCT (false). Default is 'false'.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="ngram">NGram</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NGram"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages Apache Spark ML N-Gram "</span>
+    <span class="o">+</span> <span class="s">"transformer to convert the input array of string into an array of n-grams."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NGram</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>N-gram Length</td>
+      <td>
+      Minimum n-gram length, greater than or equal to 1. Default is 2.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="normalizer">Normalizer</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Normalizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage to normalize a feature vector to have unit "</span>
+    <span class="o">+</span> <span class="s">"norm using the given p-norm."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Normalizer</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>P-Norm</td>
+      <td>
+      The p-norm to use for normalization. Supported values are '1' and '2'. Default is 2.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="onehotencoder">OneHotEncoder</h3>
+
+<h3 id="quantilediscretizer">QuantileDiscretizer</h3>
+
+<h3 id="tokenizer">Tokenizer</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Tokenizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark Regex "</span>
+    <span class="o">+</span> <span class="s">"ML Tokenizer to split an input text into a sequence of tokens."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Tokenizer</span> <span class="kd">extends</span> <span class="nc">FeatureCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Input Field</td>
+      <td>
+      The name of the field in the input schema that contains the features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the transformed features.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Regex Pattern</td>
+      <td>
+      The regex pattern used to split the input text. The pattern is used to match delimiters, if 'gaps' = true or tokens if 'gaps' = false: Default is '\\s+'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Token Length</td>
+      <td>
+      Minimum token length, greater than or equal to 0,  to avoid returning empty strings. Default is 1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Gaps</td>
+      <td>
+      Indicator to determine whether regex splits on gaps (true) or matches tokens (false). Default is 'true'.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="text-vectorization">Text Vectorization</h2>
 
 <h3 id="countvecbuilder">CountVecBuilder</h3>
 
 <h3 id="countvec">CountVec</h3>
 
-<h3 id="dct">DCT</h3>
-
-<h3 id="hashingtf">HashingTF</h3>
-
-<h3 id="indextostring">IndexToString</h3>
-
-<h3 id="minlshbuilder">MinLSHBuilder</h3>
-
-<h3 id="minlsh">MinLSH</h3>
-
-<h3 id="ngram">NGram</h3>
-
-<h3 id="normalizer">Normalizer</h3>
-
-<h3 id="onehotencoder">OneHotEncoder</h3>
-
-<h3 id="pcabuilder">PCABuilder</h3>
-
-<h3 id="pca">PCA</h3>
-
-<h3 id="quantilediscretizer">QuantileDiscretizer</h3>
-
-<h3 id="scalerbuilder">ScalerBuilder</h3>
-
-<h3 id="scaler">Scaler</h3>
-
-<h3 id="stringindexerbuilder">StringIndexerBuilder</h3>
-
-<h3 id="stringindexer">StringIndexer</h3>
-
-<h3 id="stringtoindex">StringToIndex</h3>
-
 <h3 id="tfidfbuilder">TFIDFBuilder</h3>
 
 <h3 id="tfidf">TFIDF</h3>
-
-<h3 id="tokenizer">Tokenizer</h3>
-
-<h3 id="vectorindexerbuilder">VectorIndexerBuilder</h3>
-
-<h3 id="vectorindexer">VectorIndexer</h3>
 
 <h3 id="word2vecbuilder">Word2VecBuilder</h3>
 
@@ -433,37 +981,60 @@
 <li class="toc-entry toc-h3"><a href="#vectorassembler">VectorAssembler</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#feature-hashing">Feature Hashing</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#bucketedlshbuilder">BucketedLSHBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#bucketedlsh">BucketedLSH</a></li>
+<li class="toc-entry toc-h3"><a href="#hashingtf">HashingTF</a></li>
+<li class="toc-entry toc-h3"><a href="#minlshbuilder">MinLSHBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#minlsh">MinLSH</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#feature-indexing">Feature Indexing</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#stringindexerbuilder">StringIndexerBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#indextostring">IndexToString</a></li>
+<li class="toc-entry toc-h3"><a href="#stringtoindex">StringToIndex</a></li>
+<li class="toc-entry toc-h3"><a href="#vectorindexerbuilder">VectorIndexerBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#vectorindexer">VectorIndexer</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#feature-reduction">Feature Reduction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#pcabuilder">PCABuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#pca">PCA</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#feature-scaling">Feature Scaling</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#scalerbuilder">ScalerBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#scaler">Scaler</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#feature-selection">Feature Selection</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#chisquaredbuilder">ChiSquaredBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#chisquaredselector">ChiSquaredSelector</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#feature-transformation">Feature Transformation</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#binarizer">Binarizer</a></li>
-<li class="toc-entry toc-h3"><a href="#bucketedlshbuilder">BucketedLSHBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#bucketedlsh">BucketedLSH</a></li>
 <li class="toc-entry toc-h3"><a href="#bucketizer">Bucketizer</a></li>
-<li class="toc-entry toc-h3"><a href="#chisquaredbuilder">ChiSquaredBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#chsquaredselector">ChSquaredSelector</a></li>
-<li class="toc-entry toc-h3"><a href="#countvecbuilder">CountVecBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#countvec">CountVec</a></li>
 <li class="toc-entry toc-h3"><a href="#dct">DCT</a></li>
-<li class="toc-entry toc-h3"><a href="#hashingtf">HashingTF</a></li>
-<li class="toc-entry toc-h3"><a href="#indextostring">IndexToString</a></li>
-<li class="toc-entry toc-h3"><a href="#minlshbuilder">MinLSHBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#minlsh">MinLSH</a></li>
 <li class="toc-entry toc-h3"><a href="#ngram">NGram</a></li>
 <li class="toc-entry toc-h3"><a href="#normalizer">Normalizer</a></li>
 <li class="toc-entry toc-h3"><a href="#onehotencoder">OneHotEncoder</a></li>
-<li class="toc-entry toc-h3"><a href="#pcabuilder">PCABuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#pca">PCA</a></li>
 <li class="toc-entry toc-h3"><a href="#quantilediscretizer">QuantileDiscretizer</a></li>
-<li class="toc-entry toc-h3"><a href="#scalerbuilder">ScalerBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#scaler">Scaler</a></li>
-<li class="toc-entry toc-h3"><a href="#stringindexerbuilder">StringIndexerBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#stringindexer">StringIndexer</a></li>
-<li class="toc-entry toc-h3"><a href="#stringtoindex">StringToIndex</a></li>
+<li class="toc-entry toc-h3"><a href="#tokenizer">Tokenizer</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#text-vectorization">Text Vectorization</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#countvecbuilder">CountVecBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#countvec">CountVec</a></li>
 <li class="toc-entry toc-h3"><a href="#tfidfbuilder">TFIDFBuilder</a></li>
 <li class="toc-entry toc-h3"><a href="#tfidf">TFIDF</a></li>
-<li class="toc-entry toc-h3"><a href="#tokenizer">Tokenizer</a></li>
-<li class="toc-entry toc-h3"><a href="#vectorindexerbuilder">VectorIndexerBuilder</a></li>
-<li class="toc-entry toc-h3"><a href="#vectorindexer">VectorIndexer</a></li>
 <li class="toc-entry toc-h3"><a href="#word2vecbuilder">Word2VecBuilder</a></li>
 <li class="toc-entry toc-h3"><a href="#word2vec">Word2Vec</a></li>
 </ul>
