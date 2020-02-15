@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,8 +284,11 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <div class="page-title">Seasonal and Trend decomposition using Loess</div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">Seasonal and Trend decomposition using Loess</div>
 
 <h2 id="objective">Objective</h2>
 
@@ -307,9 +299,9 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"TsSTL"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A time series transformation stage to decompose each time signal into seasonality, "</span>
-		<span class="o">+</span> <span class="s">"trend and remainder component leveraging an STL algorithm (Seasonal and Trend decomposition "</span>
-    <span class="o">+</span> <span class="s">"using Loess). This transformation stage adds 'seasonal', 'trend' and 'remainder' fields to "</span>
-    <span class="o">+</span> <span class="s">"the each time record."</span><span class="o">)</span>
+	<span class="o">+</span> <span class="s">"trend and remainder component leveraging an STL algorithm (Seasonal and Trend decomposition "</span>
+	<span class="o">+</span> <span class="s">"using Loess). This transformation stage adds 'seasonal', 'trend' and 'remainder' fields to "</span>
+	<span class="o">+</span> <span class="s">"the each time record."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsSTL</span> <span class="kd">extends</span> <span class="nc">STLCompute</span> <span class="o">{</span>
 
     <span class="o">...</span>
@@ -326,6 +318,72 @@
       <col width="80%" />
     </colgroup>
 
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Group Field</td>
+      <td>The name of the field in the input schema that specifies data groups.</td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Algorithm Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Outer Iterations</td>
+      <td>
+        The positive number of cycles through the outer loop. More cycles here reduce
+        the affect of outliers. For most situations this can be quite small. Default is 1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Inner Iterations</td>
+      <td>
+        The positive number of cycles through the inner loop. Number of cycles should
+        be large enough to reach convergence,  which is typically only two or three.
+        When multiple outer cycles, the number of inner cycles can be smaller as they
+        do not necessarily help get overall convergence. Default value is 2.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Periodicity</td>
+      <td>
+    		The periodicity of the seasonality; should be equal to lag of the autocorrelation
+        function with the highest (positive) correlation.        
+      </td>
+    </tr>
+
+    <tr>
+      <td>Seasonal Smoother</td>
+      <td>
+        The length of the seasonal LOESS smoother.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Trend Smoother</td>
+      <td>
+        The length of the trend LOESS smoother.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Level Smoother</td>
+      <td>
+        The length of the level LOESS smoother.
+      </td>
+    </tr>
+
 </table>
 
 <h2 id="tsautostl">TsAutoSTL</h2>
@@ -333,10 +391,10 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoSTL"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A time series transformation stage to decompose each time signal into seasonality, "</span>
-		<span class="o">+</span> <span class="s">"trend and remainder component leveraging an STL algorithm (Seasonal and Trend decomposition "</span>
-    <span class="o">+</span> <span class="s">"using Loess). The periodicity required for the SL algorithm is determined automatically "</span>
-    <span class="o">+</span> <span class="s">"through an embedded ACF. This transformation stage adds 'seasonal', 'trend' and 'remainder' "</span>
-    <span class="o">+</span> <span class="s">"fields to the each time record."</span><span class="o">)</span>
+	<span class="o">+</span> <span class="s">"trend and remainder component leveraging an STL algorithm (Seasonal and Trend decomposition "</span>
+	<span class="o">+</span> <span class="s">"using Loess). The periodicity required for the SL algorithm is determined automatically "</span>
+	<span class="o">+</span> <span class="s">"through an embedded ACF. This transformation stage adds 'seasonal', 'trend' and 'remainder' "</span>
+	<span class="o">+</span> <span class="s">"fields to the each time record."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoSTL</span> <span class="kd">extends</span> <span class="nc">STLCompute</span> <span class="o">{</span>
 
     <span class="o">...</span>
@@ -353,31 +411,113 @@
       <col width="80%" />
     </colgroup>
 
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Group Field</td>
+      <td>The name of the field in the input schema that specifies data groups.</td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Algorithm Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Outer Iterations</td>
+      <td>
+        The positive number of cycles through the outer loop. More cycles here reduce
+        the affect of outliers. For most situations this can be quite small. Default is 1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Inner Iterations</td>
+      <td>
+        The positive number of cycles through the inner loop. Number of cycles should
+        be large enough to reach convergence,  which is typically only two or three.
+        When multiple outer cycles, the number of inner cycles can be smaller as they
+        do not necessarily help get overall convergence. Default value is 2.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Seasonal Smoother</td>
+      <td>
+        The length of the seasonal LOESS smoother.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Trend Smoother</td>
+      <td>
+        The length of the trend LOESS smoother.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Level Smoother</td>
+      <td>
+        The length of the level LOESS smoother.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Lag</td>
+      <td>
+        The maximum lag value. Use this parameter if the ACF is based on a range of lags. Default is 1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Discrete Lags</td>
+      <td>
+        The comma-separated sequence of lag value. Use this parameter if the ACF should be based on
+        discrete values. This sequence is empty by default.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Correlation Threshold</td>
+      <td>
+        The threshold used to determine the lag value with the highest correlation score. Default is 0.95.
+      </td>
+    </tr>
+
 </table>
+
 
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
-            </div>
-            <div class="toc-body">
-              <ul class="section-nav">
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#tsstl">TsSTL</a></li>
 <li class="toc-entry toc-h2"><a href="#tsautostl">TsAutoSTL</a></li>
 </ul>
+              </div>
             </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -389,5 +529,7 @@
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>

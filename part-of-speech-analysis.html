@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>What others do</title>
+    <title>Part of Speech</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/syntax.css">
@@ -41,7 +41,7 @@
             <li class="active">
               
               <i class="fa fa-chevron-right fa-icon"></i>
-              what others do
+              part of speech analysis
               
             </li>
           
@@ -288,77 +288,201 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h1 id="what-others-do">What others do</h1>
+                <div class="page-title">Part of Speech Analysis</div>
 
-<p>Key to successfully transforming into a data-driven enterprise is modern data analytics with all its flavors and facets.</p>
+<h2 id="objective">Objective</h2>
 
-<blockquote>
-<p>
-There is no doubt that daily business decisions have to be supported by insights and foresights extracted from facts and observations continuously delivered by stakeholders and business environment.   
-</p>
-</blockquote>
+<p>Part of Speech Analysis is the automated process to associate each word in a sentence with its part of
+speech tag, e.g. noun, verb, adjective, adverbs. These tags define the usage and function of a word in
+the sentence.</p>
 
-<p>While some companies are still on the threshold of introducing modern analytics, others have already learned that its corporate adoption is accompanied by many barriers and challenges.</p>
+<p>Part of Speech Analysis can be used to learn (and preserve) different contexts of a certain word (other
+than pure bag of word models), e.g. <em>book as noun</em> and <em>book as verb</em>. This helps to build stronger word
+features.</p>
 
-<p>Building big data infrastructures on your own is costly, time-intensive and often runs the risk to fail. Highly qualified data experts and scientists are in short supply and are often only available to large-scale enterprises.</p>
+<h2 id="chunking">Chunking</h2>
 
-<blockquote>
-<p>
-The demand for a reducing in the complexity of modern analytics in all its flavors and facets is therefore becoming increasingly important.  
-</p>
-</blockquote>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sample: ["(?:&lt;JJ|DT&gt;)(?:&lt;NN|VBG&gt;)+"]
+</code></pre></div></div>
 
-<p>Predictive<span class="brand-teal">Works.</span> was made to respond to this demand, offering</p>
+<h3 id="poschunker">POSChunker</h3>
 
-<ul>
-  <li>
-    <p>Pluggable data pipelines with reusable components that can be visually orchestrated by business users instead of implementing proprietary applications by data experts and scientists.</p>
-  </li>
-  <li>
-    <p>Templated (pre-built) and configurable pipelines made to cover the overwhelming part of common use cases.</p>
-  </li>
-  <li>
-    <p>Easy to implement pipeline plugins for highly specialized use cases.</p>
-  </li>
-  <li>
-    <p>Easy-to-use pipeline knowledge system (market place) as pipelines describe what enterprises do with their data and are considered a tremendous treasure of business knowledge.</p>
-  </li>
-  <li>
-    <p>Cross-business template sharing to immediately benefit from pipeline templates other community members have built.</p>
-  </li>
-</ul>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"POSChunker"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that extracts meaningful phrases from text documents. "</span>
+  <span class="o">+</span> <span class="s">"Phrase extraction is based on patterns of part-of-speech tags. This stage requires a "</span>
+  <span class="o">+</span> <span class="s">"trained Part-of-Speech model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">POSChunker</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
 
-<p>This is the Predictive<span class="brand-teal">Works.</span> approach to make modern analytics actionable for enterprises at any scale.</p>
+    <span class="o">...</span>
 
-<p>Predictive<span class="brand-teal">Works.</span> is not the world’s only initiative to respond to the above specified business demand.</p>
+<span class="o">}</span>
+</code></pre></div></div>
 
-<p>Few other approaches exist and are listed below. So companies who are interested to overcome all the barriers and challenges of modern analytics can decide by their own which approach fits best.</p>
+<p><b>Parameters</b></p>
 
-<h1 id="endor-predictions-as-a-service"><a href="https://endor.com">Endor</a>: Predictions as a Service</h1>
+<table class="params" width="100%">
 
-<p>Endor offers an easy-to-use cloud platform and allows <em>business users</em> to ask any predictive question and receive fast, accurate results to anticipate your customers’ evolving needs and next steps.</p>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
 
-<blockquote>
-<p>
-This company invented "the Google for predictive analytics."
-</p>
-</blockquote>
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Part of Speech model.
+      </td>
+    </tr>
 
-<p>Business users can upload their data and ask predictive business question the same we they use Google to search for content of interest.</p>
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
 
-<p>Predictive<span class="brand-teal">Works.</span> share the same objective to <em>make predictive analytics actionable for everyone</em>. The way how to approach this goal is completely different.</p>
+    <tr>
+      <td>Chunk Field</td>
+      <td>
+        The name of the field in the output schema that contains the extracted chunks.
+      </td>
+    </tr>
 
-<p>Endor intends to make predictive analytics as easy as possible (following the Google search paradigm) for business users. As a consequence, this predictions as a service approach represents itself as a <strong>block box</strong> where users have no chance to understand why the given answer fits the associated question.</p>
+    <tr>
+      <td>Topics</td>
+      <td>
+        The number of topics that have to be created. Default is 10.
+      </td>
+    </tr>
 
-<blockquote>
-<p>
-Predictive<span class="brand-teal">Works.</span> has a strong focus on transparent data pipelines and aims to become the "Amazon for Pluggable Analytics".
-</p>
-</blockquote>
+    <tr>
+      <td>Regex Rules</td>
+      <td>
+        A delimiter separated list of chunking rules.
+      </td>
+    </tr>
 
-<p>Business users understand which business case (predictive question) is solved by which data pipelines and which plugins.</p>
+    <tr>
+      <td>Rule Delimiter</td>
+      <td>
+        The delimiter used to separate the different chunking rules.
+      </td>
+    </tr>
 
-<h1 id="streamsets"><a href="https://streamsets.com">StreamSets</a></h1>
+</table>
+
+<h2 id="tagging">Tagging</h2>
+
+<h3 id="corpus">Corpus</h3>
+
+<p>The provided corpus must be organized as sentence-per-line with the following format:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>We|PRP want|VBP you|PRP to|TO Know|VBP why|WRB your|PRP$ support|NN of|IN Goodwill|NNP is|VBZ so|RB important|JJ .|.
+</code></pre></div></div>
+
+<h3 id="posbuilder">POSBuilder</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"POSBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Part of Speech model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">POSBuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Part of Speech model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Corpus Field</td>
+      <td>
+        Name of the input text field that contains the annotated sentences for training purpose."
+      </td>
+    </tr>
+
+    <tr>
+      <td>Delimiter</td>
+      <td>
+        The delimiter in the input text line to separate tokens and POS tags. Default is '|'.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Maximum Iterations</td>
+      <td>
+        The (maximum) number of iterations the algorithm has to execute. Default value: 5.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="postagger">POSTagger</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"POSTagger"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that requires a trained Part-of-Speech model. This stage appends "</span>
+		<span class="o">+</span> <span class="s">"two fields to the input schema, one that contains the extracted terms per document, and "</span>
+		<span class="o">+</span> <span class="s">"another that contains their POS tags."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">POSTagger</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Part of Speech model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Output Field</td>
+      <td>
+      The name of the field in the output schema that contains the mixin of
+      extracted tokens and predicted POS tags.
+      </td>
+    </tr>
+
+</table>
+
 
             </div>
           </div>
@@ -371,7 +495,21 @@ Predictive<span class="brand-teal">Works.</span> has a strong focus on transpare
                 <i class="fa fa-bars"></i><span>Table of Content</span>
               </div>
               <div class="toc-body">
-                
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#chunking">Chunking</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#poschunker">POSChunker</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#tagging">Tagging</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#corpus">Corpus</a></li>
+<li class="toc-entry toc-h3"><a href="#posbuilder">POSBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#postagger">POSTagger</a></li>
+</ul>
+</li>
+</ul>
               </div>
             </div>
 

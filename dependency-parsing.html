@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,28 +284,41 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <h1 id="dependency-parsing">Dependency Parsing</h1>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h1 id="dependency-parsing">Dependency Parsing</h1>
+
+<p>3.1 Syntactic Parsing
+Syntactical parsing invol ves the analysis of words in the sentence for grammar and their arrangement in a manner that shows the relationships among the words. Dependency Grammar and Part of Speech tags are the important attributes of text syntactics.</p>
+
+<p>Dependency Trees – Sentences are composed of some words sewed together. The relationship among the words in a sentence is determined by the basic dependency grammar. Dependency grammar is a class of syntactic text analysis that deals with (labeled) asymmetrical binary relations between two lexical items (words). Every relation can be represented in the form of a triplet (relation, governor, dependent). For example: consider the sentence – “Bills on ports and immigration were submitted by Senator Brownback, Republican of Kansas.” The relationship among the words can be observed in the form of a tree representation as shown:</p>
+
+<p>The tree shows that “submitted” is the root word of this sentence, and is linked by two sub-trees (subject and object subtrees). Each subtree is a itself a dependency tree with relations such as – (“Bills” &lt;-&gt; “ports” <by> “proposition” relation), (“ports” &lt;-&gt; “immigration” <by> “conjugation” relation).</by></by></p>
+
+<p>This type of tree, when parsed recursively in top-down manner gives grammar relation triplets as output which can be used as features for many nlp problems like entity wise sentiment analysis, actor &amp; entity identification, and text classification. The python wrapper StanfordCoreNLP (by Stanford NLP Group, only commercial license) and NLTK dependency grammars can be used to generate dependency trees.</p>
 
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                
+              </div>
             </div>
-            <div class="toc-body">
-              
-            </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -328,5 +330,7 @@
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>

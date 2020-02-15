@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,8 +284,11 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <div class="page-title">Recommendation</div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">Recommendation</div>
 
 <h2 id="objective">Objective</h2>
 
@@ -319,6 +311,110 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the recommendation model.</td>
+    </tr>
+
+    <tr>
+      <td>User Field</td>
+      <td>
+      The name of the input field that defines the user identifiers. The values must be within the integer value range.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Item Field</td>
+      <td>
+      The name of the input field that defines the item identifiers. The values must be within the integer value range.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Rating Field</td>
+      <td>
+      The name of the input field that defines the item ratings. The values must be within the integer value range.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Data Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Default is 70:30.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Factorization Rank</td>
+      <td>
+      A positive number that defines the rank of the matrix factorization. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Nonnegative Constraints</td>
+      <td>
+      The indicator to determine whether to apply nonnegativity constraints for least squares. Support values are 'true' and 'false'. Default is 'false'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Iterations</td>
+      <td>
+      The maximum number of iterations to train the ALS model. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Regularization Parameter</td>
+      <td>
+      The nonnegative regularization parameter. Default is 0.1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>User Blocks</td>
+      <td>
+      The number of user blocks. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Item Blocks</td>
+      <td>
+      The number of item blocks. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Implicit Preference</td>
+      <td>
+      The indicator to determine whether to use implicit preference. Support values are 'true' and 'false'. Default is 'false'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Alpha Parameter</td>
+      <td>
+      The nonnegative alpha parameter in the implicit preference formulation. Default is 1.0.
+      </td>
+    </tr>
+
+</table>
+
 <h3 id="alspredictor">ALSPredictor</h3>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
@@ -331,7 +427,46 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the recommendation model.</td>
+    </tr>
+
+    <tr>
+      <td>User Field</td>
+      <td>
+      The name of the input field that defines the user identifiers. The values must be within the integer value range.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Item Field</td>
+      <td>
+      The name of the input field that defines the item identifiers. The values must be within the integer value range.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>
+        The name of the field in the output schema that contains the predicted rating.
+      </td>
+    </tr>
+
+</table>
+
 <h2 id="smart-adaptive-recommendations">Smart Adaptive Recommendations</h2>
+
+<p>TBD</p>
 
 <h2 id="evaluation">Evaluation</h2>
 
@@ -339,16 +474,16 @@
 
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
-            </div>
-            <div class="toc-body">
-              <ul class="section-nav">
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#collaborative-filtering">Collaborative Filtering</a>
 <ul>
@@ -359,13 +494,14 @@
 <li class="toc-entry toc-h2"><a href="#smart-adaptive-recommendations">Smart Adaptive Recommendations</a></li>
 <li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
+              </div>
             </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -377,5 +513,7 @@
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>

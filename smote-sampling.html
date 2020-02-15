@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,8 +284,13 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <h1 id="smote-sampling">SMOTE Sampling</h1>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">SMOTE Sampling</div>
+
+<h2 id="objective">Objective</h2>
 
 <p>In machine learning, <em>imbalanced</em> datasets are no surprise. If the datasets intended for classification problems or other problems related to discrete predictive analytics have an unequal number of samples for different classes, then those datasets are said to be imbalanced.</p>
 
@@ -318,25 +312,95 @@ Apache Spark ML does not support SMOTE out of the box.
 
 <p>The SMOTE algorithm is implemented as an Apache Spark ML Transformer and also made available as a plugin component for CDAP data pipelines.</p>
 
+<h2 id="smotesampler">SMOTESampler</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"SMOTESampler"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A preparation stage for either building Apache Spark based classification or "</span>
+    <span class="o">+</span> <span class="s">"regression models. This stage leverages the SMOTE algorithm to extends a training "</span>
+    <span class="o">+</span> <span class="s">"dataset containing features &amp; labels with synthetic data records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SMOTESampler</span> <span class="kd">extends</span> <span class="nc">SMOTECompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Features Field</td>
+      <td>
+      The name of the field in the input schema that contains the feature vector.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Label Field</td>
+      <td>
+      The name of the field in the input schema that contains the label.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Number of Hash Tables</td>
+      <td>
+      The number of hash tables used in LSH OR-amplification. LSH OR-amplification can be used to reduce the false negative rate. Higher values for this parameter lead to a reduced false negative rate, at the expense of added computational complexity. Default is 1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Bucket Length</td>
+      <td>
+      The length of each hash bucket, a larger bucket lowers the false negative rate. The number of buckets will be (max L2 norm of input vectors) / bucketLength.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Nearest Neighbors</td>
+      <td>
+      The number of nearest neighbors that are taken into account by the SMOTE algorithm to interpolate synthetic feature values. Default is 4.
+      </td>
+    </tr>
+
+</table>
+
+
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#smotesampler">SMOTESampler</a></li>
+</ul>
+              </div>
             </div>
-            <div class="toc-body">
-              
-            </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -348,5 +412,7 @@ Apache Spark ML does not support SMOTE out of the box.
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>

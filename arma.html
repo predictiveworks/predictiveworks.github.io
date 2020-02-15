@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,8 +284,11 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <div class="page-title">ARMA</div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">ARMA</div>
 
 <h2 id="objective">Objective</h2>
 
@@ -323,21 +315,87 @@
       <col width="80%" />
     </colgroup>
 
-    
-<tr>
-  <td>Time Field</td>
-  <td>The name of the field in the input schema that contains the time value.</td>
-</tr>
-
-<tr>
-  <td>Value Field</td>
-  <td>The name of the field in the input schema that contains the value.</td>
-</tr>
-
-
     <tr>
       <td>Model Name</td>
       <td>The unique name of the ARMA model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Note, this is a split time
+      and is computed from the total time span (min, max) of the time series. Default is 70:30."
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <!-- arma -->
+    <tr>
+      <td>Lag Order</td>
+      <td>
+        The positive number of lag observations included in the time series model (also called the lag order).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Moving Average Order</td>
+      <td>
+        A positive number that specifies the size of the moving average window (also called the order of moving average).
+      </td>
+    </tr>
+
+    <!-- regression -->
+
+    <tr>
+      <td>ElasticNet Mixing</td>
+      <td>
+      	The ElasticNet mxing parameter. For value = 0.0, the penalty is an L2 penalty.
+        For value = 1.0, it is an L1 penalty. For 0.0 &lt; value &lt; 1.0, the penalty
+        is a combination of L1 and L2. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Regularization Parameter</td>
+      <td>
+        The nonnegative regularization parameter. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Standardization</td>
+      <td>
+      	The indicator to determine whether to standardize the training
+        features before fitting the model. Default is 'true'."
+      </td>
+    </tr>
+
+    <tr>
+      <td>With Intercept</td>
+      <td>
+        The indicator to determine whether to fit an intercept value.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Remove Mean</td>
+      <td>
+      The indicator to determine whether to remove the mean value from the value
+      from the value of the time series before training model. Default is 'false'.
+      </td>
     </tr>
 
 </table>
@@ -365,22 +423,21 @@
       <col width="80%" />
     </colgroup>
 
-    
-<tr>
-  <td>Time Field</td>
-  <td>The name of the field in the input schema that contains the time value.</td>
-</tr>
-
-<tr>
-  <td>Value Field</td>
-  <td>The name of the field in the input schema that contains the value.</td>
-</tr>
-
-
     <tr>
       <td>Model Name</td>
       <td>The unique name of the ARMA model.</td>
     </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
     <tr>
       <td>Time Steps</td>
       <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
@@ -409,21 +466,96 @@
       <col width="80%" />
     </colgroup>
 
-    
-<tr>
-  <td>Time Field</td>
-  <td>The name of the field in the input schema that contains the time value.</td>
-</tr>
-
-<tr>
-  <td>Value Field</td>
-  <td>The name of the field in the input schema that contains the value.</td>
-</tr>
-
-
     <tr>
       <td>Model Name</td>
-      <td>The unique name of the ARMA model.</td>
+      <td>The unique name of the AutoARMA model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Note, this is a split time
+      and is computed from the total time span (min, max) of the time series. Default is 70:30."
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <!-- arma -->
+    <tr>
+      <td>Maximum Lag Order</td>
+      <td>
+        The positive upper limit for tuning the number of lag operations (p).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Moving Average Order</td>
+      <td>
+        The positive upper limit for tuning the size of the moving average window (q).
+      </td>
+    </tr>
+
+    <!-- regression -->
+
+    <tr>
+      <td>ElasticNet Mixing</td>
+      <td>
+      	The ElasticNet mxing parameter. For value = 0.0, the penalty is an L2 penalty.
+        For value = 1.0, it is an L1 penalty. For 0.0 &lt; value &lt; 1.0, the penalty
+        is a combination of L1 and L2. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Regularization Parameter</td>
+      <td>
+        The nonnegative regularization parameter. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Standardization</td>
+      <td>
+      	The indicator to determine whether to standardize the training
+        features before fitting the model. Default is 'true'."
+      </td>
+    </tr>
+
+    <tr>
+      <td>With Intercept</td>
+      <td>
+        The indicator to determine whether to fit an intercept value.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Remove Mean</td>
+      <td>
+      The indicator to determine whether to remove the mean value from the value
+      from the value of the time series before training model. Default is 'false'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Info Criterion</td>
+      <td>
+        The information criterion to calculate for model parameter tuning. Supported values
+        are 'aic' (Akaike Information Criterion), 'aicc' (AIC with correction for finite sample
+        sizes) and 'bic' (Bayesian Information Criterion). Default is 'aic'.
+      </td>
     </tr>
 
 </table>
@@ -451,22 +583,21 @@
       <col width="80%" />
     </colgroup>
 
-    
-<tr>
-  <td>Time Field</td>
-  <td>The name of the field in the input schema that contains the time value.</td>
-</tr>
-
-<tr>
-  <td>Value Field</td>
-  <td>The name of the field in the input schema that contains the value.</td>
-</tr>
-
-
     <tr>
       <td>Model Name</td>
-      <td>The unique name of the ARMA model.</td>
+      <td>The unique name of the AutoARMA model.</td>
     </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
     <tr>
       <td>Time Steps</td>
       <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
@@ -480,16 +611,16 @@
 
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
-            </div>
-            <div class="toc-body">
-              <ul class="section-nav">
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#tsarmasink">TsARMASink</a></li>
 <li class="toc-entry toc-h2"><a href="#tsarma">TsARMA</a></li>
@@ -497,13 +628,14 @@
 <li class="toc-entry toc-h2"><a href="#tsautoarma">TsAutoARMA</a></li>
 <li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
+              </div>
             </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -515,5 +647,7 @@
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>

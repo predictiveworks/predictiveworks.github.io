@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Time Regression</title>
+    <title>Time Series Regression</title>
     <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
     <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,14 +284,19 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <div class="page-title">Time Regression</div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">Time Series Regression</div>
 
 <h2 id="motivation">Motivation</h2>
 
 <p>TBD</p>
 
-<h2 id="tsregressor">TsRegressor</h2>
+<h2 id="regression">Regression</h2>
+
+<h3 id="tsregressor">TsRegressor</h3>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"TsRegressor"</span><span class="o">)</span>
@@ -324,9 +318,69 @@
       <col width="80%" />
     </colgroup>
 
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the regression model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Note, this is a split time
+      and is computed from the total time span (min, max) of the time series. Default is 70:30."
+      </td>
+    </tr>
+
+    <tr>
+      <td>Lag Order</td>
+      <td>The positive number of past points of time to take into account for vectorization. Default is 20.</td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Minimum Gain</td>
+      <td>
+      The minimum information gain for a split to be considered at a tree node. The value should be at least 0.0. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Bins</td>
+      <td>
+      The maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. More bins give higher granularity. Must be at least 2. Default is 32.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Depth</td>
+      <td>
+      Nonnegative value that maximum depth of the tree. E.g. depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. Default is 5.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Number of Trees</td>
+      <td>
+      The number of trees to train the model. Default is 20.
+      </td>
+    </tr>
+
 </table>
 
-<h2 id="tspredictor">TsPredictor</h2>
+<h3 id="tspredictor">TsPredictor</h3>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"TsPredictor"</span><span class="o">)</span>
@@ -348,6 +402,26 @@
       <col width="80%" />
     </colgroup>
 
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the regression model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted value.</td>
+    </tr>
+
 </table>
 
 <h2 id="evaluation">Evaluation</h2>
@@ -356,28 +430,33 @@
 
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
-            </div>
-            <div class="toc-body">
-              <ul class="section-nav">
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
-<li class="toc-entry toc-h2"><a href="#tsregressor">TsRegressor</a></li>
-<li class="toc-entry toc-h2"><a href="#tspredictor">TsPredictor</a></li>
+<li class="toc-entry toc-h2"><a href="#regression">Regression</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#tsregressor">TsRegressor</a></li>
+<li class="toc-entry toc-h3"><a href="#tspredictor">TsPredictor</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
+              </div>
             </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -389,5 +468,7 @@
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>

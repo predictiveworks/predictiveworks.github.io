@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/syntax.css">
   </head>
   <body>
-    <div class="site-wrapper">
+    <div class="site">
+      <div class="site-wrapper set-maxwidth">
 
-      
+        
 <div class="site-header">
 
   <!-- title -->
@@ -23,6 +24,7 @@
           <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
         </div>
       </div>
+
     </div>
     <div class="column-right"></div>
   </div>
@@ -52,11 +54,10 @@
 </div>
 
 
-      <div class="site-content">
-        <div class="column-left"></div>
-        <div class="column-content">
-          <div class="main-content">
-            <div class="main-content-nav">
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
               <nav class="nav-main">
   <div class="nav-container">
     <!-- concepts -->
@@ -200,40 +201,28 @@
         <div class="nav-article">Preprocessing</div>
       </a>
 
-      <a href="/text-chunking.html">
-        <div class="nav-article">Chunking</div>
-      </a>
-
       <a href="/dependency-parsing.html">
         <div class="nav-article">Dependency Parsing</div>
-      </a>
-
-      <a href="/text-embeddings.html">
-        <div class="nav-article">Embeddings</div>
-      </a>
-
-      <a href="/text-lemmatization.html">
-        <div class="nav-article">Lemmatization</div>
       </a>
 
       <a href="/named-entity-recognition.html">
         <div class="nav-article">Named Entity Recognition</div>
       </a>
 
-      <a href="/part-of-speech-tagging.html">
-        <div class="nav-article">Part of Speech Tagging</div>
+      <a href="/text-noise-reduction.html">
+        <div class="nav-article">Noise Reduction</div>
+      </a>
+
+      <a href="/part-of-speech-analysis.html">
+        <div class="nav-article">Part of Speech Analysis</div>
       </a>
 
       <a href="/sentiment-analysis.html">
         <div class="nav-article">Sentiment Analysis</div>
       </a>
 
-      <a href="/spell-checking.html">
-        <div class="nav-article">Spell Checking</div>
-      </a>
-
-      <a href="/text-clustering.html">
-        <div class="nav-article">Text Clustering</div>
+      <a href="/text-engineering.html">
+        <div class="nav-article">Text Engineering</div>
       </a>
 
       <a href="/text-matching.html">
@@ -295,8 +284,11 @@
 </nav>
 
             </div>
-            <div class="main-content-body">
-              <div class="page-title">Business Rules</div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">Business Rules</div>
 
 <h2 id="drools-rules">Drools Rules</h2>
 
@@ -308,20 +300,50 @@
 
 <p>A <a href="https://drools.org">Drools</a> rule engine can takes a declarative definition of a set of (ad-hoc) business rules as input and then transforms data records onto the declared output.</p>
 
-<h2 id="applyrules-plugin">ApplyRules Plugin</h2>
+<h2 id="drools-plugin">Drools Plugin</h2>
+
+<h3 id="applyrules">ApplyRules</h3>
 
 <p>It is not a whether to use business rules <em>or</em> machine learning. Predictive<span class="brand-teal">Works.</span> externalizes a Drools rule engine as a plugin component for <a href="https://cdap.io">CDAP</a> data pipelines.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"ApplyRules"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a Drools compliant business rule engine "</span>
-        <span class="o">+</span> <span class="s">"to apply business rules to pipeline data records."</span><span class="o">)</span>
+  <span class="o">+</span> <span class="s">"to apply business rules to pipeline data records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplyRules</span> <span class="kd">extends</span> <span class="nc">SparkCompute</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
     <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Drools Ruleset</td>
+      <td>
+        Please provide Drools compliant specification of business rules to filter or score
+        the data records that have been published by your previous data stage.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Ruleset Type</td>
+      <td>
+        This component supports business rules to either filter or score data records.
+        The default rule type is 'filter'. If you select 'score' as an alternative use
+        case, this component and extra field to the output records.
+      </td>
+    </tr>
+
+</table>
 
 <p>The benefit of this approach is that rule execution and machine learning (or any other plugin) can co-exist in the same data pipeline to process historical datasets <em>and</em> real-time events of a data stream.</p>
 
@@ -331,27 +353,32 @@
 
             </div>
           </div>
-        </div>
-        <div class="column-right">
 
-          <div id="content-toc">
+          <div class="column-right">
 
-            <div class="toc-header">
-              <i class="fa fa-bars"></i><span>Table of Content</span>
-            </div>
-            <div class="toc-body">
-              <ul class="section-nav">
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#drools-rules">Drools Rules</a></li>
-<li class="toc-entry toc-h2"><a href="#applyrules-plugin">ApplyRules Plugin</a></li>
+<li class="toc-entry toc-h2"><a href="#drools-plugin">Drools Plugin</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#applyrules">ApplyRules</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#drools-integration">Drools Integration</a></li>
 </ul>
+              </div>
             </div>
+
           </div>
 
         </div>
-      </div>
 
-      
+        
 <div class="site-footer">
 
     <div class="column-left"></div>
@@ -363,5 +390,7 @@
 </div>
 
 
+      </div>
+    </div>
   </body>
 </html>
