@@ -9,50 +9,71 @@
   </head>
   <body>
     <div class="site">
-      <div class="site-wrapper set-maxwidth">
 
-        
+      
 <div class="site-header">
 
   <!-- title -->
   <div class="site-header-title">
-    <div class="column-left"></div>
-    <div class="column-content">
-      <div class="header-content">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
         <div class="logo"></div>
-        <div class="header-title">
-          <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
+        <div class="">
         </div>
       </div>
-
     </div>
-    <div class="column-right"></div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right"></div>
+      </div>
+    </div>
   </div>
 
   <!-- breadcrumbs -->
-  <div class="site-header-breadcrumbs">
-    <div class="column-left"></div>
-    <div class="column-content">
-      
-        <ul class="breadcrumb">
-          <li><a href="/">PredictiveWorks</a> </li>
-          
-          
-            <li class="active">
-              
-              <i class="fa fa-chevron-right fa-icon"></i>
-              dependency parsing
-              
-            </li>
-          
-        </ul>
-      
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">PredictiveWorks</a> </li>
+            
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                dependency parsing
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
     </div>
-    <div class="column-right"></div>
+
   </div>
 
 </div>
 
+
+      <div class="site-wrapper set-maxwidth">
 
         <div class="site-content">
 
@@ -94,15 +115,11 @@
         <div class="nav-article">Purpose-built Connectors</div>
       </a>
 
-    <!-- rules & queries -->
-    <div class="nav-title">Rules & Queries</div>
+    <!-- deep learning -->
+    <div class="nav-title">Deep Learning</div>
 
-      <a href="/drools-rules.html">
-        <div class="nav-article">Drools Rules</div>
-      </a>
-
-      <a href="/spark-sql.html">
-        <div class="nav-article">Spark SQL</div>
+      <a href="/deep-learning.html">
+        <div class="nav-article">Deep Learning</div>
       </a>
 
     <!-- machine learning -->
@@ -144,13 +161,6 @@
         <div class="nav-article">SMOTE Sampling</div>
       </a>
 
-    <!-- deep learning -->
-    <div class="nav-title">Deep Learning</div>
-
-      <a href="/deep-learning.html">
-        <div class="nav-article">Deep Learning</div>
-      </a>
-
     <!-- timeseries -->
     <div class="nav-title">Time Series</div>
 
@@ -190,8 +200,7 @@
         <div class="nav-article">Time Regression</div>
       </a>
 
-    <!-- natural language processing -->
-    <div class="nav-title">Natural Language Processing</div>
+    <div class="nav-title">Natural Language</div>
 
       <a href="/text-analysis.html">
         <div class="nav-article">Text Analysis</div>
@@ -231,6 +240,17 @@
 
       <a href="/topic-modeling.html">
         <div class="nav-article">Topic Modeling</div>
+      </a>
+
+    <!-- rules & queries -->
+    <div class="nav-title">Rules & Queries</div>
+
+      <a href="/drools-rules.html">
+        <div class="nav-article">Drools Rules</div>
+      </a>
+
+      <a href="/spark-sql.html">
+        <div class="nav-article">Spark SQL</div>
       </a>
 
     <!-- model management -->
@@ -288,16 +308,134 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h1 id="dependency-parsing">Dependency Parsing</h1>
+                <div class="page-title">Dependency Parsing</div>
 
-<p>3.1 Syntactic Parsing
-Syntactical parsing invol ves the analysis of words in the sentence for grammar and their arrangement in a manner that shows the relationships among the words. Dependency Grammar and Part of Speech tags are the important attributes of text syntactics.</p>
+<h2 id="objective">Objective</h2>
 
-<p>Dependency Trees – Sentences are composed of some words sewed together. The relationship among the words in a sentence is determined by the basic dependency grammar. Dependency grammar is a class of syntactic text analysis that deals with (labeled) asymmetrical binary relations between two lexical items (words). Every relation can be represented in the form of a triplet (relation, governor, dependent). For example: consider the sentence – “Bills on ports and immigration were submitted by Senator Brownback, Republican of Kansas.” The relationship among the words can be observed in the form of a tree representation as shown:</p>
+<p>Syntactical parsing involves the analysis of words in the sentence for grammar and
+their arrangement in a manner that shows the relationships among the words.</p>
 
-<p>The tree shows that “submitted” is the root word of this sentence, and is linked by two sub-trees (subject and object subtrees). Each subtree is a itself a dependency tree with relations such as – (“Bills” &lt;-&gt; “ports” <by> “proposition” relation), (“ports” &lt;-&gt; “immigration” <by> “conjugation” relation).</by></by></p>
+<p>Dependency Grammar and Part of Speech tags are the important attributes of text syntactics.</p>
 
-<p>This type of tree, when parsed recursively in top-down manner gives grammar relation triplets as output which can be used as features for many nlp problems like entity wise sentiment analysis, actor &amp; entity identification, and text classification. The python wrapper StanfordCoreNLP (by Stanford NLP Group, only commercial license) and NLTK dependency grammars can be used to generate dependency trees.</p>
+<h2 id="syntactic-parsing">Syntactic Parsing</h2>
+
+<h3 id="corpus">Corpus</h3>
+
+<h3 id="dependencybuilder">DependencyBuilder</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DependencyBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark-NLP based Unlabeled Dependency Parser model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DependencyBuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Unlabeled Dependency Parser model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Corpus Field</td>
+      <td>
+      The name of the field in the input schema that contains the annotated corpus document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Corpus Format</td>
+      <td>
+      The format of the training corpus. Supported values are 'conll-u' (CoNLL-U corpus)
+      and 'treebank' (TreeBank corpus). Default is 'conll-u'.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Iterations</td>
+      <td>
+      The number of iterations to train the model. Default is 10.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="dependencyparser">DependencyParser</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DependencyParser"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages an Unlabeled Dependency Parser model "</span>
+  <span class="o">+</span> <span class="s">"to extract syntactic relations between words in a text document."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DependencyParser</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Unlabeled Dependency Parser model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Part of Speech Name</td>
+      <td>
+      The unique name of the Part of Speech model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Sentence Field</td>
+      <td>
+        The name of the field in the output schema that contains the extracted sentences.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Dependency Field</td>
+      <td>
+        The name of the field in the output schema that contains the word dependencies.
+      </td>
+    </tr>
+
+</table>
+
 
             </div>
           </div>
@@ -310,7 +448,16 @@ Syntactical parsing invol ves the analysis of words in the sentence for grammar 
                 <i class="fa fa-bars"></i><span>Table of Content</span>
               </div>
               <div class="toc-body">
-                
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#syntactic-parsing">Syntactic Parsing</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#corpus">Corpus</a></li>
+<li class="toc-entry toc-h3"><a href="#dependencybuilder">DependencyBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#dependencyparser">DependencyParser</a></li>
+</ul>
+</li>
+</ul>
               </div>
             </div>
 
@@ -318,19 +465,20 @@ Syntactical parsing invol ves the analysis of words in the sentence for grammar 
 
         </div>
 
-        
+      </div>
+
+      
 <div class="site-footer">
 
     <div class="column-left"></div>
     <div class="column-content">
-      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG - (c) 2020. All rights reserved.
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
     </div>
     <div class="column-right"></div>
 
 </div>
 
 
-      </div>
     </div>
   </body>
 </html>

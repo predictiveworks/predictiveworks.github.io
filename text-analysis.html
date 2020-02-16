@@ -9,50 +9,71 @@
   </head>
   <body>
     <div class="site">
-      <div class="site-wrapper set-maxwidth">
 
-        
+      
 <div class="site-header">
 
   <!-- title -->
   <div class="site-header-title">
-    <div class="column-left"></div>
-    <div class="column-content">
-      <div class="header-content">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
         <div class="logo"></div>
-        <div class="header-title">
-          <span class="brand-grey">Predictive</span><span class="brand-teal">Works.</span>
+        <div class="">
         </div>
       </div>
-
     </div>
-    <div class="column-right"></div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right"></div>
+      </div>
+    </div>
   </div>
 
   <!-- breadcrumbs -->
-  <div class="site-header-breadcrumbs">
-    <div class="column-left"></div>
-    <div class="column-content">
-      
-        <ul class="breadcrumb">
-          <li><a href="/">PredictiveWorks</a> </li>
-          
-          
-            <li class="active">
-              
-              <i class="fa fa-chevron-right fa-icon"></i>
-              text analysis
-              
-            </li>
-          
-        </ul>
-      
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">PredictiveWorks</a> </li>
+            
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                text analysis
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
     </div>
-    <div class="column-right"></div>
+
   </div>
 
 </div>
 
+
+      <div class="site-wrapper set-maxwidth">
 
         <div class="site-content">
 
@@ -94,15 +115,11 @@
         <div class="nav-article">Purpose-built Connectors</div>
       </a>
 
-    <!-- rules & queries -->
-    <div class="nav-title">Rules & Queries</div>
+    <!-- deep learning -->
+    <div class="nav-title">Deep Learning</div>
 
-      <a href="/drools-rules.html">
-        <div class="nav-article">Drools Rules</div>
-      </a>
-
-      <a href="/spark-sql.html">
-        <div class="nav-article">Spark SQL</div>
+      <a href="/deep-learning.html">
+        <div class="nav-article">Deep Learning</div>
       </a>
 
     <!-- machine learning -->
@@ -144,13 +161,6 @@
         <div class="nav-article">SMOTE Sampling</div>
       </a>
 
-    <!-- deep learning -->
-    <div class="nav-title">Deep Learning</div>
-
-      <a href="/deep-learning.html">
-        <div class="nav-article">Deep Learning</div>
-      </a>
-
     <!-- timeseries -->
     <div class="nav-title">Time Series</div>
 
@@ -190,8 +200,7 @@
         <div class="nav-article">Time Regression</div>
       </a>
 
-    <!-- natural language processing -->
-    <div class="nav-title">Natural Language Processing</div>
+    <div class="nav-title">Natural Language</div>
 
       <a href="/text-analysis.html">
         <div class="nav-article">Text Analysis</div>
@@ -231,6 +240,17 @@
 
       <a href="/topic-modeling.html">
         <div class="nav-article">Topic Modeling</div>
+      </a>
+
+    <!-- rules & queries -->
+    <div class="nav-title">Rules & Queries</div>
+
+      <a href="/drools-rules.html">
+        <div class="nav-article">Drools Rules</div>
+      </a>
+
+      <a href="/spark-sql.html">
+        <div class="nav-article">Spark SQL</div>
       </a>
 
     <!-- model management -->
@@ -288,21 +308,27 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h1 id="works-text-plugins">Works Text Plugins</h1>
+                <div class="section-title">
+  <img src="/assets/images/logo-works-text.svg" />
+  <div>
+    <div class="page-title">Works Text Plugins</div>
+    <div class="page-subtitle">Natural Language Understanding at Scale</div>
+  </div>
+</div>
 
-<p>The main objective of Predictive<span class="brand-teal">Works.</span> text analysis support is to make <a href="https://nlp.johnsnowlabs.com/">John Snow Lab’s</a> <strong>Spark NLP</strong> available as plugin components for <a href="https://cdap.io">CDAP</a> data pipelines.</p>
-
-<p><img width="80%" src="/assets/images/works-text.svg" alt="Works Text" /></p>
+<h2 id="motivation">Motivation</h2>
 
 <blockquote>
 <p>
-According to reliable industry estimates, less than 25% of the available data is present in structured form. Data is being generated as we speak, tweet, send messages and in various other activities. The majority exists in the textual form, which is highly unstructured in nature.
+According to reliable industry estimates, less than 25% of the available data is present in structured form.
+Data is being generated as we speak, tweet, send messages and in various other activities. The majority exists
+in the textual form, which is highly unstructured in nature.
 </p>
 </blockquote>
 
 <p>Information present in unstructured text is not directly accessible unless it is processed. Natural Language Processing (NLP) is an instrument to produce significant and actionable insights from text.</p>
 
-<h2 id="text-is-a-matter-of-context">Text is a matter of context</h2>
+<h2 id="text-context">Text Context</h2>
 
 <p>What “text” means, is a matter of context and imagination and is not restricted to news articles, social media posts or user product reviews.</p>
 
@@ -323,6 +349,28 @@ According to reliable industry estimates, less than 25% of the available data is
   </li>
 </ul>
 
+<h2 id="overview">Overview</h2>
+
+<h2 id="spark-nlp">Spark NLP</h2>
+
+<ul>
+  <li>
+    <p>In production in multiple Fortune 500’s</p>
+  </li>
+  <li>
+    <p>Built on the shoulders of Apache Spark ML</p>
+  </li>
+  <li>
+    <p>Seamless integration with Apache Spark ML</p>
+  </li>
+</ul>
+
+<h2 id="integration">Integration</h2>
+
+<p>The main objective of Predictive<span class="brand-teal">Works.</span> text analysis support is to make <a href="https://nlp.johnsnowlabs.com/">John Snow Lab’s</a> <strong>Spark NLP</strong> available as plugin components for <a href="https://cdap.io">CDAP</a> data pipelines.</p>
+
+<p><img width="80%" src="/assets/images/works-text.svg" alt="Works Text" /></p>
+
             </div>
           </div>
 
@@ -334,7 +382,13 @@ According to reliable industry estimates, less than 25% of the available data is
                 <i class="fa fa-bars"></i><span>Table of Content</span>
               </div>
               <div class="toc-body">
-                
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
+<li class="toc-entry toc-h2"><a href="#text-context">Text Context</a></li>
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#spark-nlp">Spark NLP</a></li>
+<li class="toc-entry toc-h2"><a href="#integration">Integration</a></li>
+</ul>
               </div>
             </div>
 
@@ -342,19 +396,20 @@ According to reliable industry estimates, less than 25% of the available data is
 
         </div>
 
-        
+      </div>
+
+      
 <div class="site-footer">
 
     <div class="column-left"></div>
     <div class="column-content">
-      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG - (c) 2020. All rights reserved.
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
     </div>
     <div class="column-right"></div>
 
 </div>
 
 
-      </div>
     </div>
   </body>
 </html>
