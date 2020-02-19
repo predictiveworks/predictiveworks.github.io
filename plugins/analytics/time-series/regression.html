@@ -1,0 +1,393 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time Series Regression</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item active">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/time-series/">
+                    time series
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                regression
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+  <!-- concepts -->
+  <a href="/concepts/">
+    <div class="nav-title">Concepts</div>
+  </a>
+
+  <!-- features -->
+  <a href="/features/">
+    <div class="nav-title">Features</div>
+  </a>
+
+  <!-- plugins -->
+  <a href="/plugins/">
+    <div class="nav-title">Plugins</div>
+  </a>
+
+  <div class="nav-subtitle">Analytics</div>
+
+    <a href="/plugins/analytics/deep-learning/">
+      <div class="nav-article group">Deep Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/machine-learning/">
+      <div class="nav-article group">Machine Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/">
+      <div class="nav-article group">Natural Language</div>
+    </a>
+
+    <a href="/plugins/analytics/queries-and-rules/">
+      <div class="nav-article group">Queries & Rules</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/">
+      <div class="nav-article group selected">Time Series</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/preprocessing.html">
+      <div class="nav-article item">Preprocessing</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/arima.html">
+      <div class="nav-article item">ARIMA</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/arma.html">
+      <div class="nav-article item">ARMA</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/autoregression.html">
+      <div class="nav-article item">Auto Regression</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/moving-average.html">
+      <div class="nav-article item">Moving Average</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/stl-decomposition.html">
+      <div class="nav-article item">STL Decomposition</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/regression.html">
+      <div class="nav-article item">Time Regression</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="motivation">Motivation</h2>
+
+<p>TBD</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<h3 id="tsregressor">TsRegressor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsRegressor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML Random Forest regressor model "</span>
+    <span class="o">+</span> <span class="s">"adjusted to machine learning for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsRegressor</span> <span class="kd">extends</span> <span class="nc">RegressorSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the regression model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Note, this is a split time
+      and is computed from the total time span (min, max) of the time series. Default is 70:30."
+      </td>
+    </tr>
+
+    <tr>
+      <td>Lag Order</td>
+      <td>The positive number of past points of time to take into account for vectorization. Default is 20.</td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Minimum Gain</td>
+      <td>
+      The minimum information gain for a split to be considered at a tree node. The value should be at least 0.0. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Bins</td>
+      <td>
+      The maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. More bins give higher granularity. Must be at least 2. Default is 32.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Depth</td>
+      <td>
+      Nonnegative value that maximum depth of the tree. E.g. depth 0 means 1 leaf node; depth 1 means 1 internal node + 2 leaf nodes. Default is 5.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Number of Trees</td>
+      <td>
+      The number of trees to train the model. Default is 20.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="tspredictor">TsPredictor</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML "</span>
+    <span class="o">+</span> <span class="s">"Random Forest regressor model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsPredictor</span> <span class="kd">extends</span> <span class="nc">TimeCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the regression model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Prediction Field</td>
+      <td>The name of the field in the output schema that contains the predicted value.</td>
+    </tr>
+
+</table>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
+<li class="toc-entry toc-h2"><a href="#plugins">Plugins</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#tsregressor">TsRegressor</a></li>
+<li class="toc-entry toc-h3"><a href="#tspredictor">TsPredictor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

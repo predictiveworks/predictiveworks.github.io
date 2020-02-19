@@ -1,0 +1,635 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Noise Reduction</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item active">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/natural-language/">
+                    natural language
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                noise reduction
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+  <!-- concepts -->
+  <a href="/concepts/">
+    <div class="nav-title">Concepts</div>
+  </a>
+
+  <!-- features -->
+  <a href="/features/">
+    <div class="nav-title">Features</div>
+  </a>
+
+  <!-- plugins -->
+  <a href="/plugins/">
+    <div class="nav-title">Plugins</div>
+  </a>
+
+  <div class="nav-subtitle">Analytics</div>
+
+    <a href="/plugins/analytics/deep-learning/">
+      <div class="nav-article group">Deep Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/machine-learning/">
+      <div class="nav-article group">Machine Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/">
+      <div class="nav-article group selected">Natural Language</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/preprocessing.html">
+      <div class="nav-article item">Preprocessing</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/dependency-parsing.html">
+      <div class="nav-article item">Dependency Parsing</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/named-entity-recognition.html">
+      <div class="nav-article item">Named Entity Recognition</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/noise-reduction.html">
+      <div class="nav-article item">Noise Reduction</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/part-of-speech-analysis.html">
+      <div class="nav-article item">Part of Speech Analysis</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/sentiment-analysis.html">
+      <div class="nav-article item">Sentiment Analysis</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/text-engineering.html">
+      <div class="nav-article item">Text Engineering</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/text-matching.html">
+      <div class="nav-article item">Text Matching</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/topic-modeling.html">
+      <div class="nav-article item">Topic Modeling</div>
+    </a>
+
+    <a href="/plugins/analytics/queries-and-rules/">
+      <div class="nav-article group">Queries & Rules</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/">
+      <div class="nav-article group">Time Series</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="objective">Objective</h2>
+
+<p>Any piece of text which is not relevant to the context of the data can be specified as noise.
+Noise comprises commonly used but less relevant words of a language, misspellings, multiple
+variations of word representation which all reduce to the same semantic context.</p>
+
+<p>Noise reduction is an important pre-processing phase for any kind of text analysis.</p>
+
+<h2 id="lemmatization">Lemmatization</h2>
+
+<p>Multiple variations of a single word, say “player”, “played” and “playing”, are contextually similar.
+A lemmatizer converts all these disparities into their normalized form (also known as lemma) and thereby
+is an instrument of noise reduction and text standardization.</p>
+
+<h3 id="corpus">Corpus</h3>
+
+<p>Lemmatization is based on a trained Lemma model. The respective training corpus can be formatted as shown below:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>monorail	-&gt;	monorail	monorails
+monosaccharide	-&gt;	monosaccharides	monosaccharide
+monosaturate	-&gt;	monosaturates	monosaturate
+monospar	-&gt;	monospar	monospars
+monosyllable	-&gt;	monosyllables	monosyllable
+monotheist	-&gt;	monotheist	monotheists
+
+</code></pre></div></div>
+
+<h3 id="plugins">Plugins</h3>
+
+<h4 id="lemmatizerbuilder">LemmatizerBuilder</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LemmatizerBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Lemmatization model. The training corpus assigns "</span>
+  <span class="o">+</span> <span class="s">"each lemma to a set of term variations that all map onto this lemma."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LemmatizerBuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Lemmatization model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Corpus Field</td>
+      <td>
+      The name of the field in the input schema that contains the lemma and assigned tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Lemma Delimiter</td>
+      <td>
+      The delimiter to separate lemma and associated tokens in the corpus. Key &amp; value delimiter must be different.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Token Delimiter</td>
+      <td>
+      The delimiter to separate the tokens in the corpus. Key &amp; value delimiter must be different.
+      </td>
+    </tr>
+
+</table>
+
+<h4 id="lemmatizer">Lemmatizer</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Lemmatizer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage requires a trained Lemmatization model. It extracts "</span>
+  <span class="o">+</span> <span class="s">"normalized terms from a text document and maps each term onto its trained lemma. "</span>
+  <span class="o">+</span> <span class="s">"This stage adds an extra field to the input schema that contains the whitespace "</span>
+  <span class="o">+</span> <span class="s">"separated set of lemmas."</span><span class="o">)</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Lemmatization model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Lemma Field</td>
+      <td>
+      The name of the field in the output schema that contains the detected lemmas.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="spell-correction">Spell Correction</h2>
+
+<h3 id="corpus-1">Corpus</h3>
+
+<p>The training corpus of the Spelling Checking model is an Apache Spark dataset with a single text column.
+This column comprises one or more terms with correct spelling.</p>
+
+<h3 id="plugins-1">Plugins</h3>
+
+<h4 id="norvigbuilder">NorvigBuilder</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NorvigBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Spell Checking model based on Norvig's algorithm. "</span>
+  <span class="o">+</span> <span class="s">"The training corpus provides correctly spelled terms with one or multiple terms per "</span>
+  <span class="o">+</span> <span class="s">"document."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NorvigBuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Spell Checking model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Corpus Field</td>
+      <td>
+      The name of the field in the input schema that contains the correctly spelled tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Token Delimiter</td>
+      <td>
+      The delimiter to separate the tokens in the corpus.
+      </td>
+    </tr>
+
+</table>
+
+<h4 id="norvigchecker">NorvigChecker</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NorvigChecker"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that checks the spelling of each normalized term "</span>
+  <span class="o">+</span> <span class="s">"in a text document, leveraging a trained Norvig Spelling model. This stage adds an "</span>
+  <span class="o">+</span> <span class="s">"extra field to the input schema that contains the whitespace separated set of suggested "</span>
+  <span class="o">+</span> <span class="s">"spelling corrections."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NorvigChecker</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Spell Checking model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Suggestion Field</td>
+      <td>
+      The delimiter to separate lemma and associated tokens in the corpus. Key &amp; value delimiter must be different.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Probability Threshold</td>
+      <td>
+      The probability threshold above which a suggested term spelling is accepted. Default is 0.75.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="stemming">Stemming</h2>
+
+<h3 id="plugins-2">Plugins</h3>
+
+<h4 id="tokenstemmer">TokenStemmer</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TokenStemmer"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Spark NLP Stemmer to map an input "</span>
+  <span class="o">+</span> <span class="s">"text field onto its normalized terms and reduce each terms to its linguistic stem. "</span>
+  <span class="o">+</span> <span class="s">"This stage adds an extra field to the input schema that contains the whitespace "</span>
+  <span class="o">+</span> <span class="s">"separated set of stems."</span><span class="o">)</span>		
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TokenStemmer</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Stem Field</td>
+      <td>
+        The name of the field in the output schema that contains the stemmed tokens.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="stopword-removal">Stopword Removal</h2>
+
+<h3 id="plugins-3">Plugins</h3>
+
+<h4 id="tokencleaner">TokenCleaner</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TokenCleaner"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Spark NLP Stopword Cleaner to map an input "</span>
+  <span class="o">+</span> <span class="s">"text field onto its normalized terms and remove each term that is defined as stop word. "</span>
+  <span class="o">+</span> <span class="s">"This stage adds an extra field to the input schema that contains the whitespace "</span>
+  <span class="o">+</span> <span class="s">"separated set of remaining tokens."</span><span class="o">)</span>		
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TokenCleaner</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Cleaned Field</td>
+      <td>
+        The name of the field in the output schema that contains the cleaned tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Stop Words</td>
+      <td>
+        A delimiter separated list of stop words, i.e. words that have to be removed from the extracted tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Word Delimiter</td>
+      <td>
+        The delimiter used to separate the different stop words. Default is comma-separated.
+      </td>
+    </tr>
+
+</table>
+
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#lemmatization">Lemmatization</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#corpus">Corpus</a></li>
+<li class="toc-entry toc-h3"><a href="#plugins">Plugins</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#lemmatizerbuilder">LemmatizerBuilder</a></li>
+<li class="toc-entry toc-h4"><a href="#lemmatizer">Lemmatizer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#spell-correction">Spell Correction</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#corpus-1">Corpus</a></li>
+<li class="toc-entry toc-h3"><a href="#plugins-1">Plugins</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#norvigbuilder">NorvigBuilder</a></li>
+<li class="toc-entry toc-h4"><a href="#norvigchecker">NorvigChecker</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#stemming">Stemming</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#plugins-2">Plugins</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#tokenstemmer">TokenStemmer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#stopword-removal">Stopword Removal</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#plugins-3">Plugins</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#tokencleaner">TokenCleaner</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

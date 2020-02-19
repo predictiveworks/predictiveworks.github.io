@@ -1,0 +1,567 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Topic Modeling</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item active">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/natural-language/">
+                    natural language
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                topic modeling
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+  <!-- concepts -->
+  <a href="/concepts/">
+    <div class="nav-title">Concepts</div>
+  </a>
+
+  <!-- features -->
+  <a href="/features/">
+    <div class="nav-title">Features</div>
+  </a>
+
+  <!-- plugins -->
+  <a href="/plugins/">
+    <div class="nav-title">Plugins</div>
+  </a>
+
+  <div class="nav-subtitle">Analytics</div>
+
+    <a href="/plugins/analytics/deep-learning/">
+      <div class="nav-article group">Deep Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/machine-learning/">
+      <div class="nav-article group">Machine Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/">
+      <div class="nav-article group selected">Natural Language</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/preprocessing.html">
+      <div class="nav-article item">Preprocessing</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/dependency-parsing.html">
+      <div class="nav-article item">Dependency Parsing</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/named-entity-recognition.html">
+      <div class="nav-article item">Named Entity Recognition</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/noise-reduction.html">
+      <div class="nav-article item">Noise Reduction</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/part-of-speech-analysis.html">
+      <div class="nav-article item">Part of Speech Analysis</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/sentiment-analysis.html">
+      <div class="nav-article item">Sentiment Analysis</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/text-engineering.html">
+      <div class="nav-article item">Text Engineering</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/text-matching.html">
+      <div class="nav-article item">Text Matching</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/topic-modeling.html">
+      <div class="nav-article item">Topic Modeling</div>
+    </a>
+
+    <a href="/plugins/analytics/queries-and-rules/">
+      <div class="nav-article group">Queries & Rules</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/">
+      <div class="nav-article group">Time Series</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <div class="page-title">Topic Modeling</div>
+
+<h2 id="objective">Objective</h2>
+
+<p>Topic modeling is a process of automatically identifying hidden topics in a text corpus, where topics are
+defined a repeating patterns of co-occurring terms. The most popular modeling technique is Latent Dirichlet
+Allocation (LDA).</p>
+
+<h2 id="topic-clustering">Topic Clustering</h2>
+
+<h3 id="plugins">Plugins</h3>
+
+<h4 id="ldabuilder">LDABuilder</h4>
+
+<p>This plugin is responsible for model building. The LDA Estimator of Spark ML is used to train the
+respective Latent Dirichlet Allocation (LDA) model.</p>
+
+<p>An LDA Model can be used for text clustering or labeling (see LDAText).</p>
+
+<p>The estimator expects that the provided text documents are represented as feature vectors. The mapping
+onto the feature space is achieved by leveraging a pre-trained word embedding model and an appropriate
+pooling strategy of how to derive document vectors from word vectors.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LDABuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Latent Dirichlet Allocation (LDA) model. An LDA model "</span>
+	<span class="o">+</span> <span class="s">"can be used for text clustering or labeling. This model training stage requires a "</span>
+	<span class="o">+</span> <span class="s">"pre-trained Word Embedding model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LDABuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the LDA model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Embedding Name</td>
+      <td>
+      The unique name of a trained Word2Vec embedding model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Data Split</td>
+      <td>
+        The split of the dataset into train &amp; test data, e.g. 80:20. Default is 90:10.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Topics</td>
+      <td>
+        The number of topics that have to be created. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Iterations</td>
+      <td>
+        The (maximum) number of iterations the algorithm has to execute. Default value: 20.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Pooling Strategy</td>
+      <td>
+        The pooling strategy how to merge word embedings into document embeddings. Supported values
+        are 'average' and 'sum'. Default is 'average'.
+      </td>
+    </tr>
+
+</table>
+
+<h4 id="lda">LDA</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LDA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage to map text documents on their topic vectors or most likely topic label. "</span>
+	<span class="o">+</span> <span class="s">"This stage is based on two trained models, an LDA Topic model and a Word Embedding model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LDA</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the LDA model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Embedding Name</td>
+      <td>
+      The unique name of a trained Word2Vec embedding model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Pooling Strategy</td>
+      <td>
+        The pooling strategy how to merge word embedings into document embeddings. Supported values
+        are 'average' and 'sum'. Default is 'average'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Topic Field</td>
+      <td>
+      The name of the field in the output schema that contains the prediction result.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Topic Strategy</td>
+      <td>
+        The indicator to determine whether the trained LDA model is used to predict a
+        topic label or vector. Supported values are 'label' &amp; 'vector'. Default is 'vector'.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="topic-description">Topic Description</h2>
+
+<h3 id="plugins-1">Plugins</h3>
+
+<h4 id="topicbuilder">TopicBuilder</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TopicBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for a Latent Dirichlet Allocation (LDA) model. In contrast to "</span>
+	<span class="o">+</span> <span class="s">"the LDABuilder plugin, this stage leverages an implicit document vectorization based "</span>
+	<span class="o">+</span> <span class="s">"on the term counts of the provided corpus. The trained model can be used to either "</span>
+	<span class="o">+</span> <span class="s">"determine the topic-distribution per document or term-distribution per topic."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TopicBuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Topic model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Data Split</td>
+      <td>
+        The split of the dataset into train &amp; test data, e.g. 80:20. Default is 90:10.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Topics</td>
+      <td>
+        The number of topics that have to be created. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Iterations</td>
+      <td>
+        The (maximum) number of iterations the algorithm has to execute. Default value: 20.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Vocabulary Size</td>
+      <td>
+        The size of the vocabulary to build vector representations. Default is 10000.
+      </td>
+    </tr>
+
+</table>
+
+<h4 id="topic">Topic</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"Topic"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage to either determine the topic-distribution per document "</span>
+	<span class="o">+</span> <span class="s">"or term-distribution per topic. This stage is based on a trained Topic model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Topic</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the Topic model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Topic Strategy</td>
+      <td>
+        The indicator to determine whether to retrieve document-topic or topic-term description.
+        Supported values are 'document-topic' and 'topic-term'. Default is 'document-topic'.        
+      </td>
+    </tr>
+
+</table>
+
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#topic-clustering">Topic Clustering</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#plugins">Plugins</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#ldabuilder">LDABuilder</a></li>
+<li class="toc-entry toc-h4"><a href="#lda">LDA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#topic-description">Topic Description</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#plugins-1">Plugins</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#topicbuilder">TopicBuilder</a></li>
+<li class="toc-entry toc-h4"><a href="#topic">Topic</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

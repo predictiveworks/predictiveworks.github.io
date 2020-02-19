@@ -1,0 +1,475 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Time Preprocessing</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item active">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/time-series/">
+                    time series
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                preprocessing
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+  <!-- concepts -->
+  <a href="/concepts/">
+    <div class="nav-title">Concepts</div>
+  </a>
+
+  <!-- features -->
+  <a href="/features/">
+    <div class="nav-title">Features</div>
+  </a>
+
+  <!-- plugins -->
+  <a href="/plugins/">
+    <div class="nav-title">Plugins</div>
+  </a>
+
+  <div class="nav-subtitle">Analytics</div>
+
+    <a href="/plugins/analytics/deep-learning/">
+      <div class="nav-article group">Deep Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/machine-learning/">
+      <div class="nav-article group">Machine Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/">
+      <div class="nav-article group">Natural Language</div>
+    </a>
+
+    <a href="/plugins/analytics/queries-and-rules/">
+      <div class="nav-article group">Queries & Rules</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/">
+      <div class="nav-article group selected">Time Series</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/preprocessing.html">
+      <div class="nav-article item">Preprocessing</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/arima.html">
+      <div class="nav-article item">ARIMA</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/arma.html">
+      <div class="nav-article item">ARMA</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/autoregression.html">
+      <div class="nav-article item">Auto Regression</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/moving-average.html">
+      <div class="nav-article item">Moving Average</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/stl-decomposition.html">
+      <div class="nav-article item">STL Decomposition</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/regression.html">
+      <div class="nav-article item">Time Regression</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="motivation">Motivation</h2>
+
+<ul>
+  <li>Aggregation</li>
+  <li>Correlation</li>
+  <li>Interpolation</li>
+  <li>Resampling</li>
+</ul>
+
+<h2 id="plugins">Plugins</h2>
+
+<h3 id="tsaggregate">TsAggregate</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAggregate"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A time series aggregation stage that aggregates a sparse time series leveraging a user-defined "</span>
+		<span class="o">+</span> <span class="s">"tumbling window. Suppose a certain point in time refers to 09:00 am and a window of 10 minutes is "</span>
+		<span class="o">+</span> <span class="s">"defined, then all points in time falling into the window [09:00, 09:10] are collected and their "</span>
+		<span class="o">+</span> <span class="s">"associated values aggregated."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAggregate</span> <span class="kd">extends</span> <span class="nc">TimeCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Group Field</td>
+      <td>The name of the field in the input schema that specifies data groups.</td>
+    </tr>
+
+    <tr>
+      <td>Aggregation Method</td>
+      <td>The name of the aggregation method. Supported values are 'avg', 'count', 'mean' and 'sum'. Default is 'avg'.</td>
+    </tr>
+
+    <tr>
+      <td>Window Duration</td>
+      <td>The time window used to aggregate intermediate values. Default is '10 minutes'.</td>
+    </tr>
+
+</table>
+
+<h3 id="tsacf">TsACF</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsACF"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A time series computation stage that determines the ACF (Auto Correlation Function) "</span>
+    <span class="o">+</span> <span class="s">"of a time series. This stage does not transform the input dataset, but computes and persists "</span>
+    <span class="o">+</span> <span class="s">"its ACF for ease of use in subsequent stages."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsACF</span> <span class="kd">extends</span> <span class="nc">TimeCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Dataset Name</td>
+      <td>The unique name of the ACF dataset.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Algorithm Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Maximum Lag</td>
+      <td>
+        The maximum lag value. Use this parameter if the ACF is based on a range of lags. Default is 1.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Discrete Lags</td>
+      <td>
+        The comma-separated sequence of lag value. Use this parameter if the ACF should be based on
+        discrete values. This sequence is empty by default.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Correlation Threshold</td>
+      <td>
+        The threshold used to determine the lag value with the highest correlation score. Default is 0.95.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="tsinterpolate">TsInterpolate</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsInterpolate"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A time series interpolation stage that adds missing values. This stage "</span>
+    <span class="o">+</span> <span class="s">"interpolates missing values from the last non-null value before and the first "</span>
+    <span class="o">+</span> <span class="s">"on-null value after the respective null value."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsInterpolate</span> <span class="kd">extends</span> <span class="nc">TimeCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Group Field</td>
+      <td>The name of the field in the input schema that specifies data groups.</td>
+    </tr>
+
+</table>
+
+<h3 id="tsresample">TsResample</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsResample"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A time series resampling stage that turns a sparse time series into "</span>
+    <span class="o">+</span> <span class="s">"an equidistant time grid. This stage supports data values that belong to "</span>
+    <span class="o">+</span> <span class="s">"different categories or groups, say sensor devices. Then resampling is performed "</span>
+    <span class="o">+</span> <span class="s">"on a per group basis. Note, resampling may lead to missing values for intermediate "</span>
+    <span class="o">+</span> <span class="s">"points in time."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsResample</span> <span class="kd">extends</span> <span class="nc">TimeCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Group Field</td>
+      <td>The name of the field in the input schema that specifies data groups.</td>
+    </tr>
+
+    <tr>
+      <td>Time Interval</td>
+      <td>
+        Distance between subsequent points of the time series after resampling.
+        The value specifies a certain time interval in seconds. Default is 30.
+      </td>
+    </tr>
+
+</table>
+
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
+<li class="toc-entry toc-h2"><a href="#plugins">Plugins</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#tsaggregate">TsAggregate</a></li>
+<li class="toc-entry toc-h3"><a href="#tsacf">TsACF</a></li>
+<li class="toc-entry toc-h3"><a href="#tsinterpolate">TsInterpolate</a></li>
+<li class="toc-entry toc-h3"><a href="#tsresample">TsResample</a></li>
+</ul>
+</li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

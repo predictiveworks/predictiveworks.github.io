@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Named Entity Recognition</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item active">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/natural-language/">
+                    natural language
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                named entity recognition
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+  <!-- concepts -->
+  <a href="/concepts/">
+    <div class="nav-title">Concepts</div>
+  </a>
+
+  <!-- features -->
+  <a href="/features/">
+    <div class="nav-title">Features</div>
+  </a>
+
+  <!-- plugins -->
+  <a href="/plugins/">
+    <div class="nav-title">Plugins</div>
+  </a>
+
+  <div class="nav-subtitle">Analytics</div>
+
+    <a href="/plugins/analytics/deep-learning/">
+      <div class="nav-article group">Deep Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/machine-learning/">
+      <div class="nav-article group">Machine Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/">
+      <div class="nav-article group selected">Natural Language</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/preprocessing.html">
+      <div class="nav-article item">Preprocessing</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/dependency-parsing.html">
+      <div class="nav-article item">Dependency Parsing</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/named-entity-recognition.html">
+      <div class="nav-article item">Named Entity Recognition</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/noise-reduction.html">
+      <div class="nav-article item">Noise Reduction</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/part-of-speech-analysis.html">
+      <div class="nav-article item">Part of Speech Analysis</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/sentiment-analysis.html">
+      <div class="nav-article item">Sentiment Analysis</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/text-engineering.html">
+      <div class="nav-article item">Text Engineering</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/text-matching.html">
+      <div class="nav-article item">Text Matching</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/topic-modeling.html">
+      <div class="nav-article item">Topic Modeling</div>
+    </a>
+
+    <a href="/plugins/analytics/queries-and-rules/">
+      <div class="nav-article group">Queries & Rules</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/">
+      <div class="nav-article group">Time Series</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="objective">Objective</h2>
+
+<p>Named Entity Recognition (NER) is the automated process of detecting person, location, organization
+names (and more) from a text corpus. The respective <em>names</em> are learned from a training corpus.</p>
+
+<p>Even if the detection of person, location or organization names is the initial and main objective, it is not
+restricted to this use case. It is a just matter of imagination what “name”, “document”, “sentence” or “word”
+means in a certain context.</p>
+
+<h2 id="corpus">Corpus</h2>
+
+<p>TBD</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<h3 id="nerbuilder">NERBuilder</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NERBuilder"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark-NLP based NER (CRF) model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NERBuilder</span> <span class="kd">extends</span> <span class="nc">TextSink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the NER (CRF) model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Embedding Name</td>
+      <td>
+      The unique name of the trained Word2Vec embedding model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Corpus Field</td>
+      <td>
+      The name of the field in the input schema that contains the labeled tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <tr>
+      <td>Minimum Epochs</td>
+      <td>
+        Minimum number of epochs to train. Default is 10.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Epochs</td>
+      <td>
+      Maximum number of epochs to train. Default is 1000.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="nertagger">NERTagger</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NERTagger"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A tagging stage that leverages a trained Word2Vec model and NER (CRF) model "</span>
+  <span class="o">+</span> <span class="s">"to map an input text field onto an output token &amp; entities field."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NERTagger</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>
+      The unique name of the NER (CRF) model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Embedding Name</td>
+      <td>
+      The unique name of the trained Word2Vec embedding model.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Text Field</td>
+      <td>
+      The name of the field in the input schema that contains the text document.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Token Field</td>
+      <td>
+      The name of the field in the output schema that contains the extracted tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Entities Field</td>
+      <td>
+      The name of the field in the output schema that contains the extracted entities.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Normalization</td>
+      <td>
+        The indicator to determine whether token normalization has to be applied.
+        Normalization restricts the characters of a token to [A-Za-z0-9-]. Supported
+        values are 'true' and 'false'. Default is 'true'.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="nerrelation">NERRelation</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"NERRelation"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the result of an NER tagging stage and "</span>
+  <span class="o">+</span> <span class="s">"extracts relations between named entities from their co-occurring."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NERRelation</span> <span class="kd">extends</span> <span class="nc">TextCompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Token Field</td>
+      <td>
+      The name of the field in the input schema that contains the extracted tokens.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Entities Field</td>
+      <td>
+      The name of the field in the input schema that contains the extracted named entity tags.
+      </td>
+    </tr>
+
+</table>
+
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#corpus">Corpus</a></li>
+<li class="toc-entry toc-h2"><a href="#plugins">Plugins</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#nerbuilder">NERBuilder</a></li>
+<li class="toc-entry toc-h3"><a href="#nertagger">NERTagger</a></li>
+<li class="toc-entry toc-h3"><a href="#nerrelation">NERRelation</a></li>
+</ul>
+</li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

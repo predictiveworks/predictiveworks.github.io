@@ -1,0 +1,624 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ARIMA</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item active">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/time-series/">
+                    time series
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                arima
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+  <!-- concepts -->
+  <a href="/concepts/">
+    <div class="nav-title">Concepts</div>
+  </a>
+
+  <!-- features -->
+  <a href="/features/">
+    <div class="nav-title">Features</div>
+  </a>
+
+  <!-- plugins -->
+  <a href="/plugins/">
+    <div class="nav-title">Plugins</div>
+  </a>
+
+  <div class="nav-subtitle">Analytics</div>
+
+    <a href="/plugins/analytics/deep-learning/">
+      <div class="nav-article group">Deep Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/machine-learning/">
+      <div class="nav-article group">Machine Learning</div>
+    </a>
+
+    <a href="/plugins/analytics/natural-language/">
+      <div class="nav-article group">Natural Language</div>
+    </a>
+
+    <a href="/plugins/analytics/queries-and-rules/">
+      <div class="nav-article group">Queries & Rules</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/">
+      <div class="nav-article group selected">Time Series</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/preprocessing.html">
+      <div class="nav-article item">Preprocessing</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/arima.html">
+      <div class="nav-article item">ARIMA</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/arma.html">
+      <div class="nav-article item">ARMA</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/autoregression.html">
+      <div class="nav-article item">Auto Regression</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/moving-average.html">
+      <div class="nav-article item">Moving Average</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/stl-decomposition.html">
+      <div class="nav-article item">STL Decomposition</div>
+    </a>
+
+    <a href="/plugins/analytics/time-series/regression.html">
+      <div class="nav-article item">Time Regression</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="objective">Objective</h2>
+
+<p>ARIMA is short for Auto Regressive Integrated Moving Average. This acronym is descriptive, capturing the key aspects of the model itself:</p>
+
+<table width="100%">
+
+  <tr>
+    <td><b>AR</b>: Autoregression.</td>
+  </tr>
+  <tr>
+    <td>
+    This part of the model expects that the time series has a dependent relationship between an observation and some number of lagged observations. In other words: The evolving observation value is regressed on its own past values.
+    </td>
+  </tr>
+  <tr>
+    <td><b>I</b> Integrated.</td>
+  </tr>
+  <tr>
+    <td>
+    This part of the model makes it applicable to use cases where data show evidence of <i>non-stationarity</i>. Initial differencing steps can be used one or more times to eliminate the non-stationarity from raw observations.
+    </td>
+  </tr>
+  <tr>
+    <td><b>MA</b> Moving Average.</td>
+  </tr>
+  <tr>
+    <td>
+    This model part indicates that the regression error is actually a linear combination of error terms whose values occurred contemporaneously and at various times in the past.
+
+    A model that uses the dependency between an observation and a residual error from a moving average model applied to lagged observations.
+    </td>
+  </tr>
+</table>
+
+<p>An ARIMA model is a generalization of an AutoRegressive Moving Average (<a href="/arma.html">ARMA</a>) model. Both models are fitted to time series data to <strong>forecast</strong> future points in the series.</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<h3 id="tsarimasink">TsARIMASink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARIMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based ARIMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARIMASink</span> <span class="kd">extends</span> <span class="nc">ARIMASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Note, this is a split time
+      and is computed from the total time span (min, max) of the time series. Default is 70:30."
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <!-- arima -->
+    <tr>
+      <td>Lag Order</td>
+      <td>
+        The positive number of lag observations included in the time series model (also called the lag order).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Differencing Degree</td>
+      <td>
+        The positive number of times that the raw observations are differenced (also called the degree of differencing).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Moving Average Order</td>
+      <td>
+        A positive number that specifies the size of the moving average window (also called the order of moving average).
+      </td>
+    </tr>
+
+    <!-- regression -->
+
+    <tr>
+      <td>ElasticNet Mixing</td>
+      <td>
+      	The ElasticNet mxing parameter. For value = 0.0, the penalty is an L2 penalty.
+        For value = 1.0, it is an L1 penalty. For 0.0 &lt; value &lt; 1.0, the penalty
+        is a combination of L1 and L2. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Regularization Parameter</td>
+      <td>
+        The nonnegative regularization parameter. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Standardization</td>
+      <td>
+      	The indicator to determine whether to standardize the training
+        features before fitting the model. Default is 'true'."
+      </td>
+    </tr>
+
+    <tr>
+      <td>With Intercept</td>
+      <td>
+        The indicator to determine whether to fit an intercept value.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Remove Mean</td>
+      <td>
+      The indicator to determine whether to remove the mean value from the value
+      from the value of the time series before training model. Default is 'false'.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="tsarima">TsARIMA</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsARIMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained ARIMA model to look n steps in time ahead. "</span>
+		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
+		<span class="o">+</span> <span class="s">"points in time, and another the forecasted values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsARIMA</span> <span class="kd">extends</span> <span class="nc">ARIMACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the ARIMA model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Steps</td>
+      <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
+
+<h3 id="tsautoarimasink">TsAutoARIMASink</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARIMASink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark based AutoARIMA model for time series datasets."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARIMASink</span> <span class="kd">extends</span> <span class="nc">ARIMASink</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the AutoARIMA model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Split</td>
+      <td>
+      The split of the dataset into train &amp; test data, e.g. 80:20. Note, this is a split time
+      and is computed from the total time span (min, max) of the time series. Default is 70:30."
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><b>Model Configuration</b></td>
+    </tr>
+
+    <!-- arima -->
+    <tr>
+      <td>Maximum Lag Order</td>
+      <td>
+        The positive upper limit for tuning the number of lag operations (p).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Differencing Degree</td>
+      <td>
+        The positive upper limit for tuning the degree of differencing (d).
+      </td>
+    </tr>
+
+    <tr>
+      <td>Maximum Moving Average Order</td>
+      <td>
+        The positive upper limit for tuning the size of the moving average window (q).
+      </td>
+    </tr>
+
+    <!-- regression -->
+
+    <tr>
+      <td>ElasticNet Mixing</td>
+      <td>
+      	The ElasticNet mxing parameter. For value = 0.0, the penalty is an L2 penalty.
+        For value = 1.0, it is an L1 penalty. For 0.0 &lt; value &lt; 1.0, the penalty
+        is a combination of L1 and L2. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Regularization Parameter</td>
+      <td>
+        The nonnegative regularization parameter. Default is 0.0.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Standardization</td>
+      <td>
+      	The indicator to determine whether to standardize the training
+        features before fitting the model. Default is 'true'."
+      </td>
+    </tr>
+
+    <tr>
+      <td>With Intercept</td>
+      <td>
+        The indicator to determine whether to fit an intercept value.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Remove Mean</td>
+      <td>
+      The indicator to determine whether to remove the mean value from the value
+      from the value of the time series before training model. Default is 'false'.
+      </td>
+    </tr>
+
+    <tr>
+      <td>Info Criterion</td>
+      <td>
+        The information criterion to calculate for model parameter tuning. Supported values
+        are 'aic' (Akaike Information Criterion), 'aicc' (AIC with correction for finite sample
+        sizes) and 'bic' (Bayesian Information Criterion). Default is 'aic'.
+      </td>
+    </tr>
+
+</table>
+
+<h3 id="tsautoarima">TsAutoARIMA</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"TsAutoARIMA"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages a trained AutoARIMA model to look n steps in time ahead. "</span>
+		<span class="o">+</span> <span class="s">"The forecast result is described by a two column output schema, one column specifies the future "</span>
+		<span class="o">+</span> <span class="s">"points in time, and another the forecasted values."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TsAutoARIMA</span> <span class="kd">extends</span> <span class="nc">ARIMACompute</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>Model Name</td>
+      <td>The unique name of the AutoARIMA model.</td>
+    </tr>
+
+    <tr>
+      <td>Time Field</td>
+      <td>The name of the field in the input schema that contains the time value.</td>
+    </tr>
+
+    <tr>
+      <td>Value Field</td>
+      <td>The name of the field in the input schema that contains the value.</td>
+    </tr>
+
+    <tr>
+      <td>Time Steps</td>
+      <td>The positive number of discrete time steps to look ahead. Default is 1.</td>
+    </tr>
+
+</table>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>TBD</p>
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#plugins">Plugins</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#tsarimasink">TsARIMASink</a></li>
+<li class="toc-entry toc-h3"><a href="#tsarima">TsARIMA</a></li>
+<li class="toc-entry toc-h3"><a href="#tsautoarimasink">TsAutoARIMASink</a></li>
+<li class="toc-entry toc-h3"><a href="#tsautoarima">TsAutoARIMA</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

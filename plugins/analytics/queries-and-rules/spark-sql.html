@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Spark SQL</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/">
+                    plugins
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/">
+                    analytics
+                  </a>
+                
+              </li>
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/plugins/analytics/queries-and-rules/">
+                    queries and rules
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                spark sql
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+    <!-- concepts -->
+    <a href="/concepts/">
+      <div class="nav-title">Concepts</div>
+    </a>
+
+    <!-- features -->
+    <a href="/features/">
+      <div class="nav-title">Features</div>
+    </a>
+
+    <!-- plugins -->
+    <a href="/plugins/">
+      <div class="nav-title">Plugins</div>
+    </a>
+
+    <div class="nav-subtitle">Analytics</div>
+
+      <a href="/plugins/analytics/deep-learning/">
+        <div class="nav-article group">Deep Learning</div>
+      </a>
+
+      <a href="/plugins/analytics/machine-learning/">
+        <div class="nav-article group">Machine Learning</div>
+      </a>
+
+      <a href="/plugins/analytics/natural-language/">
+        <div class="nav-article group">Natural Language</div>
+      </a>
+
+      <a href="/plugins/analytics/queries-and-rules/">
+        <div class="nav-article group selected">Queries & Rules</div>
+      </a>
+
+        <a href="/plugins/analytics/queries-and-rules/drools-rules.html">
+          <div class="nav-article item">Drools Rules</div>
+        </a>
+
+        <a href="/plugins/analytics/queries-and-rules/spark-sql.html">
+          <div class="nav-article item">Spark SQL</div>
+        </a>
+
+      <a href="/plugins/analytics/time-series/">
+        <div class="nav-article group">Time Series</div>
+      </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="plugin">Plugin</h2>
+
+<p>Spark SQL is designed to support structured data processing and is an important means to standardize
+and unify data processing. Datasets, independent of their origin and format, once transformed into an
+Apache Spark Dataset can be explored leveraging SQL queries.</p>
+
+<h3 id="applysql">ApplySQL</h3>
+
+<p>Integrating Spark SQL with <a href="https://cdap.io">CDAP</a> pipeline technology, makes SQL queries available to explore both historical datasets <em>and</em> real-time event streams.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ApplySQL"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that uses an Apache Spark SQL based data exploration engine "</span>
+	<span class="o">+</span> <span class="s">"to aggregate, group and filter pipeline data records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplySQL</span> <span class="kd">extends</span> <span class="nc">SparkCompute</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="o">...</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><b>Parameters</b></p>
+
+<table class="params" width="100%">
+
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+
+    <tr>
+      <td>SQL Statement</td>
+      <td>
+        Please provide an Apache Spark compliant SQL statement to filter, group or aggregate
+        the data records that have been published by your previous pipeline stage.
+      </td>
+    </tr>
+
+</table>
+
+<h2 id="integration">Integration</h2>
+
+<p><img width="80%" src="/assets/images/works-sql.svg" /></p>
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#plugin">Plugin</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#applysql">ApplySQL</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#integration">Integration</a></li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>
