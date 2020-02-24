@@ -199,23 +199,136 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h1 id="time-series-analysis">Time Series Analysis</h1>
+                <div class="section">
+  <div class="section-img">
+    <img src="/assets/images/logo-works-ts.svg" />
+  </div>
+  <div class="section-text">
+    <div class="section-inner">
+      <h2>Works TS</h2>
+      <p>
+        Predictive<span class="brand-teal">Works.</span> time series support has a strong focus
+        on forecasting and prediction. Data are often sparse in time, non-stationary,
+        carry seasonality pattern and trends.         
+      </p>
+      <p>
+        A frequent requirement for time series techniques is that the data be stationary. This argument
+        holds for the time series models supported here as well.
+      </p>
+    </div>
+    <p>
+    </p>
+  </div>
+</div>
+<p>
+  Predictive<span class="brand-teal">Works.</span> responds to this fact and offers, in
+  addition to model building, forecasting and prediction, many standardized plugins for
+  preprocessing, seasonality &amp; trend decomposition, and time series engineering.
+</p>
 
-<div class="section-title">
-  <img src="/assets/images/logo-works-ts.svg" />
-  <div>
-    <div class="page-title">Works TS Plugins</div>
-    <div class="page-subtitle">Time Series Predictions at Scale</div>
+<h2 id="time-series-tasks">Time Series Tasks</h2>
+
+<div class="overview">
+  <div class="overview-topic">
+    <div class="topic"></div>
+  </div>
+  <div class="overview-desc">
+    <h3>Preprocessing</h3>
+    <p>
+      Predictive<span class="brand-teal">Works.</span> supports a variety of data preparation
+      techniques to transform sparse time series data to a series of values uniformly sampled
+      in time.
+    </p>
+    <p>
+      This includes aggregation, resampling, interpolation to fill missing values and more.
+    </p>
   </div>
 </div>
 
-<h2 id="motivation">Motivation</h2>
+<div class="overview">
+  <div class="overview-topic">
+    <div class="topic"></div>
+  </div>
+  <div class="overview-desc">
+    <h3>Decomposition</h3>
+    <p>
+      Time series data often carry seasonality pattern and trends and are non-stationary. Differencing
+      is a frequent technique to make time series data stationary and ready for model building.
+    </p>
+    <p>
+      Seasonality and trends, however, have its own value. Predictive<span class="brand-teal">Works.</span>
+      supports decomposition of time series data into their seasonal, trend and remaining part.
+    </p>
+    <p>
+      This preserves and extracts meaningful information and also prepares data for model building.
+    </p>
+  </div>
+</div>
 
-<h2 id="overview">Overview</h2>
+<div class="overview">
+  <div class="overview-topic">
+    <div class="topic"></div>
+  </div>
+  <div class="overview-desc">
+    <h3>Engineering</h3>
+    <p>
+      Many general purpose ML models such as clustering, regression and others, start from feature
+      vectors and labels. To benefit from these ML models, time series data have to be transformed
+      into (labeled) feature vectors.
+    </p>
+    <p>
+      Predictive<span class="brand-teal">Works.</span> time series engineering supports time series
+      embedding into higher-dimensional feature spaces.
+    </p>
+  </div>
+</div>
+
+<div class="overview">
+  <div class="overview-topic">
+    <div class="topic"></div>
+  </div>
+  <div class="overview-desc">
+    <h3>Forecasting</h3>
+    <p>
+    Predictive<span class="brand-teal">Works.</span> offers approved time series models as standardized
+    pipeline plugins to look several steps ahead in time and forecast the values of a dependent variable.
+    </p>
+    <p>
+    Plugins for model building and forecasting share the same technology and make sure that trained and
+    retrained time series models are immediately available for production pipelines.
+    </p>
+    <p>
+    The following time series models are supported: ARIMA, ARMA, AutoRegression, and MovingAverage.
+    </p>
+  </div>
+</div>
+
+<div class="overview">
+  <div class="overview-topic">
+    <div class="topic"></div>
+  </div>
+  <div class="overview-desc">
+    <h3>Prediction</h3>
+    <p>
+    For many use cases, including demand prediction, forecasting what lies ahead in the future can be
+    satisfactorily and easily solved after transforming it into a classification or regression problem.
+    </p>
+    <p>
+    Predictive<span class="brand-teal">Works.</span> supports time series engineering to seamlessly integrate
+    time series analytics with general purpose classification and regression.
+    </p>
+    <p>
+    In addition to this, Predictive<span class="brand-teal">Works.</span> offers support for Random Forest Regression
+    to predict the most probable value for the next point or interval in time.
+    </p>
+  </div>
+</div>
 
 <h2 id="integration">Integration</h2>
 
-<p>The main objective of Predictive<span class="brand-teal">Works.</span> time series analysis support is to make to common time series models and data processing available as plugin components for <a href="https://cdap.io">CDAP</a> data pipelines.</p>
+<p>Predictive<span class="brand-teal">Works.</span> integrates <b>Spark Time</b>, a time series analysis library that
+has been open-sourced recently by Dr. Krusche &amp; Partner. Its functional scope was externalized as standardized plugins
+for Google CDAP pipelines and can be easily combined with any other plugin.</p>
 
 <p><img width="80%" src="/assets/images/works-ts.svg" alt="Works TS" /></p>
 
@@ -231,13 +344,17 @@
               </div>
               <div class="toc-body">
                 <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#time-series-analysis">Time Series Analysis</a>
+<li class="toc-entry toc-h2"><a href="#works-ts">Works TS</a></li>
+<li class="toc-entry toc-h2"><a href="#time-series-tasks">Time Series Tasks</a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#motivation">Motivation</a></li>
-<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
-<li class="toc-entry toc-h2"><a href="#integration">Integration</a></li>
+<li class="toc-entry toc-h3"><a href="#preprocessing">Preprocessing</a></li>
+<li class="toc-entry toc-h3"><a href="#decomposition">Decomposition</a></li>
+<li class="toc-entry toc-h3"><a href="#engineering">Engineering</a></li>
+<li class="toc-entry toc-h3"><a href="#forecasting">Forecasting</a></li>
+<li class="toc-entry toc-h3"><a href="#prediction">Prediction</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#integration">Integration</a></li>
 </ul>
               </div>
             </div>

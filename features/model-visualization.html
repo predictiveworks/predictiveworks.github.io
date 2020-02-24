@@ -127,7 +127,7 @@
 
       <div class="nav-subtitle">Model Management</div>
 
-      <a href="/features/model-lifecycle.html">
+      <a href="/features/model-life-cycle.html">
         <div class="nav-article">Model Life Cycle</div>
       </a>
 
@@ -170,11 +170,23 @@
             <div class="main-content">
                 <h2 id="objective">Objective</h2>
 
-<p>TBD</p>
+<p>Predictive<span class="brand-teal">Works.</span> supports tracking of data model artifacts and metadata. Metadata comprise
+model specific information such as name, life cycle stage or version, model parameters and model metrics.</p>
+
+<p>Exploring which parameter selections caused which accuracy is an important step towards changing a model’s life cycle
+stage to ‘production’.</p>
+
+<p>Predictive<span class="brand-teal">Works.</span> offers a REST API to access and query its <em>model registry</em>. Model building
+results can be retrieved as time series data and enable visual model exploration.</p>
 
 <h2 id="implementation">Implementation</h2>
 
-<p>TBD</p>
+<p>Predictive<span class="brand-teal">Works.</span> model registry is exposed as a REST service, that returns query results
+in JSON format that directly supports <a href="https://echarts.apache.org">Apache Echarts</a> visualization widgets.</p>
+
+<p>This is one of the easiest ways to enable companies to build their own data model dashboards.</p>
+
+<p><img src="/assets/images/model-service.svg" width="95%" /></p>
 
             </div>
           </div>

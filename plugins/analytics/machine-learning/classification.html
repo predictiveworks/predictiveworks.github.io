@@ -212,31 +212,7 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h2 id="objective">Objective</h2>
-
-<p>The objective of Predictive <span class="brand-teal">Works.</span> classification support is to make <a href="https://spark.apache.org">Apache Spark ML</a> model building available as plugin components for CDAP data pipelines.</p>
-
-<p>The main benefit of this <em>unification</em> is that ML model building can be used without any coding skills. Each plugin component comes with a graphical UI to configure and select model parameters.</p>
-
-<p>Different plugins, from feature preparation to model training, can be arranged into complete model building pipelines without the need to write any line of code.</p>
-
-<blockquote>
-<p>
-Predictive<span class="brand-teal">Works.</span> support for classification algorithms is based on Apache Spark ML v2.1.3 to be compliant with Google CDAP's pipeline technology.
-</p>
-</blockquote>
-
-<h2 id="decision-tree">Decision Tree</h2>
-
-<p>Decision trees and their ensembles are popular methods for ML classification. Decision trees are widely used since</p>
-
-<ul>
-  <li>they are easy to interpret,</li>
-  <li>handle categorical features,</li>
-  <li>extend to the multi-class classification setting,</li>
-  <li>do not require feature scaling, and</li>
-  <li>are able to capture non-linearities and feature interactions.</li>
-</ul>
+                <h2 id="decision-tree">Decision Tree</h2>
 
 <h3 id="dtclassifier">DTClassifier</h3>
 
@@ -365,8 +341,6 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 </table>
 
 <h2 id="gradient-boosted-tree">Gradient-Boosted Tree</h2>
-
-<p>Gradient-Boosted Trees are ensembles of decision trees. They iteratively train decision trees in order to minimize a loss function. The Apache Spark ML implementation supports Gradient-Boosted Trees for binary classification, using both continuous and categorical features.</p>
 
 <h3 id="gbtclassifier">GBTClassifier</h3>
 
@@ -632,10 +606,6 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 
 <h2 id="multi-layer-perceptron">Multi-Layer Perceptron</h2>
 
-<p>Multi-Layer Perceptron is a classifier based on the feed-forward artificial neural network. This classifier consists of multiple layers of nodes. Each layer is fully connected to the next layer in the network.</p>
-
-<p>Nodes in the input layer represent the input data. All other nodes map inputs to outputs by a linear combination of the inputs. The number of nodes in the output layer corresponds to the number of classes.</p>
-
 <h3 id="mlpclassifier">MLPClassifier</h3>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
@@ -879,8 +849,6 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 
 <h2 id="random-forest-tree">Random-Forest Tree</h2>
 
-<p>Random forests are ensembles of decision trees. They combine many decision trees in order to reduce the risk of overfitting. The underlying Apache Spark ML implementation supports random forests for binary and multi-class classification, using both continuous and categorical features.</p>
-
 <h3 id="rfclassifier">RFClassifier</h3>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
@@ -1014,9 +982,6 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 
 </table>
 
-<h2 id="evaluation">Evaluation</h2>
-
-<p>TBD</p>
 
             </div>
           </div>
@@ -1030,7 +995,6 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
               </div>
               <div class="toc-body">
                 <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#decision-tree">Decision Tree</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#dtclassifier">DTClassifier</a></li>
@@ -1067,7 +1031,6 @@ Predictive<span class="brand-teal">Works.</span> support for classification algo
 <li class="toc-entry toc-h3"><a href="#rfpredictor">RFPredictor</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#evaluation">Evaluation</a></li>
 </ul>
               </div>
             </div>

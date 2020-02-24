@@ -212,19 +212,23 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h2 id="objective">Objective</h2>
+                <h2 id="overview">Overview</h2>
 
-<p>In machine learning, <em>imbalanced</em> datasets are no surprise. If the datasets intended for classification problems or other problems related to discrete predictive analytics have an unequal number of samples for different classes, then those datasets are said to be imbalanced.</p>
+<p>In machine learning, <em>imbalanced</em> datasets are no surprise. If the datasets intended for classification problems
+or other problems related to discrete predictive analytics have an unequal number of samples for different classes,
+then those datasets are said to be imbalanced.</p>
 
-<p>Classes having comparatively fewer instances than others are said to be a minority with respect to the classes having a comparatively larger number of the samples (known as a majority).</p>
+<p>Classes having comparatively fewer instances than others are said to be a minority with respect to the classes having
+a comparatively larger number of the samples (majority). Training ML models with imbalanced datasets often causes the
+models to develop a certain bias towards the majority classes.</p>
 
-<p>Training a ML models with imbalanced datasets often causes the model to develop a certain bias towards the majority classes.</p>
+<p>The SMOTE algorithm, short for Synthetic Minority Over-sampling Technique, addresses this issue imbalanced classes.
+It is based on nearest neighbors (determined by the Euclidean distance of data points in the feature space).</p>
 
-<p>The SMOTE algorithm, short for Synthetic Minority Over-sampling Technique, addresses this issue imbalanced classes. It is based on nearest neighbors (determined by the Euclidean distance of data points in the feature space).</p>
-
-<p>The feature values of nearest neighbor samples are used to interpolate synthetic feature values to retrieve a certain predefined percentage of additional synthetic samples (over-sampling).</p>
-
-<p>Applying this algorithm to the samples of the training datasets that belong to the minority classes finally ends up with a more balanced training set and the removal of the model bias.</p>
+<p>The feature values of nearest neighbor samples are used to interpolate synthetic feature values to retrieve a certain
+predefined percentage of additional synthetic samples (over-sampling).cApplying this algorithm to the samples of the
+training datasets that belong to the minority classes finally ends up with a more balanced training set and the removal
+of the model bias.</p>
 
 <blockquote>
 <p>
@@ -312,7 +316,7 @@ Apache Spark ML does not support SMOTE out of the box.
               </div>
               <div class="toc-body">
                 <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#overview">Overview</a></li>
 <li class="toc-entry toc-h2"><a href="#smotesampler">SMOTESampler</a></li>
 </ul>
               </div>

@@ -212,13 +212,9 @@
 
           <div class="column-content">
             <div class="main-content">
-                <h2 id="objective">Objective</h2>
-
-<h2 id="aggregation">Aggregation</h2>
+                <h2 id="aggregation">Aggregation</h2>
 
 <h3 id="vectorassembler">VectorAssembler</h3>
-
-<p>The VectorAssembler combines a given list of numerical feature columns into a single feature vector column.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"VectorAssembler"</span><span class="o">)</span>
@@ -492,10 +488,6 @@
 
 <h3 id="stringindexerbuilder">StringIndexerBuilder</h3>
 
-<p>A String Indexer Builder is an Apache Spark ML Estimator that encodes a sequence of text labels
-into a sequence of label indices and provides this mapping as a StringIndexer model for either
-transform text labels into indices (StringToIndex) or vice versa (Index2String).</p>
-
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"StringIndexerBuilder"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A building stage for an Apache Spark ML StringIndexer model."</span><span class="o">)</span>
@@ -573,8 +565,6 @@ transform text labels into indices (StringToIndex) or vice versa (Index2String).
 </table>
 
 <h3 id="stringtoindex">StringToIndex</h3>
-
-<p>A String Indexer converts a column of text labels into a column of label indices.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"StringToIndex"</span><span class="o">)</span>
@@ -1045,8 +1035,6 @@ transform text labels into indices (StringToIndex) or vice versa (Index2String).
 
 <h3 id="binarizer">Binarizer</h3>
 
-<p>The Binarizer transforms <em>numerical feature vectors</em> to binary (0 or 1) vectors by applying a value threshold. Values greater than the threshold are binarized to 1.0. Values equal to or less than the threshold are binarized to 0.0.</p>
-
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"Binarizer"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A transformation stage that leverages the Apache Spark ML Binarizer "</span>
@@ -1140,9 +1128,6 @@ transform text labels into indices (StringToIndex) or vice versa (Index2String).
 </table>
 
 <h3 id="dct">DCT</h3>
-
-<p>The Discrete Cosine Transform (DCT) transforms a real-valued sequence in the time domain into
-another real-valued sequence of the same length in the frequency domain.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"DCT"</span><span class="o">)</span>
@@ -1783,7 +1768,6 @@ another real-valued sequence of the same length in the frequency domain.</p>
               </div>
               <div class="toc-body">
                 <ul class="section-nav">
-<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
 <li class="toc-entry toc-h2"><a href="#aggregation">Aggregation</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#vectorassembler">VectorAssembler</a></li>

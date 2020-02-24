@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Model Life Cycle</title>
+    <link rel="stylesheet" href="/assets/css/fontawesome-free-5.10.1-web/css/all.min.css"/>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+  </head>
+  <body>
+    <div class="site">
+
+      
+<div class="site-header">
+
+  <!-- title -->
+  <div class="site-header-title">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="logo"></div>
+        <div class="header-nav">
+          <a href="/concepts/index.html">
+            
+              <div class="header-nav-item">Concepts</div>
+            
+          </a>
+          <a href="/features/index.html">
+            
+              <div class="header-nav-item active">Features</div>
+            
+          </a>
+          <a href="/plugins/index.html">
+            
+              <div class="header-nav-item">Plugins</div>
+            
+          </a>
+          <a href="/maturity-model.html">
+            
+              <div class="header-nav-item">Maturity Model</div>
+            
+          </a>
+          <a href="/what-others-do.html">
+            
+              <div class="header-nav-item">What Others Do</div>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-header-message" style="background:#1bacab;">
+    <div class="header-wrapper set-maxwidth">
+      <div class="site-header-content">
+        <div class="column-left"></div>
+        <div class="column-content vertical">
+            <div class="site-main-message">
+              <div class="plug-and-play"></div>
+              <div class="message-title">
+                <div class="large">Plug and Play</div>
+                <div>Analytics at Scale</div>
+              </div>
+            </div>
+          <div class="message-subtitle">
+            Build predictive data pipelines with 200+ code-free plugins
+          </div>
+        </div>
+        <div class="column-right">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- breadcrumbs -->
+  <div class="header-wrapper set-maxwidth">
+    <div class="site-header-breadcrumbs">
+      <div class="column-left"></div>
+      <div class="column-content">
+        
+          <ul class="breadcrumb">
+            <li><a href="/">Home</a> </li>
+            
+            
+              <li >
+                
+                  <i class="fa fa-chevron-right fa-icon"></i>
+                  <a href="/features/">
+                    features
+                  </a>
+                
+              </li>
+            
+              <li class="active">
+                
+                <i class="fa fa-chevron-right fa-icon"></i>
+                model life cycle
+                
+              </li>
+            
+          </ul>
+        
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+      <div class="site-wrapper set-maxwidth">
+
+        <div class="site-content">
+
+          <div class="column-left">
+            <div class="main-nav">
+              <nav class="nav-main">
+  <div class="nav-container">
+
+    <!-- concepts -->
+    <a href="/concepts/">
+      <div class="nav-title">Concepts</div>
+    </a>
+
+    <!-- features -->
+    <div class="nav-title">Features</div>
+
+      <div class="nav-subtitle">Model Management</div>
+
+      <a href="/features/model-life-cycle.html">
+        <div class="nav-article">Model Life Cycle</div>
+      </a>
+
+      <a href="/features/model-visualization.html">
+        <div class="nav-article">Model Visualization</div>
+      </a>
+
+      <div class="nav-subtitle">Pipeline Knowledge</div>
+
+      <a href="/features/business-templates.html">
+        <div class="nav-article">Business Templates</div>
+      </a>
+
+      <a href="/features/template-market.html">
+        <div class="nav-article">Template Market</div>
+      </a>
+
+      <div class="nav-subtitle">Pipeline Operation</div>
+
+      <a href="/features/template-studio.html">
+        <div class="nav-article">Template Studio</div>
+      </a>
+
+      <a href="/features/foresight-fabric.html">
+        <div class="nav-article">Foresight Fabric</div>
+      </a>
+
+    <!-- plugins -->
+    <a href="/plugins/">
+      <div class="nav-title">Plugins</div>
+    </a>
+
+  </div>
+</nav>
+
+            </div>
+          </div>
+
+          <div class="column-content">
+            <div class="main-content">
+                <h2 id="objective">Objective</h2>
+
+<p>Predictive<span class="brand-teal">Works.</span> supports end-to-end management of the machine
+learning lifecycle and integrates model building and prediction pipelines:</p>
+
+<ul>
+  <li>
+    <p>Building tracks parameters and metrics for each pipeline run and supports automated versioning
+to enable a clear-cut separation of each model experiment.</p>
+  </li>
+  <li>
+    <p>Prediction pipelines have direct access to trained models. This minimizes time from model building
+and evaluation to production to its minimal value.</p>
+  </li>
+</ul>
+
+<p><b>Sample: Logistic Regression</b></p>
+
+<p>The sample illustrates how Predictive<span class="brand-teal">Works.</span> model recorder is used to track a
+certain logistic regression model experiment.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+
+<span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="na">transform</span><span class="o">(</span><span class="n">testset</span><span class="o">);</span>
+<span class="nc">String</span> <span class="n">metricsJson</span> <span class="o">=</span> <span class="nc">Evaluator</span><span class="o">.</span><span class="na">evaluate</span><span class="o">(</span><span class="n">predictions</span><span class="o">,</span> <span class="n">labelCol</span><span class="o">,</span> <span class="n">predictionCol</span><span class="o">);</span>
+<span class="cm">/*
+ * Store trained logistic regression model including
+ * its associated parameters and metrics
+ */</span>		
+<span class="nc">String</span> <span class="n">modelName</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="na">modelName</span><span class="o">;</span>
+<span class="k">new</span> <span class="nf">LRRecorder</span><span class="o">().</span><span class="na">track</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">modelName</span><span class="o">,</span> <span class="n">paramsJson</span><span class="o">,</span> <span class="n">metricsJson</span><span class="o">,</span> <span class="n">model</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>The same recorder can the be used to retrieve a certain model instance for prediction purposes.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">SparkCompute</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"LRPredictor"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A prediction stage that leverages a trained Apache Spark ML Logistic "</span>
+<span class="o">+</span> <span class="s">"Regression classifier model."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LRPredictor</span> <span class="kd">extends</span> <span class="nc">PredictorCompute</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">SparkExecutionPluginContext</span> <span class="n">context</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="n">config</span><span class="o">.</span><span class="na">validate</span><span class="o">();</span>
+
+    <span class="n">classifier</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LRRecorder</span><span class="o">().</span><span class="na">read</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">config</span><span class="o">.</span><span class="na">modelName</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">classifier</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"[%s] A classifier model with name "</span>
+        <span class="o">+</span> <span class="s">"'%s' does not exist."</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span> <span class="n">config</span><span class="o">.</span><span class="na">modelName</span><span class="o">));</span>
+
+  <span class="o">}</span>
+
+  <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="storage">Storage</h2>
+
+<p>Model experiments are organized as versioned time series and registered with the Predictive<span class="brand-teal">Works.</span>
+model registry. Each data model has a unique name, contains versions, and other metadata.</p>
+
+<p>The registry is a centralized store based on Google CDAP’s File &amp; Table API to register model artifacts (file) and model metadata
+(parameters &amp; metrics).</p>
+
+<h2 id="versioning">Versioning</h2>
+
+<p>Each registered model can have one or many versions. When a new model is added to the model registry, it is added as version 1.
+Each new model registered to the same model name increments the version number.</p>
+
+<h2 id="integration">Integration</h2>
+
+<p><img src="/assets/images/model-management.svg" width="95%" /></p>
+
+            </div>
+          </div>
+
+          <div class="column-right">
+
+            <div id="content-toc">
+
+              <div class="toc-header">
+                <i class="fa fa-bars"></i><span>Table of Content</span>
+              </div>
+              <div class="toc-body">
+                <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#storage">Storage</a></li>
+<li class="toc-entry toc-h2"><a href="#versioning">Versioning</a></li>
+<li class="toc-entry toc-h2"><a href="#integration">Integration</a></li>
+</ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+<div class="site-footer">
+
+    <div class="column-left"></div>
+    <div class="column-content">
+      Predictive<span class="brand-teal">Works.</span> is an initiative of Dr. Krusche & Partner PartG (c) 2020. All rights reserved.
+    </div>
+    <div class="column-right"></div>
+
+</div>
+
+
+    </div>
+  </body>
+</html>

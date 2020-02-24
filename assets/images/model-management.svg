@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="640"
+   height="480"
+   viewBox="0 0 640 480"
+   version="1.1"
+   id="svg820"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="model-management.svg"
+   inkscape:export-filename="/Users/krusche/git/cdap-spark/images/model-management.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs814">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker1464"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Lend">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#777777;stroke-opacity:1;fill:#777777;fill-opacity:1"
+         id="path1462" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1215"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#777777;stroke-opacity:1;fill:#777777;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1197"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       id="perspective1415" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="302.14286"
+     inkscape:cy="187.82238"
+     inkscape:document-units="mm"
+     inkscape:current-layer="svg820"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1315"
+     inkscape:window-x="15"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata817">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     style="fill:#da5201;fill-opacity:0.25;stroke-width:0.71834457"
+     id="rect1736"
+     width="618.28595"
+     height="59.71447"
+     x="10.857025"
+     y="392.82147"
+     ry="0.1351527" />
+  <rect
+     style="fill:#f1f5f8;fill-opacity:0.25;stroke-width:1.05288875"
+     id="rect1007"
+     width="618.28595"
+     height="128.2859"
+     x="10.857025"
+     y="126.96397"
+     ry="0.29035148" />
+  <g
+     id="g1198"
+     transform="translate(-25.009746,35.513273)">
+    <text
+       id="text1156"
+       y="380.95587"
+       x="292.16599"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#da5201;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:sans-serif"
+         y="380.95587"
+         x="292.16599"
+         id="tspan1154"
+         sodipodi:role="line">Google CDAP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+       x="261.60995"
+       y="402.78455"
+       id="text1160"><tspan
+         sodipodi:role="line"
+         id="tspan1158"
+         x="261.60995"
+         y="402.78455"
+         style="font-size:13.33333302px">Unified Pipeline Technology</tspan></text>
+  </g>
+  <g
+     id="g959">
+    <rect
+       style="fill:#da5201;fill-opacity:0.25;stroke-width:0.56980067"
+       id="rect880"
+       width="618.28589"
+       height="37.571613"
+       x="10.857056"
+       y="342.15469"
+       ry="0.085036419" />
+    <text
+       id="text912"
+       y="365.76532"
+       x="263.98282"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:13.33333302px"
+         y="365.76532"
+         x="263.98282"
+         id="tspan910"
+         sodipodi:role="line">FileSet &amp; Table API</tspan></text>
+  </g>
+  <rect
+     style="fill:#1bacab;fill-opacity:0.25;stroke-width:0.56980067"
+     id="rect1011"
+     width="618.28589"
+     height="37.571613"
+     x="10.857056"
+     y="126.96397"
+     ry="0.085036419" />
+  <text
+     id="text1015"
+     y="150.33644"
+     x="259.85825"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       style="font-size:13.33333302px"
+       y="150.33644"
+       x="259.85825"
+       id="tspan1013"
+       sodipodi:role="line">Track &amp; Retrieve API</tspan></text>
+  <path
+     style="fill:none;stroke:#777777;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.86270351, 1.93135176;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 11.07143,328.55951 H 628.92857"
+     id="path1501"
+     inkscape:connector-curvature="0" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path1149"
+     d="M 11.071437,112.78553 H 628.92856"
+     style="fill:none;stroke:#777777;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:3.86270351, 1.93135176;stroke-dashoffset:0;stroke-opacity:1" />
+  <rect
+     ry="0.16101913"
+     y="27.464058"
+     x="245.85703"
+     height="71.143028"
+     width="148.28595"
+     id="rect1160"
+     style="fill:#1bacab;fill-opacity:0.25;stroke-width:0.38398525" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+     x="290.44989"
+     y="66.355568"
+     id="text1164"><tspan
+       sodipodi:role="line"
+       id="tspan1162"
+       x="290.44989"
+       y="66.355568"
+       style="font-size:13.33333302px">ML Plugin</tspan></text>
+  <g
+     id="g1182"
+     transform="translate(43.999997,15.869499)">
+    <rect
+       ry="0.16101913"
+       y="11.594559"
+       x="414.71417"
+       height="71.143028"
+       width="148.28595"
+       id="rect1168"
+       style="fill:#1bacab;fill-opacity:0.25;stroke-width:0.38398525" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+       x="469.81268"
+       y="50.486073"
+       id="text1172"><tspan
+         sodipodi:role="line"
+         id="tspan1170"
+         x="469.81268"
+         y="50.486073"
+         style="font-size:13.33333302px">Plugin</tspan></text>
+  </g>
+  <g
+     id="g1190"
+     transform="translate(-381.71429,15.869499)">
+    <rect
+       style="fill:#1bacab;fill-opacity:0.25;stroke-width:0.38398525"
+       id="rect1184"
+       width="148.28595"
+       height="71.143028"
+       x="414.71417"
+       y="11.594559"
+       ry="0.16101913" />
+    <text
+       id="text1188"
+       y="50.486073"
+       x="469.81268"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+       xml:space="preserve"><tspan
+         style="font-size:13.33333302px"
+         y="50.486073"
+         x="469.81268"
+         id="tspan1186"
+         sodipodi:role="line">Plugin</tspan></text>
+  </g>
+  <path
+     style="fill:none;stroke:#777777;stroke-width:1.75748026;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+     d="m 180.42857,63.066531 h 65"
+     id="path1192"
+     inkscape:connector-curvature="0" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path1460"
+     d="m 394,63.066531 h 65"
+     style="fill:none;stroke:#777777;stroke-width:1.75748026;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1464)" />
+  <rect
+     ry="0.30813468"
+     y="178.8213"
+     x="10.857025"
+     height="136.14304"
+     width="618.28595"
+     id="rect1076"
+     style="fill:#1bacab;fill-opacity:0.25;stroke-width:1.08465278" />
+  <text
+     id="text1042"
+     y="212.7567"
+     x="263.58972"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.61878014px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#1bacab;fill-opacity:1;stroke:none;stroke-width:1.01338029"
+     xml:space="preserve"
+     transform="scale(0.98679638,1.0133803)"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.21408463px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:1.01338029"
+       y="212.7567"
+       x="263.58972"
+       id="tspan1040"
+       sodipodi:role="line">Model Registry</tspan></text>
+  <g
+     id="g980"
+     transform="matrix(1,0,0,1.0269396,8.57143,-16.553829)">
+    <rect
+       ry="0.12545277"
+       y="243.46417"
+       x="51.571312"
+       height="55.428753"
+       width="247.57166"
+       id="rect965"
+       style="fill:#1bacab;fill-opacity:0.25;stroke-width:0.43794176" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none"
+       x="128.64641"
+       y="275.87189"
+       id="text971"><tspan
+         sodipodi:role="line"
+         id="tspan969"
+         x="128.64641"
+         y="275.87189"
+         style="font-size:13.33333302px">Model Artifacts</tspan></text>
+  </g>
+  <rect
+     ry="0.12883241"
+     y="233.46918"
+     x="332.28561"
+     height="56.921982"
+     width="247.57166"
+     id="rect967"
+     style="fill:#1bacab;fill-opacity:0.25;stroke-width:0.44380155" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.61878014px;line-height:1.25;font-family:'Exo 2';-inkscape-font-specification:'Exo 2, ';letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none;stroke-width:1.01338029"
+     x="411.89304"
+     y="263.11301"
+     id="text975"
+     transform="scale(0.98679638,1.0133803)"><tspan
+       sodipodi:role="line"
+       id="tspan973"
+       x="411.89304"
+       y="263.11301"
+       style="font-size:13.51173687px;stroke-width:1.01338029">Model Metadata</tspan></text>
+</svg>
