@@ -2,7 +2,7 @@
 @font-face { font-family: 'Exo 2'; font-style: normal; font-weight: 400; src: url("../google-fonts/exo-2-v6-latin-regular.eot"); src: local("Exo 2"), local("Exo2-Regular"), url("../google-fonts/exo-2-v6-latin-regular.eot?#iefix") format("embedded-opentype"), url("../google-fonts/exo-2-v6-latin-regular.woff2") format("woff2"), url("../google-fonts/exo-2-v6-latin-regular.woff") format("woff"), url("../google-fonts/exo-2-v6-latin-regular.ttf") format("truetype"), url("../google-fonts/exo-2-v6-latin-regular.svg#Exo2") format("svg"); }
 
 /******************** COMMON STYLING */
-:root { --brand-black: #222d32; --brand-color: #1bacab; --brand-grey: #6c757d; --brand-yellow: #ffaa00; --brand-white: #f1f5f8; --link-color: #0366d6; --brand-border: 5px solid var(--brand-color); --brand-border-grey: 1px solid var(--brand-grey); --brand-border-white: 1px solid var(--brand-white); --fa-icon-margin: 0rem 0.5rem 0rem 0.75rem; --header-title-font-size: 2.5rem; --header-title-margin: 0rem 0rem 0rem 2.5rem; --logo-size: 100px; --logo-margin: 12px 0px 0px 0px; --main-content-padding: 0.75rem; --main-nav-border: 1px solid var(--brand-white); --message-subtitle-font-size: 1.90rem; --nav-container-margin: 1.0rem 0rem 1.0rem 0rem; --nav-container-padding: 1.25rem 0rem 1.25rem 0rem; --nav-article-margin: 0.5rem; --nav-article-padding: 0.5rem 0rem 0.5rem 0rem; --nav-article-item-padding: 0.5rem 0.5rem 0.5rem 0.75rem; --nav-title-padding: 0.75rem 0rem 0.75rem 0rem; --li-line-height: 1.75rem; --p-size: 1.15rem; --h3-size: 1.25rem; --params-size: 0.95rem; --params-td-padding: 0.75rem 0.5rem 0.75rem 0.5rem; --site-footer-height: 30px; --site-footer-padding: 1.5rem; --site-header-height: 360px; --site-header-title-height: 60px; --site-header-message-height: 270px; --site-header-breadcrumbs-padding: 0.5rem 0rem 0.5rem 0rem; --site-header-breadcrumbs-height: 30px; --td-padding: 0.5rem; --th-padding: 0.5rem; }
+:root { --brand-black: #222d32; --brand-color: #1bacab; --brand-grey: #6c757d; --brand-yellow: #ffaa00; --brand-white: #f1f5f8; --link-color: #0366d6; --brand-border: 5px solid var(--brand-color); --brand-border-grey: 1px solid var(--brand-grey); --brand-border-white: 1px solid var(--brand-white); --fa-icon-margin: 0rem 0.5rem 0rem 0.75rem; --header-title-font-size: 2.5rem; --header-title-margin: 0rem 0rem 0rem 2.5rem; --logo-size: 100px; --logo-margin: 12px 0px 0px 0px; --main-content-padding: 0.75rem; --main-nav-border: 1px solid var(--brand-white); --message-subtitle-font-size: 1.90rem; --nav-container-margin: 1.0rem 0rem 1.0rem 0rem; --nav-container-padding: 1.25rem 0rem 1.25rem 0rem; --nav-article-margin: 0.5rem; --nav-article-padding: 0.5rem 0rem 0.5rem 0rem; --nav-article-item-padding: 0.5rem 0.5rem 0.5rem 0.75rem; --nav-title-padding: 0.75rem 0rem 0.75rem 0rem; --li-line-height: 1.75rem; --p-size: 1.15rem; --h3-size: 1.25rem; --params-size: 0.95rem; --params-td-padding: 0.75rem 0.5rem 0.75rem 0.5rem; --site-footer-height: 50px; --site-footer-padding: 1.5rem; --site-header-height: 360px; --site-header-title-height: 60px; --site-header-message-height: 270px; --site-header-breadcrumbs-padding: 0.5rem 0rem 0.5rem 0rem; --site-header-breadcrumbs-height: 30px; --td-padding: 0.5rem; --th-padding: 0.5rem; --toc-body-height: 460px; --toc-header-height: 50px; }
 
 body { font-family: 'Exo 2'; height: 100%; margin: 0; padding: 0; }
 
@@ -34,8 +34,6 @@ tr:nth-child(even) { background: var(--brand-white); }
 
 .vertical { align-items: center; display: flex; flex-direction: column; justify-content: center; }
 
-#content-toc { position: sticky; top: var(--site-header-height); width: 100%; z-index: 10; }
-
 .brand-grey { color: var(--brand-grey); }
 
 .brand-teal { color: var(--brand-color); }
@@ -50,7 +48,7 @@ tr:nth-child(even) { background: var(--brand-white); }
 
 .column-left { width: 20%; }
 
-.column-right { width: 30%; }
+.column-right { width: 20%; }
 
 .fa-icon { margin: var(--fa-icon-margin); }
 
@@ -151,7 +149,9 @@ a:visited .nav-title { color: var(--brand-black); text-decoration: none; }
 
 .section-inner { padding: 0.5rem; width: 100%; }
 
-.site-footer { background: var(--brand-black); color: var(--brand-grey); display: flex; font-size: var(--p-size); height: var(--site-footer-height); padding: var(--site-footer-padding); text-align: center; width: 100%; }
+.site-footer { background: var(--brand-black); color: var(--brand-grey); display: flex; font-size: var(--p-size); height: var(--site-footer-height); margin: 0; text-align: center; width: 100%; }
+
+.site-footer-content { padding: 0.75rem; }
 
 .site-header { display: flex; flex-direction: column; height: var(--site-header-height); position: sticky; top: 0; width: 100%; z-index: 10; }
 
@@ -176,7 +176,7 @@ ul.breadcrumb { margin: 0; padding-left: 0.5rem; }
 .site-header-title { align-items: center; background: #222d32; border-bottom: var(--brand-border); height: var(--site-header-title-height); width: 100%; }
 
 /* The main background is set to 'white' */
-.site { background: white; }
+.site { background: white; width: 100%; }
 
 .site-wrapper { background: white; position: relative; }
 
@@ -186,6 +186,12 @@ ul.breadcrumb { margin: 0; padding-left: 0.5rem; }
 .site-wrapper { display: flex; flex-direction: column; }
 
 .td-desc { width: 100%; }
+
+#content-toc { position: sticky; top: var(--site-header-height); width: 100%; z-index: 10; }
+
+.toc-body { height: calc(100vh - var(--toc-body-height)); }
+
+.toc-container { height: 100%; overflow: auto; }
 
 .toc-h2, .toc-h3, .toc-h4 { font-weight: 100; font-size: 0.95rem; }
 
@@ -197,14 +203,16 @@ ul.breadcrumb { margin: 0; padding-left: 0.5rem; }
 
 .toc-body li { padding-left: 0.75em; }
 
-.toc-body li:before { content: "\f054"; font-family: "Font Awesome\ 5 Free"; font-weight: 900; display: inline-block; margin-left: -0.75em; width: 1.25em; }
-
 .toc-body > ul > li { padding: 0; }
 
 .toc-body > ul > li:before { content: ""; }
 
-.toc-header { color: var(--brand-grey); font-size: 1.15rem; font-weight: 600; padding: 1.0rem 0.5rem 0.5rem 0.5rem; }
+.toc-header { color: var(--brand-grey); font-size: 1.15rem; font-weight: 600; padding-top: 1.0rem; height: var(--toc-header-height); }
 
 .toc-header .fa { margin-right: 0.5rem; }
+
+.imprint p { padding: 0.15rem; margin: 0rem; }
+
+.github-content img { height: 80px; }
 
 /*# sourceMappingURL=styles.css.map */
