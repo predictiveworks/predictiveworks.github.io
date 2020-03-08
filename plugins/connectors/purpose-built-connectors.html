@@ -227,20 +227,20 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"AerospikeSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data records from Aerospike namespaces and "</span>
-      <span class="o">+</span> <span class="s">"sets and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"sets and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AerospikeSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">AerospikeKey</span><span class="o">,</span> <span class="nc">AerospikeRecord</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"AerospikeSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-      <span class="o">+</span> <span class="s">"Aerospike namespaces and sets."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"Aerospike namespaces and sets."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">AerospikeSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">AerospikeKey</span><span class="o">,</span> <span class="nc">AerospikeRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
@@ -272,20 +272,20 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"CrateSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data rows from Crate tables "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CrateSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">CrateWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"CrateSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-      <span class="o">+</span> <span class="s">"Crate tables."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"Crate tables."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">CrateSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">CrateWritable</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
@@ -317,20 +317,20 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"DruidSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Druid datasources "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DruidSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">DruidWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"CrateSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-      <span class="o">+</span> <span class="s">"Druid datasources."</span><span class="o">)</span>
+  <span class="o">+</span> <span class="s">"Druid datasources."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DruidSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">DruidWritable</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
@@ -362,12 +362,51 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"ElasticSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read documents from Elastic indices and mappings "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ElasticSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">ElasticWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="influxdb"><a href="https://www.influxdata.com/">InfluxDB</a></h3>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td>
+        <img style="margin:20px" src="/assets/images/ignite.png" width="120" />
+      </td>
+      <td>
+        <b>InfluxDB</b>
+        <p>
+          InfluxDB is an open-source time series database. It is optimized for fast, high-availability
+          storage and retrieval of time series data in fields such as operations monitoring, application
+          metrics, Internet of Things sensor data, and real-time analytics.       
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Internet-of-Things
+        </p>
+      </td>
+    </tr>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"InfluxSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector to write data records to an InfluxDB time series database. "</span>
+<span class="o">+</span> <span class="s">"As structured data record is divided into numeric and other fields. Numeric field "</span>
+<span class="o">+</span> <span class="s">"values are transformed into Doubles and persisted as a measurement field. String "</span>
+<span class="o">+</span> <span class="s">"field values are persisted as tags, while all other fields are ignored."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">InfluxSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">InfluxPointWritable</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>
 </code></pre></div></div>
 
 <h3 id="ignite"><a href="https://ignite.apache.org">Ignite</a></h3>
@@ -397,20 +436,20 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"IgniteSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Apache Ignite caches as BinaryObjects "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">IgniteSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">IgniteWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"IgniteSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records as BinaryObjects to "</span>
-      <span class="o">+</span> <span class="s">"Apache Ignite caches."</span><span class="o">)</span>
+  <span class="o">+</span> <span class="s">"Apache Ignite caches."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">IgniteSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">IgniteWritable</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
@@ -442,20 +481,20 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"RedshiftSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Amazon Redshift data warehouse "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedshiftSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">RedshiftWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"RedshiftSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-      <span class="o">+</span> <span class="s">"Amazon Redshift data warehouse."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"Amazon Redshift data warehouse."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedshiftSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">RedshiftWritable</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
@@ -487,20 +526,20 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"HANASource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from SAP HANA database "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HANASource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">HanaWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"HANASink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-      <span class="o">+</span> <span class="s">"SAP HANA database."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"SAP HANA database."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HANASink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">HanaWritable</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>
 </code></pre></div></div>
@@ -534,10 +573,10 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"KafkaSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from Apache Kafka topics "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">KafkaSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
@@ -569,10 +608,10 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"SecureMQTTSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from MQTT topics "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records, leveraging X.509 certificates."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records, leveraging X.509 certificates."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecureMQTTSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
@@ -606,10 +645,10 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"DataSiftSource"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from DataSift cloud service "</span>
-      <span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataSiftSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">DataSiftWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
@@ -643,10 +682,10 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"ThingsBoardSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-      <span class="o">+</span> <span class="s">"ThingsBoard."</span><span class="o">)</span>
+<span class="o">+</span> <span class="s">"ThingsBoard."</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThingsBoardSink</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">ThingsBoardWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
-    <span class="o">...</span>
+  <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
@@ -670,6 +709,7 @@
 <li class="toc-entry toc-h3"><a href="#crate">Crate</a></li>
 <li class="toc-entry toc-h3"><a href="#druid">Druid</a></li>
 <li class="toc-entry toc-h3"><a href="#elastic">Elastic</a></li>
+<li class="toc-entry toc-h3"><a href="#influxdb">InfluxDB</a></li>
 <li class="toc-entry toc-h3"><a href="#ignite">Ignite</a></li>
 <li class="toc-entry toc-h3"><a href="#redshift">Redshift</a></li>
 <li class="toc-entry toc-h3"><a href="#sap-hana">SAP HANA</a></li>
