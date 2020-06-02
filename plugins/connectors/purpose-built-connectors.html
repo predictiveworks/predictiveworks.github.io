@@ -194,11 +194,181 @@
 
 <p>Google <a href="https://cdap.io">CDAP</a> offers many connector plugins to integrate with data stores, streaming platforms and cloud applications.</p>
 
-<p>Predictive<span class="brand-teal">Works.</span> complements CDAP’s built-in data connectors with plugins that originate from specific enterprise demands, referring to a certain business area or vertical:</p>
+<p>Predictive<span class="brand-teal">Works.</span> complements CDAP’s built-in data connectors with purpose-built plugins, designed to support
+Customer, User &amp; Entity Behavior Analytics (CUEBA). The main focus is on (but not limited to) low latency data stores and real-time streaming platforms:</p>
+
+<h2 id="data-streaming">Data Streaming</h2>
+
+<h3 id="eclipse-ditto">Eclipse Ditto</h3>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/ditto.png" width="120" />
+      </td>
+      <td>
+        <b>Eclipse Ditto</b>
+        <p>
+          Eclipse Ditto is an IoT technology that implements the "digital twin" pattern. It is an
+          abstraction layer that unifies access to millions of physical devices.
+        </p>
+        <p>
+          Predictive<span class="brand-teal">Works.</span> connects to Eclipse Ditto via its web socket
+          interface and exposes twin events and live messages as an Apache Spark real-time stream.
+        </p>
+        <p>
+          Eclipse Ditto is integrated into IoT platforms such as Aloxy IIOT Hub and Bosch IoT Suite.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        (Industrial) Internet-of-Things
+        </p>
+      </td>
+    </tr>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"DittoSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"An Eclipse Ditto IoT streaming source that supports "</span>
+  <span class="o">+</span> <span class="s">"real-time websocket events from a digital twin service."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DittoStreamSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="eclipse-paho">Eclipse Paho</h3>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/mqtt.png" width="120" />
+      </td>
+      <td>
+        <b>Eclipse Paho</b>
+        <p>
+          Eclipse Paho is an open-source MQTT 3.1.1 and MQTT-SN client.
+        </p>
+        <p>
+          Predictive<span class="brand-teal">Works.</span> exposes MQTT broker events as
+          an Apache Spark real-time stream. The current implementation of this plugin supports
+          JSON schema inference for MQTT streams (default), and explicitly transforms uplink
+          messages from <b>The Things Network</b> server.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        (Industrial) Internet-of-Things
+        </p>
+      </td>
+    </tr>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"MQTTSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"An MQTT streaming source that listens to an MQTT 3.1.1 broker "</span>
+  <span class="o">+</span> <span class="s">"and subscribes to a given topic."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MqttSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="hivemq"><a href="https://hivemq.com">HiveMQ</a></h3>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/hivemq.png" width="120" />
+      </td>
+      <td>
+        <b>HiveMQ</b>
+        <p>
+          HiveMQ is an Enterprise-ready MQTT Broker that fully supports MQTT 3.x and MQTT 5. Predictive<span class="brand-teal">Works.</span> exposes HiveMQ broker events as Apache Spark real-time stream.
+        </p>
+        <p>
+          The current implementation also supports publishing of device-specific anomalies, forecasts, predictions and other behavior analytics events and thereby seamlessly integrates machine intelligence into an (Industrial) IoT environment.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        (Industrial) Internet-of-Things
+        </p>
+      </td>
+    </tr>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"HiveMQSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"An MQTT streaming source that listens to a HiveMQ MQTT broker "</span>
+  <span class="o">+</span> <span class="s">"and subscribes to a given topic."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HiveMQSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"HiveMQSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"Batch sink plugin to send messages to a HiveMQ MQTT server."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HiveMQSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">Void</span><span class="o">,</span> <span class="nc">Void</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+
+<h3 id="kafka"><a href="https://kafka.apache.org">Kafka</a></h3>
+
+<table>
+    <colgroup>
+      <col width="20%" />
+      <col width="80%" />
+    </colgroup>
+    <tr>
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/kafka.png" width="120" />
+      </td>
+      <td>
+        <b>Apache Kafka</b>
+        <p>
+          This Kafka connector is an easy-to-use alternative for Google CDAP's plugin. Predictive<span class="brand-teal">Works.</span> connector comes with automated schema inference. Users no longer have to explicitly specify the data format of a real-time event stream.
+        </p>
+        <b>Use Cases</b>
+        <p>
+        Cyber Defense, Internet-of-Things and more
+        </p>
+      </td>
+    </tr>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"KafkaSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from Apache Kafka topics "</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KafkaSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
 
 <h2 id="data-stores">Data Stores</h2>
 
-<p>Predictive<span class="brand-teal">Works.</span> connector plugins were built with a strong focus on lightning fast data stores for Cyber Defense and Internet-of-Things use cases.</p>
+<p>Predictive<span class="brand-teal">Works.</span> connector plugins were built with a strong focus on low latency data stores for Cyber Defense and Internet-of-Things use cases.</p>
 
 <h3 id="aerospike"><a href="https://www.aerospike.com/">Aerospike</a></h3>
 
@@ -208,13 +378,14 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/aerospike.png" width="120" />
       </td>
       <td>
         <b>Aerospike</b>
         <p>
-        A Next-Generation NoSQL Data Platform for real-time solutions at extreme scale, with predictable performance at any scale and unmatched uptime and reliability.     
+        A Next-Generation NoSQL Data Platform for low latency solutions at extreme scale, with predictable performance
+        at any scale and unmatched uptime and reliability.     
         </p>
         <b>Use Cases</b>
         <p>
@@ -253,7 +424,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/crate.png" width="120" />
       </td>
       <td>
@@ -298,7 +469,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/druid.png" width="120" />
       </td>
       <td>
@@ -343,7 +514,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/elasticsearch.png" width="120" />
       </td>
       <td>
@@ -378,8 +549,8 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
-        <img style="margin:20px" src="/assets/images/ignite.png" width="120" />
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/influxdb.png" width="120" />
       </td>
       <td>
         <b>InfluxDB</b>
@@ -417,7 +588,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/ignite.png" width="120" />
       </td>
       <td>
@@ -453,52 +624,6 @@
 
 <span class="o">}</span>
 </code></pre></div></div>
-
-<h3 id="redshift"><a href="https://aws.amazon.com/redshift/">Redshift</a></h3>
-
-<table>
-    <colgroup>
-      <col width="20%" />
-      <col width="80%" />
-    </colgroup>
-    <tr>
-      <td>
-        <img style="margin:20px" src="/assets/images/dynamodb.png" width="120" />
-      </td>
-      <td>
-        <b>Amazon Redshift Ignite</b>
-        <p>
-        Redshift is Amazon's popular and fast cloud data warehouse.
-        </p>
-        <b>Use Cases</b>
-        <p>
-        General purpose
-        </p>
-      </td>
-    </tr>
-</table>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
-<span class="nd">@Name</span><span class="o">(</span><span class="s">"RedshiftSource"</span><span class="o">)</span>
-<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Amazon Redshift data warehouse "</span>
-<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedshiftSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">RedshiftWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
-
-  <span class="o">...</span>
-
-<span class="o">}</span>      
-</code></pre></div></div>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
-<span class="nd">@Name</span><span class="o">(</span><span class="s">"RedshiftSink"</span><span class="o">)</span>
-<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
-<span class="o">+</span> <span class="s">"Amazon Redshift data warehouse."</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedshiftSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">RedshiftWritable</span><span class="o">&gt;</span> <span class="o">{</span>
-
-  <span class="o">...</span>
-
-<span class="o">}</span>
-</code></pre></div></div>
-
 <h3 id="sap-hana"><a href="https://https://www.sap.com/products/hana.html">SAP HANA</a></h3>
 
 <table>
@@ -507,7 +632,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/sap.png" width="120" />
       </td>
       <td>
@@ -544,9 +669,9 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h2 id="data-streaming">Data Streaming</h2>
+<h2 id="data-warehouses">Data Warehouses</h2>
 
-<h3 id="kafka"><a href="https://kafka.apache.org">Kafka</a></h3>
+<h3 id="panoply"><a href="https://panoply.io/">Panoply</a></h3>
 
 <table>
     <colgroup>
@@ -554,34 +679,46 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
-        <img style="margin:20px" src="/assets/images/kafka.png" width="120" />
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/panoply.png" width="120" />
       </td>
       <td>
-        <b>Apache Kafka</b>
+        <b>Panoply Data Warehouse</b>
         <p>
-          This Kafka connector is an easy-to-use alternative for Google CDAP's plugin. Predictive<span class="brand-teal">Works.</span> connector comes with automated schema inference. Users no longer have to explicitly specify the data format of a real-time event stream.
+        Panoply is a data management platform that integrates with 80+ data sources.
+        Its data warehouse provides access to data from individual e-commerce, marketing, payment
+        and sales platforms.
         </p>
         <b>Use Cases</b>
         <p>
-        Cyber Defense, Internet-of-Things and more
+        Accounting, Advertising, E-Commerce, Marketing and Sales.
         </p>
       </td>
     </tr>
 </table>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
-<span class="nd">@Name</span><span class="o">(</span><span class="s">"KafkaSource"</span><span class="o">)</span>
-<span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from Apache Kafka topics "</span>
-<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">KafkaSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">))</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"PanoplySource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch source to read structured records from a Panoply data warehouse."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PanoplySource</span> <span class="kd">extends</span> <span class="nc">RedshiftSource</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSin</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"PanoplySink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch sink to write structured records to a Panoply data warehouse. "</span>
+		<span class="o">+</span> <span class="s">"It is not recommended to use this sink connector for (very) large datasets. "</span>
+		<span class="o">+</span> <span class="s">"In this case leverage the S3 sink connector and the S3-to-Redshift action."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PanoplySink</span> <span class="kd">extends</span> <span class="nc">RedshiftSink</span> <span class="o">{</span>
 
   <span class="o">...</span>
 
 <span class="o">}</span>      
 </code></pre></div></div>
 
-<h3 id="ssl-mqtt">SSL MQTT</h3>
+<h3 id="redshift"><a href="https://aws.amazon.com/redshift/">Redshift</a></h3>
 
 <table>
     <colgroup>
@@ -589,31 +726,41 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
-        <img style="margin:20px" src="/assets/images/mqtt.png" width="120" />
+      <td style="vertical-align:top;">
+        <img style="margin:20px" src="/assets/images/dynamodb.png" width="120" />
       </td>
       <td>
-        <b>MQTT</b>
+        <b>Amazon Redshift Ignite</b>
         <p>
-          This MQTT connector is a secure alternative for Google CDAP's plugin. Predictive<span class="brand-teal">Works.</span> connectors supports X.509 based security options to access MQTT brokers.
+        Redshift is Amazon's popular and fast cloud data warehouse.
         </p>
         <b>Use Cases</b>
         <p>
-        Cyber Defense, Internet-of-Things and more
+        General purpose
         </p>
       </td>
     </tr>
 </table>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
-<span class="nd">@Name</span><span class="o">(</span><span class="s">"SecureMQTTSource"</span><span class="o">)</span>
-<span class="nd">@Description</span><span class="o">(</span><span class="s">"A real-time connector plugin to consume events from MQTT topics "</span>
-<span class="o">+</span> <span class="s">"and transform them into structured pipeline records, leveraging X.509 certificates."</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SecureMQTTSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"RedshiftSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to read data from Amazon Redshift data warehouse "</span>
+<span class="o">+</span> <span class="s">"and transform them into structured pipeline records."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedshiftSource</span> <span class="kd">extends</span> <span class="nc">BatchSource</span><span class="o">&lt;</span><span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">RedshiftWritable</span><span class="o">,</span> <span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
 
   <span class="o">...</span>
 
 <span class="o">}</span>      
+</code></pre></div></div>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"RedshiftSink"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
+<span class="o">+</span> <span class="s">"Amazon Redshift data warehouse."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedshiftSink</span> <span class="kd">extends</span> <span class="nc">BatchSink</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">,</span> <span class="nc">NullWritable</span><span class="o">,</span> <span class="nc">RedshiftWritable</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>
 </code></pre></div></div>
 
 <h2 id="human-intelligence">Human Intelligence</h2>
@@ -626,7 +773,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/datasift.png" width="120" />
       </td>
       <td>
@@ -663,7 +810,7 @@
       <col width="80%" />
     </colgroup>
     <tr>
-      <td>
+      <td style="vertical-align:top;">
         <img style="margin:20px" src="/assets/images/thingsboard.jpg" width="120" />
       </td>
       <td>
@@ -673,13 +820,24 @@
         </p>
         <b>Use Cases</b>
         <p>
-        Internet-of-Things
+        (Industrial) Internet-of-Things
         </p>
       </td>
     </tr>
 </table>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">StreamingSource</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
+<span class="nd">@Name</span><span class="o">(</span><span class="s">"ThingsboardSource"</span><span class="o">)</span>
+<span class="nd">@Description</span><span class="o">(</span><span class="s">"An Apache Kafka streaming source that supports real-time "</span>
+  <span class="o">+</span> <span class="s">"events that originate from Thingsboard."</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThingsboardSource</span> <span class="kd">extends</span> <span class="nc">StreamingSource</span><span class="o">&lt;</span><span class="nc">StructuredRecord</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="o">...</span>
+
+<span class="o">}</span>      
+
+<span class="nd">@Plugin</span><span class="o">(</span><span class="n">type</span> <span class="o">=</span> <span class="nc">BatchSink</span><span class="o">.</span><span class="na">PLUGIN_TYPE</span><span class="o">)</span>
 <span class="nd">@Name</span><span class="o">(</span><span class="s">"ThingsBoardSink"</span><span class="o">)</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="s">"A batch connector plugin to write structured pipelines records to "</span>
 <span class="o">+</span> <span class="s">"ThingsBoard."</span><span class="o">)</span>
@@ -703,6 +861,14 @@
               <div class="toc-body">
                 <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#objective">Objective</a></li>
+<li class="toc-entry toc-h2"><a href="#data-streaming">Data Streaming</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#eclipse-ditto">Eclipse Ditto</a></li>
+<li class="toc-entry toc-h3"><a href="#eclipse-paho">Eclipse Paho</a></li>
+<li class="toc-entry toc-h3"><a href="#hivemq">HiveMQ</a></li>
+<li class="toc-entry toc-h3"><a href="#kafka">Kafka</a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#data-stores">Data Stores</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#aerospike">Aerospike</a></li>
@@ -711,14 +877,13 @@
 <li class="toc-entry toc-h3"><a href="#elastic">Elastic</a></li>
 <li class="toc-entry toc-h3"><a href="#influxdb">InfluxDB</a></li>
 <li class="toc-entry toc-h3"><a href="#ignite">Ignite</a></li>
-<li class="toc-entry toc-h3"><a href="#redshift">Redshift</a></li>
 <li class="toc-entry toc-h3"><a href="#sap-hana">SAP HANA</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#data-streaming">Data Streaming</a>
+<li class="toc-entry toc-h2"><a href="#data-warehouses">Data Warehouses</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#kafka">Kafka</a></li>
-<li class="toc-entry toc-h3"><a href="#ssl-mqtt">SSL MQTT</a></li>
+<li class="toc-entry toc-h3"><a href="#panoply">Panoply</a></li>
+<li class="toc-entry toc-h3"><a href="#redshift">Redshift</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#human-intelligence">Human Intelligence</a>
